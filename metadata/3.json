@@ -1,8 +1,8 @@
 {
   "name": "Abstract Flow",
   "description": "Hand-painted abstract, scanned and tokenised as a certificate of authenticity.",
-  "image": "http://localhost:8080/metadata/images/3.svg",
-  "external_url": "http://localhost:8080/metadata/3.json",
+  "image": "http://100.70.161.82:8080/metadata/images/3.svg",
+  "external_url": "http://100.70.161.82:8080/metadata/3.json",
   "attributes": [
     {
       "trait_type": "Category",

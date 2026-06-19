@@ -1,8 +1,8 @@
 {
   "name": "Qing Porcelain Vase",
   "description": "Qing Dynasty blue-and-white porcelain. Authenticated and graded.",
-  "image": "http://localhost:8080/metadata/images/6.svg",
-  "external_url": "http://localhost:8080/metadata/6.json",
+  "image": "http://100.70.161.82:8080/metadata/images/6.svg",
+  "external_url": "http://100.70.161.82:8080/metadata/6.json",
   "attributes": [
     {
       "trait_type": "Category",

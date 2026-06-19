@@ -10,6 +10,9 @@ coverage.json
 .env
 .env.local
 
+# generated per-deployment by scripts/deploy.ts (host-specific addresses + ABIs)
+frontend/config.js
+
 # editor / OS
 .DS_Store
 *.log

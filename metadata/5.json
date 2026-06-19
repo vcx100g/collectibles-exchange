@@ -1,8 +1,8 @@
 {
   "name": "Opus One 2015",
   "description": "Napa Valley icon. Stored in a bonded, climate-controlled vault.",
-  "image": "http://localhost:8080/metadata/images/5.svg",
-  "external_url": "http://localhost:8080/metadata/5.json",
+  "image": "http://100.70.161.82:8080/metadata/images/5.svg",
+  "external_url": "http://100.70.161.82:8080/metadata/5.json",
   "attributes": [
     {
       "trait_type": "Category",

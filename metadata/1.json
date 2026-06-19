@@ -1,8 +1,8 @@
 {
   "name": "Pikachu — Yellow Cheeks",
   "description": "The mascot. Yellow-cheeks print, near-mint condition.",
-  "image": "http://localhost:8080/metadata/images/1.svg",
-  "external_url": "http://localhost:8080/metadata/1.json",
+  "image": "http://100.70.161.82:8080/metadata/images/1.svg",
+  "external_url": "http://100.70.161.82:8080/metadata/1.json",
   "attributes": [
     {
       "trait_type": "Category",

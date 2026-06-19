@@ -1,8 +1,8 @@
 {
   "name": "Château Margaux 1982",
   "description": "Legendary Bordeaux vintage. NFT acts as the title to the vaulted bottle.",
-  "image": "http://localhost:8080/metadata/images/4.svg",
-  "external_url": "http://localhost:8080/metadata/4.json",
+  "image": "http://100.70.161.82:8080/metadata/images/4.svg",
+  "external_url": "http://100.70.161.82:8080/metadata/4.json",
   "attributes": [
     {
       "trait_type": "Category",

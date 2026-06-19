@@ -41,10 +41,12 @@ Restarting the `hardhat` container wipes chain state — redeploy (step 4) after
 ## Try it in the browser
 1. Install **MetaMask** and add a network: RPC `http://localhost:8545`, **Chain ID 31337**,
    symbol `ETH` (the dApp also offers to add it automatically on connect).
-2. **Import a test account** with one of the local private keys printed by the node, e.g.
-   - Seller (owns the 8 seeded items): `0xf39F…2266`
-   - Buyer: import key `0xac0974bec39a17e36ba4a6b4d238ff944bacb478cbed5efcae784d7bf4f2ff80`
-   ⚠️ These keys are public and for local testing only — never use them on a real network.
+2. **Import a test account** (private keys are printed by `hardhat node` on startup):
+   - **Seller** — account #0 `0xf39F…2266`, owns the 8 seeded items (4 listed).
+     Key: `0xac0974bec39a17e36ba4a6b4d238ff944bacb478cbed5efcae784d7bf4f2ff80`
+   - **Buyer** — account #1 `0x7099…79C8` (fresh 10000 ETH).
+     Key: `0x59c6995e998f97a5a0044966f0945389dc9e86dae88c7a8412f4603b6b78690d`
+   ⚠️ These keys are public/deterministic — local testing only, never on a real network.
 3. Open `http://localhost:8080`, **Connect**, then browse / buy / list / mint, and click an
    item image to see its **provenance timeline** (mint → each sale with prices).
 

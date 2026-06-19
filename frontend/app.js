@@ -1,6 +1,7 @@
 import { ethers } from "https://cdn.jsdelivr.net/npm/ethers@6.17.0/+esm";
 import {
   CHAIN_ID,
+  RPC_URL,
   COLLECTIBLE_ADDRESS,
   MARKETPLACE_ADDRESS,
   COLLECTIBLE_ABI,
@@ -84,7 +85,7 @@ async function ensureNetwork() {
           chainId: hexId,
           chainName: "VaultX Local",
           nativeCurrency: { name: "Ether", symbol: "ETH", decimals: 18 },
-          rpcUrls: ["http://localhost:8545"],
+          rpcUrls: [RPC_URL],
         }],
       });
     } else throw e;
