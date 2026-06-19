@@ -10,7 +10,10 @@ const { ethers } = await network.connect();
 
 const [deployer] = await ethers.getSigners();
 const net = await ethers.provider.getNetwork();
-console.log(`Network chainId=${net.chainId}, deployer=${deployer.address}`);
+// Block to start indexing from (captured BEFORE deploy so the indexer catches
+// the deploy + every mint/list in this run).
+const startBlock = await ethers.provider.getBlockNumber();
+console.log(`Network chainId=${net.chainId}, deployer=${deployer.address}, startBlock=${startBlock}`);
 
 // ---- deploy ----
 const PLATFORM_FEE_BPS = 250n; // 2.5%
@@ -62,3 +65,13 @@ export const MARKETPLACE_ABI = ${marketplace.interface.formatJson()};
 `;
 writeFileSync(join(process.cwd(), "frontend", "config.js"), config);
 console.log("Wrote frontend/config.js");
+
+// ---- write the indexer's deployment file (addresses + ABIs + start block) ----
+const deployment = {
+  chainId: Number(net.chainId),
+  startBlock,
+  collectible: { address: collectibleAddr, abi: JSON.parse(collectible.interface.formatJson()) },
+  marketplace: { address: marketplaceAddr, abi: JSON.parse(marketplace.interface.formatJson()) },
+};
+writeFileSync(join(process.cwd(), "indexer", "deployment.json"), JSON.stringify(deployment, null, 2));
+console.log(`Wrote indexer/deployment.json (startBlock=${startBlock})`);

@@ -1,0 +1,7 @@
+node_modules/
+.ponder/
+generated/
+ponder-env.d.ts
+
+# generated per-deploy by ../scripts/deploy.ts (host-specific addresses + ABIs)
+deployment.json

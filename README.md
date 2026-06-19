@@ -73,7 +73,32 @@ docs/           MASTER-PLAN.md
 | Serve dApp | `sudo docker compose up -d web` |
 | Stop everything | `sudo docker compose down` |
 
+## Layer 3 — Indexer (Ponder)
+A [Ponder](https://ponder.sh) indexer tails the `Collectible` + `Marketplace` events into
+Postgres and serves **GraphQL + SQL-over-HTTP + custom REST**. It powers fast
+history/search and the (future) admin dashboard without re-reading the chain.
+
+Run it (after the chain is up and `scripts/deploy.ts` has written `indexer/deployment.json`):
+```bash
+sudo docker compose run --rm indexer npm install   # once
+sudo docker compose up -d postgres indexer          # → API on :42069
+```
+Endpoints (`http://localhost:42069`, also on the Tailscale IP):
+| Path | Purpose |
+|------|---------|
+| `/graphql` | auto-generated GraphQL API + GraphiQL explorer |
+| `/sql/*` | SQL over HTTP (for `@ponder/client`) |
+| `/stats` | marketplace metrics — volume, platform fees, royalties, counts (admin) |
+| `/listings` | active listings (marketplace feed) |
+| `/activity/:tokenId` | full provenance/history for one token |
+
+The indexer reads `indexer/deployment.json` (addresses + ABIs + start block), regenerated
+on every `scripts/deploy.ts` run. After a redeploy (or a chain restart + redeploy),
+`sudo docker compose restart indexer` to re-index against the new contracts.
+
 ## Status
-✅ Contracts compile · 14/14 tests pass · deploy+seed verified on the live node · dApp +
-metadata serve over HTTP. The MetaMask click-flow is exercised manually in the browser
-(can't be tested headlessly). Layers 2–3 are planned in `docs/MASTER-PLAN.md`.
+✅ **Layer 1:** contracts compile · 14/14 tests pass · deploy+seed verified · dApp + metadata
+serve over HTTP. ✅ **Layer 3 indexer:** Ponder + Postgres indexing live (verified: stats,
+listings, provenance, fee-ledger, GraphQL, real-time buys). The MetaMask click-flow is
+exercised manually in the browser. Layer 2 (fiat) + the rest of Layer 3 are planned in
+`docs/MASTER-PLAN.md`.
