@@ -1,0 +1,29 @@
+{
+  "name": "Charizard — Base Set",
+  "description": "1st-edition Base Set holofoil. The crown jewel of any collection.",
+  "image": "http://localhost:8080/metadata/images/0.svg",
+  "external_url": "http://localhost:8080/metadata/0.json",
+  "attributes": [
+    {
+      "trait_type": "Category",
+      "value": "Card"
+    },
+    {
+      "trait_type": "Type",
+      "value": "Fire"
+    },
+    {
+      "trait_type": "Rarity",
+      "value": "Holo Rare"
+    },
+    {
+      "trait_type": "HP",
+      "value": 120,
+      "display_type": "number"
+    },
+    {
+      "trait_type": "Set",
+      "value": "Base Set"
+    }
+  ]
+}

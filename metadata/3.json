@@ -1,0 +1,29 @@
+{
+  "name": "Abstract Flow",
+  "description": "Hand-painted abstract, scanned and tokenised as a certificate of authenticity.",
+  "image": "http://localhost:8080/metadata/images/3.svg",
+  "external_url": "http://localhost:8080/metadata/3.json",
+  "attributes": [
+    {
+      "trait_type": "Category",
+      "value": "Art"
+    },
+    {
+      "trait_type": "Artist",
+      "value": "M. Tan"
+    },
+    {
+      "trait_type": "Edition",
+      "value": "1 of 1"
+    },
+    {
+      "trait_type": "Medium",
+      "value": "Acrylic on canvas"
+    },
+    {
+      "trait_type": "Year",
+      "value": 2024,
+      "display_type": "number"
+    }
+  ]
+}

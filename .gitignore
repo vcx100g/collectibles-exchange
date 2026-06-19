@@ -1,0 +1,15 @@
+node_modules/
+artifacts/
+cache/
+ignition/deployments/
+types/
+coverage/
+coverage.json
+
+# secrets / local config
+.env
+.env.local
+
+# editor / OS
+.DS_Store
+*.log

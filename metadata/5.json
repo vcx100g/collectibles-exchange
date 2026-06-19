@@ -1,0 +1,29 @@
+{
+  "name": "Opus One 2015",
+  "description": "Napa Valley icon. Stored in a bonded, climate-controlled vault.",
+  "image": "http://localhost:8080/metadata/images/5.svg",
+  "external_url": "http://localhost:8080/metadata/5.json",
+  "attributes": [
+    {
+      "trait_type": "Category",
+      "value": "Wine"
+    },
+    {
+      "trait_type": "Vintage",
+      "value": 2015,
+      "display_type": "number"
+    },
+    {
+      "trait_type": "Region",
+      "value": "Napa Valley"
+    },
+    {
+      "trait_type": "Producer",
+      "value": "Opus One"
+    },
+    {
+      "trait_type": "Bottle #",
+      "value": "118"
+    }
+  ]
+}

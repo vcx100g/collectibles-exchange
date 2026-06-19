@@ -1,0 +1,29 @@
+{
+  "name": "Neon Genesis #1",
+  "description": "A 1-of-1 generative digital artwork. Signed by the artist on-chain.",
+  "image": "http://localhost:8080/metadata/images/2.svg",
+  "external_url": "http://localhost:8080/metadata/2.json",
+  "attributes": [
+    {
+      "trait_type": "Category",
+      "value": "Art"
+    },
+    {
+      "trait_type": "Artist",
+      "value": "A. Rivera"
+    },
+    {
+      "trait_type": "Edition",
+      "value": "1 of 1"
+    },
+    {
+      "trait_type": "Medium",
+      "value": "Generative / Digital"
+    },
+    {
+      "trait_type": "Year",
+      "value": 2026,
+      "display_type": "number"
+    }
+  ]
+}
