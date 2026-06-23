@@ -1,4 +1,4 @@
-import { $, INDEXER, fetchMeta, cardHtml, fadeInImages, fmt, wireGrid, initWallet } from "./shared.js";
+import { $, INDEXER, fetchMeta, cardHtml, fadeInImages, fmt, usdOf, listRecent, wireGrid, initWallet } from "./shared.js";
 import { renderMarket } from "./charts.js";
 
 const SHOW = 6; // cards per section
@@ -10,13 +10,20 @@ const mTile = (label, val, sub = "") =>
 
 async function loadMarket() {
   let m;
-  try { m = await (await fetch(`${INDEXER}/market`)).json(); } catch { return; }
+  try {
+    m = await (await fetch(`${INDEXER}/market`)).json();
+  } catch {
+    $("#market-chart").classList.add("d-none");
+    $("#market-empty").textContent = "Couldn't load market data — is the indexer running?";
+    $("#market-empty").classList.remove("d-none");
+    return;
+  }
   const t = m.totals || {};
   $("#market-stats").innerHTML = [
-    mTile("Volume", `${fmt(t.volumeWei)} Ξ`, `${t.sales || 0} sales`),
-    mTile("Avg sale", `${fmt(t.avgWei)} Ξ`),
-    mTile("Top sale", `${fmt(t.highWei)} Ξ`),
-    mTile("Platform fees", `${fmt(t.platformFeesWei)} Ξ`, `+ ${fmt(t.royaltiesWei)} Ξ royalties`),
+    mTile("Volume", `${fmt(t.volumeWei)} ETH`, `${usdOf(t.volumeWei)} · ${t.sales || 0} sales`),
+    mTile("Avg sale", `${fmt(t.avgWei)} ETH`, usdOf(t.avgWei)),
+    mTile("Top sale", `${fmt(t.highWei)} ETH`, usdOf(t.highWei)),
+    mTile("Platform fees", `${fmt(t.platformFeesWei)} ETH`, `+ ${fmt(t.royaltiesWei)} ETH royalties`),
   ].join("");
   if (!renderMarket($("#market-chart"), m.points)) {
     $("#market-chart").classList.add("d-none");
@@ -47,6 +54,16 @@ async function render(elId, refs, opts) {
   fadeInImages(grid);
 }
 
+async function renderRecent() {
+  const ids = listRecent().slice(0, SHOW);
+  const wrap = $("#sec-recent-wrap");
+  if (!ids.length) { wrap.classList.add("d-none"); return; }
+  const metas = await Promise.all(ids.map((id) => fetchMeta(id)));
+  $("#sec-recent").innerHTML = ids.map((id, i) => cardHtml(id, metas[i], viewAction(id))).join("");
+  fadeInImages($("#sec-recent"));
+  wrap.classList.remove("d-none");
+}
+
 async function load() {
   let d;
   try {
@@ -66,3 +83,4 @@ initWallet();
 wireGrid(load); // reload sections after a buy
 load();
 loadMarket();
+renderRecent();

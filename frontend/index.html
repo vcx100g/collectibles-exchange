@@ -3,33 +3,24 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>VaultX — Collectibles</title>
+  <title>VaultX — Collectibles Exchange</title>
+  <meta name="description" content="VaultX — a non-custodial marketplace for 1-of-1 collectibles: cards, art, wine, farm goods & antiques." />
+  <meta property="og:title" content="VaultX — Collectibles Exchange" />
+  <meta property="og:description" content="Trade 1-of-1 collectibles on-chain with creator royalties. Cards · Art · Wine · Farm · Antiques." />
+  <meta property="og:type" content="website" />
+  <meta property="og:image" content="/favicon.svg" />
+  <meta name="twitter:card" content="summary" />
+  <link rel="icon" href="/favicon.svg" />
+  <link rel="apple-touch-icon" href="/favicon.svg" />
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet" />
-  <style>
-    body { background: radial-gradient(1200px 600px at 50% -10%, #1b2030, #0c0e14); min-height: 100vh; }
-    .mono { font-family: ui-monospace, SFMono-Regular, Menlo, monospace; }
-    .brand-badge { background: linear-gradient(135deg,#7b2ff7,#2d9cdb); -webkit-background-clip:text; background-clip:text; color:transparent; font-weight:800; }
-    .card-art { aspect-ratio: 1/1; width: 100%; object-fit: cover; background: #11131a; }
-    .art-wrap { position: relative; aspect-ratio: 1/1; width: 100%; overflow: hidden;
-      background-image: linear-gradient(110deg, #161922 8%, #20242f 18%, #161922 33%);
-      background-size: 200% 100%; animation: shimmer 1.4s linear infinite; }
-    .tile-img { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; opacity: 0; transition: opacity .45s ease; }
-    .tile-img.loaded { opacity: 1; }
-    @keyframes shimmer { to { background-position-x: -200%; } }
-    .trait { font-size: .72rem; }
-    .timeline { list-style: none; padding-left: 0; }
-    .timeline li { border-left: 2px solid var(--bs-border-color); padding: 0 0 1rem 1rem; position: relative; }
-    .timeline li::before { content:""; position:absolute; left:-6px; top:4px; width:10px; height:10px; border-radius:50%; background: var(--bs-primary); }
-  </style>
+  <link href="/theme.css" rel="stylesheet" />
 </head>
 <body>
   <nav class="navbar navbar-expand-lg border-bottom border-secondary-subtle mb-3">
     <div class="container">
       <a class="navbar-brand fs-4" href="/"><span class="brand-badge">VaultX</span></a>
-      <div class="d-flex align-items-center gap-2">
-        <a href="/" class="btn btn-sm btn-light">Home</a>
-        <a href="/search.html" class="btn btn-sm btn-outline-light">🔍 Search</a>
-        <a href="/dashboard.html" class="btn btn-sm btn-outline-light">My Account</a>
+      <div class="d-flex align-items-center gap-2 flex-wrap">
+        <span id="nav-links" class="d-flex gap-2 flex-wrap"></span>
         <span id="net-badge" class="badge text-bg-secondary d-none"></span>
         <button id="connect-btn" class="btn btn-primary">Connect Wallet</button>
       </div>
@@ -75,14 +66,24 @@
       </div>
       <div id="sec-traded" class="row row-cols-2 row-cols-md-4 row-cols-lg-6 g-3"></div>
     </section>
+
+    <section id="sec-recent-wrap" class="mb-4 d-none">
+      <div class="d-flex justify-content-between align-items-end mb-2">
+        <h2 class="h5 m-0">🕘 Recently viewed</h2>
+      </div>
+      <div id="sec-recent" class="row row-cols-2 row-cols-md-4 row-cols-lg-6 g-3"></div>
+    </section>
   </main>
+
+  <footer id="site-footer"></footer>
 
   <div class="modal fade" id="detail-modal" tabindex="-1">
     <div class="modal-dialog modal-lg modal-dialog-centered"><div class="modal-content" id="detail-content"></div></div>
   </div>
-  <div class="toast-container position-fixed bottom-0 end-0 p-3" id="toasts"></div>
+  <div class="toast-container position-fixed bottom-0 end-0 p-3" id="toasts" aria-live="polite" aria-atomic="true"></div>
 
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js"></script>
+  <script type="module" src="./shell.js"></script>
   <script type="module" src="./home.js"></script>
 </body>
 </html>

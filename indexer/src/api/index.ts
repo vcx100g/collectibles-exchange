@@ -74,6 +74,21 @@ app.get("/recent", async (c) => {
   return c.json(ser(recent));
 });
 
+// Paginated, filterable site-wide activity feed — powers the public Activity page.
+app.get("/feed", async (c) => {
+  const page = Math.max(1, parseInt(c.req.query("page") || "1", 10));
+  const perPage = Math.min(50, Math.max(1, parseInt(c.req.query("perPage") || "25", 10)));
+  const type = c.req.query("type");
+  const addr = c.req.query("address")?.toLowerCase();
+  let rows = await db.select().from(schema.activity);
+  if (type) rows = rows.filter((r) => r.type === type);
+  if (addr) rows = rows.filter((r) => String(r.from || "").toLowerCase() === addr || String(r.to || "").toLowerCase() === addr);
+  rows.sort((a, b) => Number(b.block - a.block));
+  const total = rows.length;
+  const slice = rows.slice((page - 1) * perPage, (page - 1) * perPage + perPage);
+  return c.json({ total, page, perPage, results: ser(slice) });
+});
+
 // Per-user summary — powers the user "My Account" dashboard.
 app.get("/user/:address", async (c) => {
   const addr = c.req.param("address").toLowerCase();
@@ -104,6 +119,7 @@ app.get("/user/:address", async (c) => {
     bought: bought.length,
     grossSoldWei: grossSoldWei.toString(),
     spentWei: spentWei.toString(),
+    ownedIds: items.map((i) => i.id.toString()),
     listings: ser(listings),
     activity: ser(activity),
   });

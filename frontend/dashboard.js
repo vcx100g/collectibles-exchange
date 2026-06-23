@@ -9,10 +9,18 @@ import {
   METADATA_BASE,
 } from "./config.js";
 import { attachWalletMenu, suppressAutoConnect, clearSuppress } from "./wallet-ui.js";
+import { escapeHtml, addrLink } from "./shell.js";
 
 const $ = (s) => document.querySelector(s);
 const short = (a) => (a ? a.slice(0, 6) + "…" + a.slice(-4) : "—");
 const fmt = (wei) => (+ethers.formatEther(wei ?? 0n)).toFixed(4);
+const USD_PER_ETH = 3500; // indicative display rate (matches shared.js)
+const usd = (wei) => {
+  try {
+    const v = Number(ethers.formatEther(BigInt(wei ?? 0n))) * USD_PER_ETH;
+    return v ? `≈ $${v >= 1000 ? Math.round(v).toLocaleString() : v.toFixed(2)}` : "";
+  } catch { return ""; }
+};
 const NFT = COLLECTIBLE_ADDRESS;
 const INDEXER = (() => { const u = new URL(location.origin); u.port = "42069"; return u.origin; })();
 
@@ -94,6 +102,8 @@ async function loadHeader() {
   ]);
   $("#u-balance").textContent = fmt(bal);
   $("#u-proceeds").textContent = fmt(proceeds);
+  $("#u-balance-usd").textContent = usd(bal);
+  $("#u-proceeds-usd").textContent = usd(proceeds);
   $("#withdraw-btn").disabled = proceeds === 0n;
 }
 
@@ -106,8 +116,9 @@ async function loadSummaryAndActivity() {
   $("#activity").innerHTML = (u.activity || [])
     .map(
       (r) =>
-        `<tr><td><span class="badge text-bg-dark">${r.type}</span></td><td>#${r.tokenId}</td>
-         <td class="mono small">${short(r.from)}</td><td class="mono small">${short(r.to)}</td>
+        `<tr><td><span class="badge text-bg-dark">${escapeHtml(r.type)}</span></td>
+         <td><a href="item.html?id=${r.tokenId}" class="text-reset">#${r.tokenId}</a></td>
+         <td class="mono small">${addrLink(r.from)}</td><td class="mono small">${addrLink(r.to)}</td>
          <td>${r.price ? fmt(BigInt(r.price)) + " ETH" : "—"}</td></tr>`,
     )
     .join("") || `<tr><td colspan="5" class="text-secondary">No activity yet.</td></tr>`;
@@ -129,18 +140,27 @@ async function loadItems() {
       const l = listings[i];
       const body =
         l.price > 0n
-          ? `<div class="mb-2 mono small text-success">Listed · ${fmt(l.price)} ETH</div>
+          ? `<div class="mb-1 mono small text-success">Listed · ${fmt(l.price)} ETH <span class="usd-hint">${usd(l.price)}</span></div>
+             <div class="input-group input-group-sm mb-2">
+               <input type="number" step="0.001" min="0" class="form-control" placeholder="New price" id="edit-${tokenId}" value="${fmt(l.price)}">
+               <span class="input-group-text">ETH</span>
+               <button class="btn btn-outline-primary" data-update="${tokenId}">Update</button>
+             </div>
              <button class="btn btn-sm btn-outline-danger w-100" data-cancel="${tokenId}">Cancel listing</button>`
           : `<div class="input-group input-group-sm mb-2">
                <input type="number" step="0.001" min="0" class="form-control" placeholder="Price" id="price-${tokenId}">
                <span class="input-group-text">ETH</span>
              </div>
              <button class="btn btn-sm btn-primary w-100" data-list="${tokenId}">List for sale</button>`;
-      return `<div class="col"><div class="card h-100">
-         <div class="art-wrap"><img src="${meta.image}" class="tile-img" loading="lazy" decoding="async" alt="${meta.name}"></div>
+      const nm = escapeHtml(meta.name || `Item #${tokenId}`);
+      const cat = escapeHtml(catOf(meta));
+      const grade = gradeOf(meta);
+      return `<div class="col"><div class="card h-100 lift">
+         <a href="item.html?id=${tokenId}" class="art-wrap d-block" title="View details">
+           <img src="${escapeHtml(meta.image || "")}" class="tile-img" loading="lazy" decoding="async" alt="${nm}"></a>
          <div class="card-body d-flex flex-column">
-           <div class="d-flex flex-wrap gap-1 mb-1"><span class="badge text-bg-dark trait">${catOf(meta)}</span>${gradeOf(meta) ? `<span class="badge text-bg-secondary trait">${gradeOf(meta)}</span>` : ""}</div>
-           <h6 class="card-title text-truncate" title="${meta.name}">${meta.name}</h6>
+           <div class="d-flex flex-wrap gap-1 mb-1"><span class="badge text-bg-dark trait">${cat}</span>${grade ? `<span class="badge text-bg-secondary trait">${escapeHtml(grade)}</span>` : ""}</div>
+           <h6 class="card-title text-truncate mb-1" title="${nm}"><a href="item.html?id=${tokenId}" class="text-reset text-decoration-none">${nm}</a></h6>
            <div class="mt-auto">${body}</div>
          </div></div></div>`;
     })
@@ -180,6 +200,15 @@ async function cancel(tokenId) {
   await refreshAll();
 }
 
+async function updatePrice(tokenId) {
+  const eth = $("#edit-" + tokenId)?.value;
+  if (!eth || Number(eth) <= 0) return toast("Enter a new price first", "warning");
+  toast("Updating price…");
+  await (await marketplace.updateListing(NFT, tokenId, ethers.parseEther(eth))).wait();
+  toast("Price updated!", "success");
+  await refreshAll();
+}
+
 async function withdraw() {
   toast("Withdrawing…");
   await (await marketplace.withdrawProceeds()).wait();
@@ -202,12 +231,16 @@ $("#withdraw-btn").addEventListener("click", () => withdraw().catch((e) => toast
 $("#mint-btn").addEventListener("click", () => mintSample().catch((e) => toast(e.shortMessage || e.message, "danger")));
 
 document.addEventListener("click", async (e) => {
-  const t = e.target.closest("[data-list],[data-cancel]");
+  const t = e.target.closest("[data-list],[data-cancel],[data-update]");
   if (!t) return;
   try {
     if (t.dataset.list) await list(t.dataset.list);
     else if (t.dataset.cancel) await cancel(t.dataset.cancel);
+    else if (t.dataset.update) await updatePrice(t.dataset.update);
   } catch (err) {
+    if (err?.code === 4001 || err?.code === "ACTION_REJECTED" || /user rejected|user denied/i.test(err?.message || "")) {
+      return toast("Transaction cancelled", "secondary");
+    }
     toast(err.shortMessage || err.message || "Transaction failed", "danger");
   }
 });

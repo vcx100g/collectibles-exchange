@@ -1,0 +1,70 @@
+<!doctype html>
+<html lang="en" data-bs-theme="dark">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>VaultX — Activity</title>
+  <meta name="description" content="Live, site-wide activity on VaultX — mints, listings, price changes and sales." />
+  <meta property="og:title" content="VaultX — Activity" />
+  <meta property="og:image" content="/favicon.svg" />
+  <meta name="twitter:card" content="summary" />
+  <link rel="icon" href="/favicon.svg" />
+  <link rel="apple-touch-icon" href="/favicon.svg" />
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet" />
+  <link href="/theme.css" rel="stylesheet" />
+</head>
+<body>
+  <nav class="navbar navbar-expand-lg border-bottom border-secondary-subtle mb-3">
+    <div class="container">
+      <a class="navbar-brand fs-4" href="/"><span class="brand-badge">VaultX</span></a>
+      <div class="d-flex align-items-center gap-2 flex-wrap">
+        <span id="nav-links" class="d-flex gap-2 flex-wrap"></span>
+        <span id="net-badge" class="badge text-bg-secondary d-none"></span>
+        <button id="connect-btn" class="btn btn-primary">Connect Wallet</button>
+      </div>
+    </div>
+  </nav>
+
+  <main class="container pb-5">
+    <div class="d-flex flex-wrap justify-content-between align-items-end mb-3 gap-2">
+      <div>
+        <h1 class="h4 m-0">📈 Activity</h1>
+        <div class="text-secondary small">Everything happening across VaultX, newest first.</div>
+      </div>
+      <div class="d-flex align-items-center gap-2">
+        <button id="prev-btn" class="btn btn-sm btn-outline-light" disabled>‹ Prev</button>
+        <span id="page-info" class="small text-secondary">Page 1 / 1</span>
+        <button id="next-btn" class="btn btn-sm btn-outline-light" disabled>Next ›</button>
+      </div>
+    </div>
+
+    <div id="chips" class="d-flex flex-wrap gap-2 mb-3">
+      <span class="badge text-bg-secondary chip active" data-type="">All</span>
+      <span class="badge text-bg-secondary chip" data-type="sale">Sales</span>
+      <span class="badge text-bg-secondary chip" data-type="list">Listings</span>
+      <span class="badge text-bg-secondary chip" data-type="update">Price updates</span>
+      <span class="badge text-bg-secondary chip" data-type="cancel">Cancellations</span>
+      <span class="badge text-bg-secondary chip" data-type="mint">Mints</span>
+      <span class="badge text-bg-secondary chip" data-type="transfer">Transfers</span>
+    </div>
+
+    <div class="card"><div class="card-body">
+      <div class="table-responsive"><table class="table table-sm align-middle mb-0">
+        <thead><tr><th>Event</th><th>Item</th><th>From</th><th>To</th><th>Price</th><th>Time</th></tr></thead>
+        <tbody id="feed"></tbody>
+      </table></div>
+    </div></div>
+  </main>
+
+  <footer id="site-footer"></footer>
+
+  <div class="modal fade" id="detail-modal" tabindex="-1">
+    <div class="modal-dialog modal-lg modal-dialog-centered"><div class="modal-content" id="detail-content"></div></div>
+  </div>
+  <div class="toast-container position-fixed bottom-0 end-0 p-3" id="toasts" aria-live="polite" aria-atomic="true"></div>
+
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js"></script>
+  <script type="module" src="./shell.js"></script>
+  <script type="module" src="./activity.js"></script>
+</body>
+</html>

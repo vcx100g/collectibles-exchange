@@ -1,4 +1,4 @@
-import { $, INDEXER, fetchMeta, cardHtml, fadeInImages, fmt, wireGrid, initWallet } from "./shared.js";
+import { $, INDEXER, fetchMeta, cardHtml, fadeInImages, emptyState, wireGrid, initWallet } from "./shared.js";
 
 const PER_PAGE = 20;
 const CATS = ["Card", "Painting", "Wine", "Farm", "Art", "Antique"];
@@ -55,11 +55,16 @@ function criteria() {
 async function search() {
   const grid = $("#results");
   grid.innerHTML = `<div class="col-12 text-center text-secondary py-5"><div class="spinner-border spinner-border-sm"></div></div>`;
+  const params = criteria();
+  // reflect filter/sort/page state in the URL so results are shareable + Back works
+  const url = new URLSearchParams(params); url.delete("perPage");
+  history.replaceState(null, "", url.toString() ? `${location.pathname}?${url}` : location.pathname);
   let d;
   try {
-    d = await (await fetch(`${INDEXER}/search?${criteria()}`)).json();
+    d = await (await fetch(`${INDEXER}/search?${params}`)).json();
   } catch {
-    grid.innerHTML = `<div class="col-12"><p class="text-danger">Couldn't reach the indexer.</p></div>`;
+    grid.innerHTML = `<div class="col-12">${emptyState("⚠️", "Couldn't reach the indexer", "The search backend (:42069) may be starting up.", '<button id="retry-btn" class="btn btn-sm btn-outline-light">Retry</button>')}</div>`;
+    $("#retry-btn")?.addEventListener("click", search);
     return;
   }
   const refs = d.results;
@@ -106,12 +111,31 @@ $("#reset-btn").addEventListener("click", () => {
 $("#prev-btn").addEventListener("click", () => { if (page > 1) { page--; search(); window.scrollTo(0, 0); } });
 $("#next-btn").addEventListener("click", () => { page++; search(); window.scrollTo(0, 0); });
 
-// presets from URL (?sort=price-desc, ?cat=Wine)
-const params = new URLSearchParams(location.search);
-if (params.get("sort")) $("#f-sort").value = params.get("sort");
-if (params.get("cat") && CATS.includes(params.get("cat"))) $(`#cat-${params.get("cat")}`).checked = true;
+// hydrate ALL controls from the URL so a shared/bookmarked link restores the
+// exact filter state (text, categories, price, sort, page).
+function hydrateFromUrl() {
+  const p = new URLSearchParams(location.search);
+  if (p.get("q")) $("#f-text").value = p.get("q");
+  const cats = (p.get("category") || p.get("cat") || "").split(",").map((s) => s.trim()).filter(Boolean);
+  cats.forEach((c) => { if (CATS.includes(c) && $(`#cat-${c}`)) $(`#cat-${c}`).checked = true; });
+  if (p.get("minPrice")) $("#f-min").value = p.get("minPrice");
+  if (p.get("maxPrice")) $("#f-max").value = p.get("maxPrice");
+  if (p.get("sort")) $("#f-sort").value = p.get("sort");
+  const pg = parseInt(p.get("page") || "1", 10);
+  if (pg > 1) page = pg;
+}
+// attribute dropdowns only exist after updateAttrFilters() builds them
+function applyAttrFromUrl() {
+  const p = new URLSearchParams(location.search);
+  $("#attr-filters").querySelectorAll(".attr-filter").forEach((s) => {
+    const v = p.get(`attr_${s.dataset.trait}`);
+    if (v) s.value = v;
+  });
+}
 
+hydrateFromUrl();
 initWallet();
 wireGrid(search); // after a buy, re-run the query (item is no longer listed)
 await updateAttrFilters();
+applyAttrFromUrl();
 search();
