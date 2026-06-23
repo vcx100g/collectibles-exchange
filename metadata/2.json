@@ -1,7 +1,7 @@
 {
   "name": "Neon Genesis #1",
   "description": "A 1-of-1 generative digital artwork. Signed by the artist on-chain.",
-  "image": "http://100.70.161.82:8080/metadata/images/2.svg",
+  "image": "http://100.70.161.82:8080/metadata/images/2.webp",
   "external_url": "http://100.70.161.82:8080/metadata/2.json",
   "attributes": [
     {
