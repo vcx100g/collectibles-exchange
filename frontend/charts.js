@@ -21,11 +21,25 @@ const day = (ts) => new Date(Number(ts) * 1000).toLocaleDateString(undefined, { 
 const fade = (hex, a) => { const n = parseInt(hex.slice(1), 16); return `rgba(${n >> 16 & 255},${n >> 8 & 255},${n & 255},${a})`; };
 
 // one chart per <canvas>; replace on re-render
+const live = new Set();
 function mount(canvas, config) {
-  if (canvas._chart) canvas._chart.destroy();
+  if (canvas._chart) { live.delete(canvas._chart); canvas._chart.destroy(); }
   canvas._chart = new Chart(canvas, config);
+  live.add(canvas._chart);
   return canvas._chart;
 }
+
+// belt-and-suspenders: re-fit every live chart to its container on window
+// resize (rAF-debounced), so charts always follow the card width.
+let resizeQueued = false;
+window.addEventListener("resize", () => {
+  if (resizeQueued) return;
+  resizeQueued = true;
+  requestAnimationFrame(() => {
+    resizeQueued = false;
+    live.forEach((c) => { try { c.resize(); } catch { live.delete(c); } });
+  });
+});
 
 // ---- price series derivation -------------------------------------------------
 // Walk the ordered event log into an "asking price" step line + "sold" markers.
