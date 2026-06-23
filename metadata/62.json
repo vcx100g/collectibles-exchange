@@ -1,0 +1,29 @@
+{
+  "name": "Tranquil harbor at dawn",
+  "description": "A impressionist masterwork in oils.",
+  "image": "http://100.70.161.82:8080/metadata/images/62.webp",
+  "external_url": "http://100.70.161.82:8080/metadata/62.json",
+  "attributes": [
+    {
+      "trait_type": "Category",
+      "value": "Painting"
+    },
+    {
+      "trait_type": "Artist",
+      "value": "E. Moreau"
+    },
+    {
+      "trait_type": "Medium",
+      "value": "Oil on canvas"
+    },
+    {
+      "trait_type": "Style",
+      "value": "Impressionist"
+    },
+    {
+      "trait_type": "Year",
+      "value": 1884,
+      "display_type": "number"
+    }
+  ]
+}

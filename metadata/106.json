@@ -1,0 +1,29 @@
+{
+  "name": "Generative fractal blooming flower",
+  "description": "A 1-of-1 digital artwork.",
+  "image": "http://100.70.161.82:8080/metadata/images/106.webp",
+  "external_url": "http://100.70.161.82:8080/metadata/106.json",
+  "attributes": [
+    {
+      "trait_type": "Category",
+      "value": "Art"
+    },
+    {
+      "trait_type": "Artist",
+      "value": "Studio Lumen"
+    },
+    {
+      "trait_type": "Edition",
+      "value": "1 of 1"
+    },
+    {
+      "trait_type": "Medium",
+      "value": "Generative / Digital"
+    },
+    {
+      "trait_type": "Year",
+      "value": 2025,
+      "display_type": "number"
+    }
+  ]
+}

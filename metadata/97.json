@@ -1,0 +1,29 @@
+{
+  "name": "Fairy Beast #113",
+  "description": "A holographic collectible monster card.",
+  "image": "http://100.70.161.82:8080/metadata/images/97.webp",
+  "external_url": "http://100.70.161.82:8080/metadata/97.json",
+  "attributes": [
+    {
+      "trait_type": "Category",
+      "value": "Card"
+    },
+    {
+      "trait_type": "Type",
+      "value": "Fairy"
+    },
+    {
+      "trait_type": "Rarity",
+      "value": "Ultra Rare"
+    },
+    {
+      "trait_type": "HP",
+      "value": 110,
+      "display_type": "number"
+    },
+    {
+      "trait_type": "Set",
+      "value": "Legendary"
+    }
+  ]
+}

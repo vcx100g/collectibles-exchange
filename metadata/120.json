@@ -1,0 +1,28 @@
+{
+  "name": "New Kingdom Scarab amulet",
+  "description": "An authenticated antique with documented provenance.",
+  "image": "http://100.70.161.82:8080/metadata/images/120.webp",
+  "external_url": "http://100.70.161.82:8080/metadata/120.json",
+  "attributes": [
+    {
+      "trait_type": "Category",
+      "value": "Antique"
+    },
+    {
+      "trait_type": "Era",
+      "value": "New Kingdom"
+    },
+    {
+      "trait_type": "Origin",
+      "value": "Egypt"
+    },
+    {
+      "trait_type": "Material",
+      "value": "Faience"
+    },
+    {
+      "trait_type": "Grading",
+      "value": "Certified"
+    }
+  ]
+}

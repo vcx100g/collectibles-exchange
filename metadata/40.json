@@ -1,0 +1,29 @@
+{
+  "name": "Château Latour 1968",
+  "description": "A rare cellar-aged vintage with impeccable provenance.",
+  "image": "http://100.70.161.82:8080/metadata/images/40.webp",
+  "external_url": "http://100.70.161.82:8080/metadata/40.json",
+  "attributes": [
+    {
+      "trait_type": "Category",
+      "value": "Wine"
+    },
+    {
+      "trait_type": "Vintage",
+      "value": 1968,
+      "display_type": "number"
+    },
+    {
+      "trait_type": "Region",
+      "value": "Burgundy"
+    },
+    {
+      "trait_type": "Producer",
+      "value": "Latour"
+    },
+    {
+      "trait_type": "Bottle #",
+      "value": "1037"
+    }
+  ]
+}

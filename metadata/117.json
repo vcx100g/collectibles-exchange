@@ -1,0 +1,28 @@
+{
+  "name": "Han Dynasty Jade pendant",
+  "description": "An authenticated antique with documented provenance.",
+  "image": "http://100.70.161.82:8080/metadata/images/117.webp",
+  "external_url": "http://100.70.161.82:8080/metadata/117.json",
+  "attributes": [
+    {
+      "trait_type": "Category",
+      "value": "Antique"
+    },
+    {
+      "trait_type": "Era",
+      "value": "Han Dynasty"
+    },
+    {
+      "trait_type": "Origin",
+      "value": "China"
+    },
+    {
+      "trait_type": "Material",
+      "value": "Jade"
+    },
+    {
+      "trait_type": "Grading",
+      "value": "Certified"
+    }
+  ]
+}

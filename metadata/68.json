@@ -1,0 +1,29 @@
+{
+  "name": "Moonlit river",
+  "description": "A expressionist masterwork in oils.",
+  "image": "http://100.70.161.82:8080/metadata/images/68.webp",
+  "external_url": "http://100.70.161.82:8080/metadata/68.json",
+  "attributes": [
+    {
+      "trait_type": "Category",
+      "value": "Painting"
+    },
+    {
+      "trait_type": "Artist",
+      "value": "R. Adler"
+    },
+    {
+      "trait_type": "Medium",
+      "value": "Oil on canvas"
+    },
+    {
+      "trait_type": "Style",
+      "value": "Expressionist"
+    },
+    {
+      "trait_type": "Year",
+      "value": 1722,
+      "display_type": "number"
+    }
+  ]
+}

@@ -1,0 +1,29 @@
+{
+  "name": "Fire Beast #110",
+  "description": "A holographic collectible monster card.",
+  "image": "http://100.70.161.82:8080/metadata/images/94.webp",
+  "external_url": "http://100.70.161.82:8080/metadata/94.json",
+  "attributes": [
+    {
+      "trait_type": "Category",
+      "value": "Card"
+    },
+    {
+      "trait_type": "Type",
+      "value": "Fire"
+    },
+    {
+      "trait_type": "Rarity",
+      "value": "Ultra Rare"
+    },
+    {
+      "trait_type": "HP",
+      "value": 120,
+      "display_type": "number"
+    },
+    {
+      "trait_type": "Set",
+      "value": "Base Set"
+    }
+  ]
+}

@@ -1,0 +1,28 @@
+{
+  "name": "Barn cat sitting on a hay bale",
+  "description": "A slice of pastoral country life.",
+  "image": "http://100.70.161.82:8080/metadata/images/83.webp",
+  "external_url": "http://100.70.161.82:8080/metadata/83.json",
+  "attributes": [
+    {
+      "trait_type": "Category",
+      "value": "Farm"
+    },
+    {
+      "trait_type": "Type",
+      "value": "Livestock"
+    },
+    {
+      "trait_type": "Origin",
+      "value": "Kansas"
+    },
+    {
+      "trait_type": "Season",
+      "value": "Autumn"
+    },
+    {
+      "trait_type": "Grade",
+      "value": "Prime"
+    }
+  ]
+}

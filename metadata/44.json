@@ -1,0 +1,29 @@
+{
+  "name": "Château Cheval Blanc 1996",
+  "description": "A rare cellar-aged vintage with impeccable provenance.",
+  "image": "http://100.70.161.82:8080/metadata/images/44.webp",
+  "external_url": "http://100.70.161.82:8080/metadata/44.json",
+  "attributes": [
+    {
+      "trait_type": "Category",
+      "value": "Wine"
+    },
+    {
+      "trait_type": "Vintage",
+      "value": 1996,
+      "display_type": "number"
+    },
+    {
+      "trait_type": "Region",
+      "value": "Rioja"
+    },
+    {
+      "trait_type": "Producer",
+      "value": "Cheval Blanc"
+    },
+    {
+      "trait_type": "Bottle #",
+      "value": "1185"
+    }
+  ]
+}

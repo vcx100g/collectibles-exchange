@@ -1,0 +1,29 @@
+{
+  "name": "Water Beast #102",
+  "description": "A holographic collectible monster card.",
+  "image": "http://100.70.161.82:8080/metadata/images/86.webp",
+  "external_url": "http://100.70.161.82:8080/metadata/86.json",
+  "attributes": [
+    {
+      "trait_type": "Category",
+      "value": "Card"
+    },
+    {
+      "trait_type": "Type",
+      "value": "Water"
+    },
+    {
+      "trait_type": "Rarity",
+      "value": "Holo Rare"
+    },
+    {
+      "trait_type": "HP",
+      "value": 100,
+      "display_type": "number"
+    },
+    {
+      "trait_type": "Set",
+      "value": "Fossil"
+    }
+  ]
+}

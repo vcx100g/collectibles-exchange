@@ -1,0 +1,29 @@
+{
+  "name": "Château Krug 2001",
+  "description": "A rare cellar-aged vintage with impeccable provenance.",
+  "image": "http://100.70.161.82:8080/metadata/images/53.webp",
+  "external_url": "http://100.70.161.82:8080/metadata/53.json",
+  "attributes": [
+    {
+      "trait_type": "Category",
+      "value": "Wine"
+    },
+    {
+      "trait_type": "Vintage",
+      "value": 2001,
+      "display_type": "number"
+    },
+    {
+      "trait_type": "Region",
+      "value": "Piedmont"
+    },
+    {
+      "trait_type": "Producer",
+      "value": "Krug"
+    },
+    {
+      "trait_type": "Bottle #",
+      "value": "1518"
+    }
+  ]
+}

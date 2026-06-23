@@ -1,0 +1,28 @@
+{
+  "name": "Tang Dynasty Terracotta figurine",
+  "description": "An authenticated antique with documented provenance.",
+  "image": "http://100.70.161.82:8080/metadata/images/128.webp",
+  "external_url": "http://100.70.161.82:8080/metadata/128.json",
+  "attributes": [
+    {
+      "trait_type": "Category",
+      "value": "Antique"
+    },
+    {
+      "trait_type": "Era",
+      "value": "Tang Dynasty"
+    },
+    {
+      "trait_type": "Origin",
+      "value": "China"
+    },
+    {
+      "trait_type": "Material",
+      "value": "Terracotta"
+    },
+    {
+      "trait_type": "Grading",
+      "value": "Certified"
+    }
+  ]
+}

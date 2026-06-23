@@ -1,0 +1,29 @@
+{
+  "name": "Still life with fruit",
+  "description": "A realist masterwork in oils.",
+  "image": "http://100.70.161.82:8080/metadata/images/61.webp",
+  "external_url": "http://100.70.161.82:8080/metadata/61.json",
+  "attributes": [
+    {
+      "trait_type": "Category",
+      "value": "Painting"
+    },
+    {
+      "trait_type": "Artist",
+      "value": "V. Petrov"
+    },
+    {
+      "trait_type": "Medium",
+      "value": "Oil on canvas"
+    },
+    {
+      "trait_type": "Style",
+      "value": "Realist"
+    },
+    {
+      "trait_type": "Year",
+      "value": 1861,
+      "display_type": "number"
+    }
+  ]
+}

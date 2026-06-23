@@ -1,0 +1,29 @@
+{
+  "name": "Noble portrait",
+  "description": "A romantic masterwork in oils.",
+  "image": "http://100.70.161.82:8080/metadata/images/65.webp",
+  "external_url": "http://100.70.161.82:8080/metadata/65.json",
+  "attributes": [
+    {
+      "trait_type": "Category",
+      "value": "Painting"
+    },
+    {
+      "trait_type": "Artist",
+      "value": "H. Tanaka"
+    },
+    {
+      "trait_type": "Medium",
+      "value": "Oil on canvas"
+    },
+    {
+      "trait_type": "Style",
+      "value": "Romantic"
+    },
+    {
+      "trait_type": "Year",
+      "value": 1953,
+      "display_type": "number"
+    }
+  ]
+}

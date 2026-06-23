@@ -1,0 +1,29 @@
+{
+  "name": "Château Solaia 1980",
+  "description": "A rare cellar-aged vintage with impeccable provenance.",
+  "image": "http://100.70.161.82:8080/metadata/images/50.webp",
+  "external_url": "http://100.70.161.82:8080/metadata/50.json",
+  "attributes": [
+    {
+      "trait_type": "Category",
+      "value": "Wine"
+    },
+    {
+      "trait_type": "Vintage",
+      "value": 1980,
+      "display_type": "number"
+    },
+    {
+      "trait_type": "Region",
+      "value": "Tuscany"
+    },
+    {
+      "trait_type": "Producer",
+      "value": "Solaia"
+    },
+    {
+      "trait_type": "Bottle #",
+      "value": "1407"
+    }
+  ]
+}

@@ -1,0 +1,29 @@
+{
+  "name": "Quiet village square",
+  "description": "A surrealist masterwork in oils.",
+  "image": "http://100.70.161.82:8080/metadata/images/67.webp",
+  "external_url": "http://100.70.161.82:8080/metadata/67.json",
+  "attributes": [
+    {
+      "trait_type": "Category",
+      "value": "Painting"
+    },
+    {
+      "trait_type": "Artist",
+      "value": "M. Costa"
+    },
+    {
+      "trait_type": "Medium",
+      "value": "Oil on canvas"
+    },
+    {
+      "trait_type": "Style",
+      "value": "Surrealist"
+    },
+    {
+      "trait_type": "Year",
+      "value": 1999,
+      "display_type": "number"
+    }
+  ]
+}

@@ -1,0 +1,28 @@
+{
+  "name": "Ming Dynasty Bronze censer",
+  "description": "An authenticated antique with documented provenance.",
+  "image": "http://100.70.161.82:8080/metadata/images/123.webp",
+  "external_url": "http://100.70.161.82:8080/metadata/123.json",
+  "attributes": [
+    {
+      "trait_type": "Category",
+      "value": "Antique"
+    },
+    {
+      "trait_type": "Era",
+      "value": "Ming Dynasty"
+    },
+    {
+      "trait_type": "Origin",
+      "value": "China"
+    },
+    {
+      "trait_type": "Material",
+      "value": "Bronze"
+    },
+    {
+      "trait_type": "Grading",
+      "value": "Certified"
+    }
+  ]
+}

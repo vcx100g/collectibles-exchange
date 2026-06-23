@@ -1,0 +1,28 @@
+{
+  "name": "Edo Period Ivory netsuke",
+  "description": "An authenticated antique with documented provenance.",
+  "image": "http://100.70.161.82:8080/metadata/images/122.webp",
+  "external_url": "http://100.70.161.82:8080/metadata/122.json",
+  "attributes": [
+    {
+      "trait_type": "Category",
+      "value": "Antique"
+    },
+    {
+      "trait_type": "Era",
+      "value": "Edo Period"
+    },
+    {
+      "trait_type": "Origin",
+      "value": "Japan"
+    },
+    {
+      "trait_type": "Material",
+      "value": "Ivory"
+    },
+    {
+      "trait_type": "Grading",
+      "value": "Certified"
+    }
+  ]
+}

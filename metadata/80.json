@@ -1,0 +1,28 @@
+{
+  "name": "Lavender field in bloom at dusk",
+  "description": "A slice of pastoral country life.",
+  "image": "http://100.70.161.82:8080/metadata/images/80.webp",
+  "external_url": "http://100.70.161.82:8080/metadata/80.json",
+  "attributes": [
+    {
+      "trait_type": "Category",
+      "value": "Farm"
+    },
+    {
+      "trait_type": "Type",
+      "value": "Produce"
+    },
+    {
+      "trait_type": "Origin",
+      "value": "Tuscany"
+    },
+    {
+      "trait_type": "Season",
+      "value": "Winter"
+    },
+    {
+      "trait_type": "Grade",
+      "value": "Prime"
+    }
+  ]
+}

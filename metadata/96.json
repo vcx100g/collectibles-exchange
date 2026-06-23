@@ -1,0 +1,29 @@
+{
+  "name": "Steel Beast #112",
+  "description": "A holographic collectible monster card.",
+  "image": "http://100.70.161.82:8080/metadata/images/96.webp",
+  "external_url": "http://100.70.161.82:8080/metadata/96.json",
+  "attributes": [
+    {
+      "trait_type": "Category",
+      "value": "Card"
+    },
+    {
+      "trait_type": "Type",
+      "value": "Steel"
+    },
+    {
+      "trait_type": "Rarity",
+      "value": "Rare"
+    },
+    {
+      "trait_type": "HP",
+      "value": 100,
+      "display_type": "number"
+    },
+    {
+      "trait_type": "Set",
+      "value": "Fossil"
+    }
+  ]
+}

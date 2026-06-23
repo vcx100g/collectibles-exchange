@@ -1,0 +1,29 @@
+{
+  "name": "Château Montrachet 2017",
+  "description": "A rare cellar-aged vintage with impeccable provenance.",
+  "image": "http://100.70.161.82:8080/metadata/images/47.webp",
+  "external_url": "http://100.70.161.82:8080/metadata/47.json",
+  "attributes": [
+    {
+      "trait_type": "Category",
+      "value": "Wine"
+    },
+    {
+      "trait_type": "Vintage",
+      "value": 2017,
+      "display_type": "number"
+    },
+    {
+      "trait_type": "Region",
+      "value": "Bordeaux"
+    },
+    {
+      "trait_type": "Producer",
+      "value": "Montrachet"
+    },
+    {
+      "trait_type": "Bottle #",
+      "value": "1296"
+    }
+  ]
+}

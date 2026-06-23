@@ -1,0 +1,28 @@
+{
+  "name": "Roman Empire Gold aureus coin",
+  "description": "An authenticated antique with documented provenance.",
+  "image": "http://100.70.161.82:8080/metadata/images/116.webp",
+  "external_url": "http://100.70.161.82:8080/metadata/116.json",
+  "attributes": [
+    {
+      "trait_type": "Category",
+      "value": "Antique"
+    },
+    {
+      "trait_type": "Era",
+      "value": "Roman Empire"
+    },
+    {
+      "trait_type": "Origin",
+      "value": "Rome"
+    },
+    {
+      "trait_type": "Material",
+      "value": "Gold"
+    },
+    {
+      "trait_type": "Grading",
+      "value": "Certified"
+    }
+  ]
+}

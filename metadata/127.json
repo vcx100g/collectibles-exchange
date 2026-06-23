@@ -1,0 +1,28 @@
+{
+  "name": "Medieval Europe Silver chalice",
+  "description": "An authenticated antique with documented provenance.",
+  "image": "http://100.70.161.82:8080/metadata/images/127.webp",
+  "external_url": "http://100.70.161.82:8080/metadata/127.json",
+  "attributes": [
+    {
+      "trait_type": "Category",
+      "value": "Antique"
+    },
+    {
+      "trait_type": "Era",
+      "value": "Medieval Europe"
+    },
+    {
+      "trait_type": "Origin",
+      "value": "France"
+    },
+    {
+      "trait_type": "Material",
+      "value": "Silver"
+    },
+    {
+      "trait_type": "Grading",
+      "value": "Certified"
+    }
+  ]
+}

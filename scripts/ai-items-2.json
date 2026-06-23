@@ -1,0 +1,2222 @@
+[
+  {
+    "name": "Château Margaux 1961",
+    "category": "Wine",
+    "description": "A rare cellar-aged vintage with impeccable provenance.",
+    "attributes": [
+      {
+        "trait_type": "Vintage",
+        "value": 1961,
+        "display_type": "number"
+      },
+      {
+        "trait_type": "Region",
+        "value": "Bordeaux"
+      },
+      {
+        "trait_type": "Producer",
+        "value": "Margaux"
+      },
+      {
+        "trait_type": "Bottle #",
+        "value": "1000"
+      }
+    ],
+    "prompt": "a dusty vintage bottle of fine red wine with an elegant aged label on a dark oak cellar table, dramatic warm side lighting, product photography, highly detailed"
+  },
+  {
+    "name": "Château Latour 1968",
+    "category": "Wine",
+    "description": "A rare cellar-aged vintage with impeccable provenance.",
+    "attributes": [
+      {
+        "trait_type": "Vintage",
+        "value": 1968,
+        "display_type": "number"
+      },
+      {
+        "trait_type": "Region",
+        "value": "Burgundy"
+      },
+      {
+        "trait_type": "Producer",
+        "value": "Latour"
+      },
+      {
+        "trait_type": "Bottle #",
+        "value": "1037"
+      }
+    ],
+    "prompt": "an old wine bottle with a wax seal beside a crystal glass of red wine, candlelit cellar, rich tones, product photography, highly detailed"
+  },
+  {
+    "name": "Château Lafite 1975",
+    "category": "Wine",
+    "description": "A rare cellar-aged vintage with impeccable provenance.",
+    "attributes": [
+      {
+        "trait_type": "Vintage",
+        "value": 1975,
+        "display_type": "number"
+      },
+      {
+        "trait_type": "Region",
+        "value": "Champagne"
+      },
+      {
+        "trait_type": "Producer",
+        "value": "Lafite"
+      },
+      {
+        "trait_type": "Bottle #",
+        "value": "1074"
+      }
+    ],
+    "prompt": "a premium wine bottle resting on slate with scattered grapes and a corkscrew, moody studio lighting, highly detailed"
+  },
+  {
+    "name": "Château Mouton 1982",
+    "category": "Wine",
+    "description": "A rare cellar-aged vintage with impeccable provenance.",
+    "attributes": [
+      {
+        "trait_type": "Vintage",
+        "value": 1982,
+        "display_type": "number"
+      },
+      {
+        "trait_type": "Region",
+        "value": "Tuscany"
+      },
+      {
+        "trait_type": "Producer",
+        "value": "Mouton"
+      },
+      {
+        "trait_type": "Bottle #",
+        "value": "1111"
+      }
+    ],
+    "prompt": "a dusty vintage bottle of fine red wine with an elegant aged label on a dark oak cellar table, dramatic warm side lighting, product photography, highly detailed"
+  },
+  {
+    "name": "Château Haut-Brion 1989",
+    "category": "Wine",
+    "description": "A rare cellar-aged vintage with impeccable provenance.",
+    "attributes": [
+      {
+        "trait_type": "Vintage",
+        "value": 1989,
+        "display_type": "number"
+      },
+      {
+        "trait_type": "Region",
+        "value": "Napa Valley"
+      },
+      {
+        "trait_type": "Producer",
+        "value": "Haut-Brion"
+      },
+      {
+        "trait_type": "Bottle #",
+        "value": "1148"
+      }
+    ],
+    "prompt": "an old wine bottle with a wax seal beside a crystal glass of red wine, candlelit cellar, rich tones, product photography, highly detailed"
+  },
+  {
+    "name": "Château Cheval Blanc 1996",
+    "category": "Wine",
+    "description": "A rare cellar-aged vintage with impeccable provenance.",
+    "attributes": [
+      {
+        "trait_type": "Vintage",
+        "value": 1996,
+        "display_type": "number"
+      },
+      {
+        "trait_type": "Region",
+        "value": "Rioja"
+      },
+      {
+        "trait_type": "Producer",
+        "value": "Cheval Blanc"
+      },
+      {
+        "trait_type": "Bottle #",
+        "value": "1185"
+      }
+    ],
+    "prompt": "a premium wine bottle resting on slate with scattered grapes and a corkscrew, moody studio lighting, highly detailed"
+  },
+  {
+    "name": "Château Pétrus 2003",
+    "category": "Wine",
+    "description": "A rare cellar-aged vintage with impeccable provenance.",
+    "attributes": [
+      {
+        "trait_type": "Vintage",
+        "value": 2003,
+        "display_type": "number"
+      },
+      {
+        "trait_type": "Region",
+        "value": "Piedmont"
+      },
+      {
+        "trait_type": "Producer",
+        "value": "Pétrus"
+      },
+      {
+        "trait_type": "Bottle #",
+        "value": "1222"
+      }
+    ],
+    "prompt": "a dusty vintage bottle of fine red wine with an elegant aged label on a dark oak cellar table, dramatic warm side lighting, product photography, highly detailed"
+  },
+  {
+    "name": "Château Ausone 2010",
+    "category": "Wine",
+    "description": "A rare cellar-aged vintage with impeccable provenance.",
+    "attributes": [
+      {
+        "trait_type": "Vintage",
+        "value": 2010,
+        "display_type": "number"
+      },
+      {
+        "trait_type": "Region",
+        "value": "Douro"
+      },
+      {
+        "trait_type": "Producer",
+        "value": "Ausone"
+      },
+      {
+        "trait_type": "Bottle #",
+        "value": "1259"
+      }
+    ],
+    "prompt": "an old wine bottle with a wax seal beside a crystal glass of red wine, candlelit cellar, rich tones, product photography, highly detailed"
+  },
+  {
+    "name": "Château Montrachet 2017",
+    "category": "Wine",
+    "description": "A rare cellar-aged vintage with impeccable provenance.",
+    "attributes": [
+      {
+        "trait_type": "Vintage",
+        "value": 2017,
+        "display_type": "number"
+      },
+      {
+        "trait_type": "Region",
+        "value": "Bordeaux"
+      },
+      {
+        "trait_type": "Producer",
+        "value": "Montrachet"
+      },
+      {
+        "trait_type": "Bottle #",
+        "value": "1296"
+      }
+    ],
+    "prompt": "a premium wine bottle resting on slate with scattered grapes and a corkscrew, moody studio lighting, highly detailed"
+  },
+  {
+    "name": "Château Chambertin 1966",
+    "category": "Wine",
+    "description": "A rare cellar-aged vintage with impeccable provenance.",
+    "attributes": [
+      {
+        "trait_type": "Vintage",
+        "value": 1966,
+        "display_type": "number"
+      },
+      {
+        "trait_type": "Region",
+        "value": "Burgundy"
+      },
+      {
+        "trait_type": "Producer",
+        "value": "Chambertin"
+      },
+      {
+        "trait_type": "Bottle #",
+        "value": "1333"
+      }
+    ],
+    "prompt": "a dusty vintage bottle of fine red wine with an elegant aged label on a dark oak cellar table, dramatic warm side lighting, product photography, highly detailed"
+  },
+  {
+    "name": "Château Musigny 1973",
+    "category": "Wine",
+    "description": "A rare cellar-aged vintage with impeccable provenance.",
+    "attributes": [
+      {
+        "trait_type": "Vintage",
+        "value": 1973,
+        "display_type": "number"
+      },
+      {
+        "trait_type": "Region",
+        "value": "Champagne"
+      },
+      {
+        "trait_type": "Producer",
+        "value": "Musigny"
+      },
+      {
+        "trait_type": "Bottle #",
+        "value": "1370"
+      }
+    ],
+    "prompt": "an old wine bottle with a wax seal beside a crystal glass of red wine, candlelit cellar, rich tones, product photography, highly detailed"
+  },
+  {
+    "name": "Château Solaia 1980",
+    "category": "Wine",
+    "description": "A rare cellar-aged vintage with impeccable provenance.",
+    "attributes": [
+      {
+        "trait_type": "Vintage",
+        "value": 1980,
+        "display_type": "number"
+      },
+      {
+        "trait_type": "Region",
+        "value": "Tuscany"
+      },
+      {
+        "trait_type": "Producer",
+        "value": "Solaia"
+      },
+      {
+        "trait_type": "Bottle #",
+        "value": "1407"
+      }
+    ],
+    "prompt": "a premium wine bottle resting on slate with scattered grapes and a corkscrew, moody studio lighting, highly detailed"
+  },
+  {
+    "name": "Château Ornellaia 1987",
+    "category": "Wine",
+    "description": "A rare cellar-aged vintage with impeccable provenance.",
+    "attributes": [
+      {
+        "trait_type": "Vintage",
+        "value": 1987,
+        "display_type": "number"
+      },
+      {
+        "trait_type": "Region",
+        "value": "Napa Valley"
+      },
+      {
+        "trait_type": "Producer",
+        "value": "Ornellaia"
+      },
+      {
+        "trait_type": "Bottle #",
+        "value": "1444"
+      }
+    ],
+    "prompt": "a dusty vintage bottle of fine red wine with an elegant aged label on a dark oak cellar table, dramatic warm side lighting, product photography, highly detailed"
+  },
+  {
+    "name": "Château Vega Sicilia 1994",
+    "category": "Wine",
+    "description": "A rare cellar-aged vintage with impeccable provenance.",
+    "attributes": [
+      {
+        "trait_type": "Vintage",
+        "value": 1994,
+        "display_type": "number"
+      },
+      {
+        "trait_type": "Region",
+        "value": "Rioja"
+      },
+      {
+        "trait_type": "Producer",
+        "value": "Vega Sicilia"
+      },
+      {
+        "trait_type": "Bottle #",
+        "value": "1481"
+      }
+    ],
+    "prompt": "an old wine bottle with a wax seal beside a crystal glass of red wine, candlelit cellar, rich tones, product photography, highly detailed"
+  },
+  {
+    "name": "Château Krug 2001",
+    "category": "Wine",
+    "description": "A rare cellar-aged vintage with impeccable provenance.",
+    "attributes": [
+      {
+        "trait_type": "Vintage",
+        "value": 2001,
+        "display_type": "number"
+      },
+      {
+        "trait_type": "Region",
+        "value": "Piedmont"
+      },
+      {
+        "trait_type": "Producer",
+        "value": "Krug"
+      },
+      {
+        "trait_type": "Bottle #",
+        "value": "1518"
+      }
+    ],
+    "prompt": "a premium wine bottle resting on slate with scattered grapes and a corkscrew, moody studio lighting, highly detailed"
+  },
+  {
+    "name": "Tranquil harbor at dawn",
+    "category": "Painting",
+    "description": "A impressionist masterwork in oils.",
+    "attributes": [
+      {
+        "trait_type": "Artist",
+        "value": "E. Moreau"
+      },
+      {
+        "trait_type": "Medium",
+        "value": "Oil on canvas"
+      },
+      {
+        "trait_type": "Style",
+        "value": "Impressionist"
+      },
+      {
+        "trait_type": "Year",
+        "value": 1700,
+        "display_type": "number"
+      }
+    ],
+    "prompt": "a Impressionist oil painting of a tranquil harbor at dawn, visible brushstrokes, ornate gilded frame on a museum wall, masterpiece, highly detailed"
+  },
+  {
+    "name": "Vase of sunflowers",
+    "category": "Painting",
+    "description": "A baroque masterwork in oils.",
+    "attributes": [
+      {
+        "trait_type": "Artist",
+        "value": "L. Bianchi"
+      },
+      {
+        "trait_type": "Medium",
+        "value": "Oil on canvas"
+      },
+      {
+        "trait_type": "Style",
+        "value": "Baroque"
+      },
+      {
+        "trait_type": "Year",
+        "value": 1723,
+        "display_type": "number"
+      }
+    ],
+    "prompt": "a Baroque oil painting of a vase of sunflowers, visible brushstrokes, ornate gilded frame on a museum wall, masterpiece, highly detailed"
+  },
+  {
+    "name": "Misty forest path",
+    "category": "Painting",
+    "description": "A renaissance masterwork in oils.",
+    "attributes": [
+      {
+        "trait_type": "Artist",
+        "value": "A. Sørensen"
+      },
+      {
+        "trait_type": "Medium",
+        "value": "Oil on canvas"
+      },
+      {
+        "trait_type": "Style",
+        "value": "Renaissance"
+      },
+      {
+        "trait_type": "Year",
+        "value": 1746,
+        "display_type": "number"
+      }
+    ],
+    "prompt": "a Renaissance oil painting of a misty forest path, visible brushstrokes, ornate gilded frame on a museum wall, masterpiece, highly detailed"
+  },
+  {
+    "name": "Noble portrait",
+    "category": "Painting",
+    "description": "A romantic masterwork in oils.",
+    "attributes": [
+      {
+        "trait_type": "Artist",
+        "value": "H. Tanaka"
+      },
+      {
+        "trait_type": "Medium",
+        "value": "Oil on canvas"
+      },
+      {
+        "trait_type": "Style",
+        "value": "Romantic"
+      },
+      {
+        "trait_type": "Year",
+        "value": 1769,
+        "display_type": "number"
+      }
+    ],
+    "prompt": "a Romantic oil painting of a noble portrait, visible brushstrokes, ornate gilded frame on a museum wall, masterpiece, highly detailed"
+  },
+  {
+    "name": "Stormy seascape",
+    "category": "Painting",
+    "description": "A post-impressionist masterwork in oils.",
+    "attributes": [
+      {
+        "trait_type": "Artist",
+        "value": "P. Laurent"
+      },
+      {
+        "trait_type": "Medium",
+        "value": "Oil on canvas"
+      },
+      {
+        "trait_type": "Style",
+        "value": "Post-Impressionist"
+      },
+      {
+        "trait_type": "Year",
+        "value": 1792,
+        "display_type": "number"
+      }
+    ],
+    "prompt": "a Post-Impressionist oil painting of a stormy seascape, visible brushstrokes, ornate gilded frame on a museum wall, masterpiece, highly detailed"
+  },
+  {
+    "name": "Quiet village square",
+    "category": "Painting",
+    "description": "A surrealist masterwork in oils.",
+    "attributes": [
+      {
+        "trait_type": "Artist",
+        "value": "M. Costa"
+      },
+      {
+        "trait_type": "Medium",
+        "value": "Oil on canvas"
+      },
+      {
+        "trait_type": "Style",
+        "value": "Surrealist"
+      },
+      {
+        "trait_type": "Year",
+        "value": 1815,
+        "display_type": "number"
+      }
+    ],
+    "prompt": "a Surrealist oil painting of a quiet village square, visible brushstrokes, ornate gilded frame on a museum wall, masterpiece, highly detailed"
+  },
+  {
+    "name": "Moonlit river",
+    "category": "Painting",
+    "description": "A expressionist masterwork in oils.",
+    "attributes": [
+      {
+        "trait_type": "Artist",
+        "value": "R. Adler"
+      },
+      {
+        "trait_type": "Medium",
+        "value": "Oil on canvas"
+      },
+      {
+        "trait_type": "Style",
+        "value": "Expressionist"
+      },
+      {
+        "trait_type": "Year",
+        "value": 1838,
+        "display_type": "number"
+      }
+    ],
+    "prompt": "a Expressionist oil painting of a moonlit river, visible brushstrokes, ornate gilded frame on a museum wall, masterpiece, highly detailed"
+  },
+  {
+    "name": "Still life with fruit",
+    "category": "Painting",
+    "description": "A realist masterwork in oils.",
+    "attributes": [
+      {
+        "trait_type": "Artist",
+        "value": "V. Petrov"
+      },
+      {
+        "trait_type": "Medium",
+        "value": "Oil on canvas"
+      },
+      {
+        "trait_type": "Style",
+        "value": "Realist"
+      },
+      {
+        "trait_type": "Year",
+        "value": 1861,
+        "display_type": "number"
+      }
+    ],
+    "prompt": "a Realist oil painting of a still life with fruit, visible brushstrokes, ornate gilded frame on a museum wall, masterpiece, highly detailed"
+  },
+  {
+    "name": "Tranquil harbor at dawn",
+    "category": "Painting",
+    "description": "A impressionist masterwork in oils.",
+    "attributes": [
+      {
+        "trait_type": "Artist",
+        "value": "E. Moreau"
+      },
+      {
+        "trait_type": "Medium",
+        "value": "Oil on canvas"
+      },
+      {
+        "trait_type": "Style",
+        "value": "Impressionist"
+      },
+      {
+        "trait_type": "Year",
+        "value": 1884,
+        "display_type": "number"
+      }
+    ],
+    "prompt": "a Impressionist oil painting of a tranquil harbor at dawn, visible brushstrokes, ornate gilded frame on a museum wall, masterpiece, highly detailed"
+  },
+  {
+    "name": "Vase of sunflowers",
+    "category": "Painting",
+    "description": "A baroque masterwork in oils.",
+    "attributes": [
+      {
+        "trait_type": "Artist",
+        "value": "L. Bianchi"
+      },
+      {
+        "trait_type": "Medium",
+        "value": "Oil on canvas"
+      },
+      {
+        "trait_type": "Style",
+        "value": "Baroque"
+      },
+      {
+        "trait_type": "Year",
+        "value": 1907,
+        "display_type": "number"
+      }
+    ],
+    "prompt": "a Baroque oil painting of a vase of sunflowers, visible brushstrokes, ornate gilded frame on a museum wall, masterpiece, highly detailed"
+  },
+  {
+    "name": "Misty forest path",
+    "category": "Painting",
+    "description": "A renaissance masterwork in oils.",
+    "attributes": [
+      {
+        "trait_type": "Artist",
+        "value": "A. Sørensen"
+      },
+      {
+        "trait_type": "Medium",
+        "value": "Oil on canvas"
+      },
+      {
+        "trait_type": "Style",
+        "value": "Renaissance"
+      },
+      {
+        "trait_type": "Year",
+        "value": 1930,
+        "display_type": "number"
+      }
+    ],
+    "prompt": "a Renaissance oil painting of a misty forest path, visible brushstrokes, ornate gilded frame on a museum wall, masterpiece, highly detailed"
+  },
+  {
+    "name": "Noble portrait",
+    "category": "Painting",
+    "description": "A romantic masterwork in oils.",
+    "attributes": [
+      {
+        "trait_type": "Artist",
+        "value": "H. Tanaka"
+      },
+      {
+        "trait_type": "Medium",
+        "value": "Oil on canvas"
+      },
+      {
+        "trait_type": "Style",
+        "value": "Romantic"
+      },
+      {
+        "trait_type": "Year",
+        "value": 1953,
+        "display_type": "number"
+      }
+    ],
+    "prompt": "a Romantic oil painting of a noble portrait, visible brushstrokes, ornate gilded frame on a museum wall, masterpiece, highly detailed"
+  },
+  {
+    "name": "Stormy seascape",
+    "category": "Painting",
+    "description": "A post-impressionist masterwork in oils.",
+    "attributes": [
+      {
+        "trait_type": "Artist",
+        "value": "P. Laurent"
+      },
+      {
+        "trait_type": "Medium",
+        "value": "Oil on canvas"
+      },
+      {
+        "trait_type": "Style",
+        "value": "Post-Impressionist"
+      },
+      {
+        "trait_type": "Year",
+        "value": 1976,
+        "display_type": "number"
+      }
+    ],
+    "prompt": "a Post-Impressionist oil painting of a stormy seascape, visible brushstrokes, ornate gilded frame on a museum wall, masterpiece, highly detailed"
+  },
+  {
+    "name": "Quiet village square",
+    "category": "Painting",
+    "description": "A surrealist masterwork in oils.",
+    "attributes": [
+      {
+        "trait_type": "Artist",
+        "value": "M. Costa"
+      },
+      {
+        "trait_type": "Medium",
+        "value": "Oil on canvas"
+      },
+      {
+        "trait_type": "Style",
+        "value": "Surrealist"
+      },
+      {
+        "trait_type": "Year",
+        "value": 1999,
+        "display_type": "number"
+      }
+    ],
+    "prompt": "a Surrealist oil painting of a quiet village square, visible brushstrokes, ornate gilded frame on a museum wall, masterpiece, highly detailed"
+  },
+  {
+    "name": "Moonlit river",
+    "category": "Painting",
+    "description": "A expressionist masterwork in oils.",
+    "attributes": [
+      {
+        "trait_type": "Artist",
+        "value": "R. Adler"
+      },
+      {
+        "trait_type": "Medium",
+        "value": "Oil on canvas"
+      },
+      {
+        "trait_type": "Style",
+        "value": "Expressionist"
+      },
+      {
+        "trait_type": "Year",
+        "value": 1722,
+        "display_type": "number"
+      }
+    ],
+    "prompt": "a Expressionist oil painting of a moonlit river, visible brushstrokes, ornate gilded frame on a museum wall, masterpiece, highly detailed"
+  },
+  {
+    "name": "Red barn in a golden autumn field at sunset",
+    "category": "Farm",
+    "description": "A slice of pastoral country life.",
+    "attributes": [
+      {
+        "trait_type": "Type",
+        "value": "Landmark"
+      },
+      {
+        "trait_type": "Origin",
+        "value": "Vermont"
+      },
+      {
+        "trait_type": "Season",
+        "value": "Spring"
+      },
+      {
+        "trait_type": "Grade",
+        "value": "Prime"
+      }
+    ],
+    "prompt": "a red barn in a golden autumn field at sunset, warm golden hour sunlight, rustic countryside, rich colors, photographic, highly detailed, idyllic"
+  },
+  {
+    "name": "Basket of fresh heirloom vegetables on a farmhouse table",
+    "category": "Farm",
+    "description": "A slice of pastoral country life.",
+    "attributes": [
+      {
+        "trait_type": "Type",
+        "value": "Produce"
+      },
+      {
+        "trait_type": "Origin",
+        "value": "Tuscany"
+      },
+      {
+        "trait_type": "Season",
+        "value": "Summer"
+      },
+      {
+        "trait_type": "Grade",
+        "value": "Prime"
+      }
+    ],
+    "prompt": "a basket of fresh heirloom vegetables on a farmhouse table, warm golden hour sunlight, rustic countryside, rich colors, photographic, highly detailed, idyllic"
+  },
+  {
+    "name": "Vast wheat field under a dramatic sky",
+    "category": "Farm",
+    "description": "A slice of pastoral country life.",
+    "attributes": [
+      {
+        "trait_type": "Type",
+        "value": "Cropland"
+      },
+      {
+        "trait_type": "Origin",
+        "value": "Provence"
+      },
+      {
+        "trait_type": "Season",
+        "value": "Autumn"
+      },
+      {
+        "trait_type": "Grade",
+        "value": "Prime"
+      }
+    ],
+    "prompt": "a vast wheat field under a dramatic sky, warm golden hour sunlight, rustic countryside, rich colors, photographic, highly detailed, idyllic"
+  },
+  {
+    "name": "Restored vintage tractor in a green meadow",
+    "category": "Farm",
+    "description": "A slice of pastoral country life.",
+    "attributes": [
+      {
+        "trait_type": "Type",
+        "value": "Equipment"
+      },
+      {
+        "trait_type": "Origin",
+        "value": "Iowa"
+      },
+      {
+        "trait_type": "Season",
+        "value": "Winter"
+      },
+      {
+        "trait_type": "Grade",
+        "value": "Prime"
+      }
+    ],
+    "prompt": "a restored vintage tractor in a green meadow, warm golden hour sunlight, rustic countryside, rich colors, photographic, highly detailed, idyllic"
+  },
+  {
+    "name": "Free-range hens in a sunny farmyard",
+    "category": "Farm",
+    "description": "A slice of pastoral country life.",
+    "attributes": [
+      {
+        "trait_type": "Type",
+        "value": "Livestock"
+      },
+      {
+        "trait_type": "Origin",
+        "value": "Kansas"
+      },
+      {
+        "trait_type": "Season",
+        "value": "Spring"
+      },
+      {
+        "trait_type": "Grade",
+        "value": "Prime"
+      }
+    ],
+    "prompt": "free-range hens in a sunny farmyard, warm golden hour sunlight, rustic countryside, rich colors, photographic, highly detailed, idyllic"
+  },
+  {
+    "name": "Rows of grapevines in a vineyard at golden hour",
+    "category": "Farm",
+    "description": "A slice of pastoral country life.",
+    "attributes": [
+      {
+        "trait_type": "Type",
+        "value": "Landmark"
+      },
+      {
+        "trait_type": "Origin",
+        "value": "Vermont"
+      },
+      {
+        "trait_type": "Season",
+        "value": "Summer"
+      },
+      {
+        "trait_type": "Grade",
+        "value": "Prime"
+      }
+    ],
+    "prompt": "rows of grapevines in a vineyard at golden hour, warm golden hour sunlight, rustic countryside, rich colors, photographic, highly detailed, idyllic"
+  },
+  {
+    "name": "Rustic chicken coop beside a vegetable garden",
+    "category": "Farm",
+    "description": "A slice of pastoral country life.",
+    "attributes": [
+      {
+        "trait_type": "Type",
+        "value": "Produce"
+      },
+      {
+        "trait_type": "Origin",
+        "value": "Tuscany"
+      },
+      {
+        "trait_type": "Season",
+        "value": "Autumn"
+      },
+      {
+        "trait_type": "Grade",
+        "value": "Prime"
+      }
+    ],
+    "prompt": "a rustic chicken coop beside a vegetable garden, warm golden hour sunlight, rustic countryside, rich colors, photographic, highly detailed, idyllic"
+  },
+  {
+    "name": "Flock of sheep grazing on rolling hills",
+    "category": "Farm",
+    "description": "A slice of pastoral country life.",
+    "attributes": [
+      {
+        "trait_type": "Type",
+        "value": "Cropland"
+      },
+      {
+        "trait_type": "Origin",
+        "value": "Provence"
+      },
+      {
+        "trait_type": "Season",
+        "value": "Winter"
+      },
+      {
+        "trait_type": "Grade",
+        "value": "Prime"
+      }
+    ],
+    "prompt": "a flock of sheep grazing on rolling hills, warm golden hour sunlight, rustic countryside, rich colors, photographic, highly detailed, idyllic"
+  },
+  {
+    "name": "Sunflower field stretching to the horizon",
+    "category": "Farm",
+    "description": "A slice of pastoral country life.",
+    "attributes": [
+      {
+        "trait_type": "Type",
+        "value": "Equipment"
+      },
+      {
+        "trait_type": "Origin",
+        "value": "Iowa"
+      },
+      {
+        "trait_type": "Season",
+        "value": "Spring"
+      },
+      {
+        "trait_type": "Grade",
+        "value": "Prime"
+      }
+    ],
+    "prompt": "a sunflower field stretching to the horizon, warm golden hour sunlight, rustic countryside, rich colors, photographic, highly detailed, idyllic"
+  },
+  {
+    "name": "Wooden cart full of pumpkins at harvest",
+    "category": "Farm",
+    "description": "A slice of pastoral country life.",
+    "attributes": [
+      {
+        "trait_type": "Type",
+        "value": "Livestock"
+      },
+      {
+        "trait_type": "Origin",
+        "value": "Kansas"
+      },
+      {
+        "trait_type": "Season",
+        "value": "Summer"
+      },
+      {
+        "trait_type": "Grade",
+        "value": "Prime"
+      }
+    ],
+    "prompt": "a wooden cart full of pumpkins at harvest, warm golden hour sunlight, rustic countryside, rich colors, photographic, highly detailed, idyllic"
+  },
+  {
+    "name": "Dairy cow in a lush green pasture",
+    "category": "Farm",
+    "description": "A slice of pastoral country life.",
+    "attributes": [
+      {
+        "trait_type": "Type",
+        "value": "Landmark"
+      },
+      {
+        "trait_type": "Origin",
+        "value": "Vermont"
+      },
+      {
+        "trait_type": "Season",
+        "value": "Autumn"
+      },
+      {
+        "trait_type": "Grade",
+        "value": "Prime"
+      }
+    ],
+    "prompt": "a dairy cow in a lush green pasture, warm golden hour sunlight, rustic countryside, rich colors, photographic, highly detailed, idyllic"
+  },
+  {
+    "name": "Lavender field in bloom at dusk",
+    "category": "Farm",
+    "description": "A slice of pastoral country life.",
+    "attributes": [
+      {
+        "trait_type": "Type",
+        "value": "Produce"
+      },
+      {
+        "trait_type": "Origin",
+        "value": "Tuscany"
+      },
+      {
+        "trait_type": "Season",
+        "value": "Winter"
+      },
+      {
+        "trait_type": "Grade",
+        "value": "Prime"
+      }
+    ],
+    "prompt": "a lavender field in bloom at dusk, warm golden hour sunlight, rustic countryside, rich colors, photographic, highly detailed, idyllic"
+  },
+  {
+    "name": "Orchard heavy with ripe apples",
+    "category": "Farm",
+    "description": "A slice of pastoral country life.",
+    "attributes": [
+      {
+        "trait_type": "Type",
+        "value": "Cropland"
+      },
+      {
+        "trait_type": "Origin",
+        "value": "Provence"
+      },
+      {
+        "trait_type": "Season",
+        "value": "Spring"
+      },
+      {
+        "trait_type": "Grade",
+        "value": "Prime"
+      }
+    ],
+    "prompt": "an orchard heavy with ripe apples, warm golden hour sunlight, rustic countryside, rich colors, photographic, highly detailed, idyllic"
+  },
+  {
+    "name": "Country farmhouse with a wraparound porch",
+    "category": "Farm",
+    "description": "A slice of pastoral country life.",
+    "attributes": [
+      {
+        "trait_type": "Type",
+        "value": "Equipment"
+      },
+      {
+        "trait_type": "Origin",
+        "value": "Iowa"
+      },
+      {
+        "trait_type": "Season",
+        "value": "Summer"
+      },
+      {
+        "trait_type": "Grade",
+        "value": "Prime"
+      }
+    ],
+    "prompt": "a country farmhouse with a wraparound porch, warm golden hour sunlight, rustic countryside, rich colors, photographic, highly detailed, idyllic"
+  },
+  {
+    "name": "Barn cat sitting on a hay bale",
+    "category": "Farm",
+    "description": "A slice of pastoral country life.",
+    "attributes": [
+      {
+        "trait_type": "Type",
+        "value": "Livestock"
+      },
+      {
+        "trait_type": "Origin",
+        "value": "Kansas"
+      },
+      {
+        "trait_type": "Season",
+        "value": "Autumn"
+      },
+      {
+        "trait_type": "Grade",
+        "value": "Prime"
+      }
+    ],
+    "prompt": "a barn cat sitting on a hay bale, warm golden hour sunlight, rustic countryside, rich colors, photographic, highly detailed, idyllic"
+  },
+  {
+    "name": "Fire Beast #100",
+    "category": "Card",
+    "description": "A holographic collectible monster card.",
+    "attributes": [
+      {
+        "trait_type": "Type",
+        "value": "Fire"
+      },
+      {
+        "trait_type": "Rarity",
+        "value": "Holo Rare"
+      },
+      {
+        "trait_type": "HP",
+        "value": 120,
+        "display_type": "number"
+      },
+      {
+        "trait_type": "Set",
+        "value": "Base Set"
+      }
+    ],
+    "prompt": "a holographic collectible trading card illustration of a fierce orange dragon breathing fire, dynamic action pose, vibrant fantasy art, foil shine, ornate card border, highly detailed"
+  },
+  {
+    "name": "Electric Beast #101",
+    "category": "Card",
+    "description": "A holographic collectible monster card.",
+    "attributes": [
+      {
+        "trait_type": "Type",
+        "value": "Electric"
+      },
+      {
+        "trait_type": "Rarity",
+        "value": "Rare"
+      },
+      {
+        "trait_type": "HP",
+        "value": 60,
+        "display_type": "number"
+      },
+      {
+        "trait_type": "Set",
+        "value": "Jungle"
+      }
+    ],
+    "prompt": "a holographic collectible trading card illustration of a small electric yellow mouse creature, dynamic action pose, vibrant fantasy art, foil shine, ornate card border, highly detailed"
+  },
+  {
+    "name": "Water Beast #102",
+    "category": "Card",
+    "description": "A holographic collectible monster card.",
+    "attributes": [
+      {
+        "trait_type": "Type",
+        "value": "Water"
+      },
+      {
+        "trait_type": "Rarity",
+        "value": "Holo Rare"
+      },
+      {
+        "trait_type": "HP",
+        "value": 100,
+        "display_type": "number"
+      },
+      {
+        "trait_type": "Set",
+        "value": "Fossil"
+      }
+    ],
+    "prompt": "a holographic collectible trading card illustration of a giant blue turtle with water cannons, dynamic action pose, vibrant fantasy art, foil shine, ornate card border, highly detailed"
+  },
+  {
+    "name": "Psychic Beast #103",
+    "category": "Card",
+    "description": "A holographic collectible monster card.",
+    "attributes": [
+      {
+        "trait_type": "Type",
+        "value": "Psychic"
+      },
+      {
+        "trait_type": "Rarity",
+        "value": "Ultra Rare"
+      },
+      {
+        "trait_type": "HP",
+        "value": 130,
+        "display_type": "number"
+      },
+      {
+        "trait_type": "Set",
+        "value": "Legendary"
+      }
+    ],
+    "prompt": "a holographic collectible trading card illustration of a psychic feline humanoid glowing purple, dynamic action pose, vibrant fantasy art, foil shine, ornate card border, highly detailed"
+  },
+  {
+    "name": "Ghost Beast #104",
+    "category": "Card",
+    "description": "A holographic collectible monster card.",
+    "attributes": [
+      {
+        "trait_type": "Type",
+        "value": "Ghost"
+      },
+      {
+        "trait_type": "Rarity",
+        "value": "Rare"
+      },
+      {
+        "trait_type": "HP",
+        "value": 80,
+        "display_type": "number"
+      },
+      {
+        "trait_type": "Set",
+        "value": "Neo Genesis"
+      }
+    ],
+    "prompt": "a holographic collectible trading card illustration of a mischievous purple ghost with a grin, dynamic action pose, vibrant fantasy art, foil shine, ornate card border, highly detailed"
+  },
+  {
+    "name": "Normal Beast #105",
+    "category": "Card",
+    "description": "A holographic collectible monster card.",
+    "attributes": [
+      {
+        "trait_type": "Type",
+        "value": "Normal"
+      },
+      {
+        "trait_type": "Rarity",
+        "value": "Rare"
+      },
+      {
+        "trait_type": "HP",
+        "value": 90,
+        "display_type": "number"
+      },
+      {
+        "trait_type": "Set",
+        "value": "Base Set"
+      }
+    ],
+    "prompt": "a holographic collectible trading card illustration of a giant sleepy bear-like creature, dynamic action pose, vibrant fantasy art, foil shine, ornate card border, highly detailed"
+  },
+  {
+    "name": "Water Beast #106",
+    "category": "Card",
+    "description": "A holographic collectible monster card.",
+    "attributes": [
+      {
+        "trait_type": "Type",
+        "value": "Water"
+      },
+      {
+        "trait_type": "Rarity",
+        "value": "Holo Rare"
+      },
+      {
+        "trait_type": "HP",
+        "value": 100,
+        "display_type": "number"
+      },
+      {
+        "trait_type": "Set",
+        "value": "Jungle"
+      }
+    ],
+    "prompt": "a holographic collectible trading card illustration of a blue serpentine sea dragon roaring, dynamic action pose, vibrant fantasy art, foil shine, ornate card border, highly detailed"
+  },
+  {
+    "name": "Grass Beast #107",
+    "category": "Card",
+    "description": "A holographic collectible monster card.",
+    "attributes": [
+      {
+        "trait_type": "Type",
+        "value": "Grass"
+      },
+      {
+        "trait_type": "Rarity",
+        "value": "Rare"
+      },
+      {
+        "trait_type": "HP",
+        "value": 80,
+        "display_type": "number"
+      },
+      {
+        "trait_type": "Set",
+        "value": "Fossil"
+      }
+    ],
+    "prompt": "a holographic collectible trading card illustration of a leafy green dinosaur with a plant bulb, dynamic action pose, vibrant fantasy art, foil shine, ornate card border, highly detailed"
+  },
+  {
+    "name": "Fire Beast #108",
+    "category": "Card",
+    "description": "A holographic collectible monster card.",
+    "attributes": [
+      {
+        "trait_type": "Type",
+        "value": "Fire"
+      },
+      {
+        "trait_type": "Rarity",
+        "value": "Rare"
+      },
+      {
+        "trait_type": "HP",
+        "value": 90,
+        "display_type": "number"
+      },
+      {
+        "trait_type": "Set",
+        "value": "Legendary"
+      }
+    ],
+    "prompt": "a holographic collectible trading card illustration of a fiery horse with a flaming mane, dynamic action pose, vibrant fantasy art, foil shine, ornate card border, highly detailed"
+  },
+  {
+    "name": "Rock Beast #109",
+    "category": "Card",
+    "description": "A holographic collectible monster card.",
+    "attributes": [
+      {
+        "trait_type": "Type",
+        "value": "Rock"
+      },
+      {
+        "trait_type": "Rarity",
+        "value": "Holo Rare"
+      },
+      {
+        "trait_type": "HP",
+        "value": 110,
+        "display_type": "number"
+      },
+      {
+        "trait_type": "Set",
+        "value": "Neo Genesis"
+      }
+    ],
+    "prompt": "a holographic collectible trading card illustration of a rock golem with crystal armor, dynamic action pose, vibrant fantasy art, foil shine, ornate card border, highly detailed"
+  },
+  {
+    "name": "Fire Beast #110",
+    "category": "Card",
+    "description": "A holographic collectible monster card.",
+    "attributes": [
+      {
+        "trait_type": "Type",
+        "value": "Fire"
+      },
+      {
+        "trait_type": "Rarity",
+        "value": "Ultra Rare"
+      },
+      {
+        "trait_type": "HP",
+        "value": 120,
+        "display_type": "number"
+      },
+      {
+        "trait_type": "Set",
+        "value": "Base Set"
+      }
+    ],
+    "prompt": "a holographic collectible trading card illustration of a winged bird creature wreathed in flame, dynamic action pose, vibrant fantasy art, foil shine, ornate card border, highly detailed"
+  },
+  {
+    "name": "Ice Beast #111",
+    "category": "Card",
+    "description": "A holographic collectible monster card.",
+    "attributes": [
+      {
+        "trait_type": "Type",
+        "value": "Ice"
+      },
+      {
+        "trait_type": "Rarity",
+        "value": "Holo Rare"
+      },
+      {
+        "trait_type": "HP",
+        "value": 90,
+        "display_type": "number"
+      },
+      {
+        "trait_type": "Set",
+        "value": "Jungle"
+      }
+    ],
+    "prompt": "a holographic collectible trading card illustration of an icy fox spirit with frost aura, dynamic action pose, vibrant fantasy art, foil shine, ornate card border, highly detailed"
+  },
+  {
+    "name": "Steel Beast #112",
+    "category": "Card",
+    "description": "A holographic collectible monster card.",
+    "attributes": [
+      {
+        "trait_type": "Type",
+        "value": "Steel"
+      },
+      {
+        "trait_type": "Rarity",
+        "value": "Rare"
+      },
+      {
+        "trait_type": "HP",
+        "value": 100,
+        "display_type": "number"
+      },
+      {
+        "trait_type": "Set",
+        "value": "Fossil"
+      }
+    ],
+    "prompt": "a holographic collectible trading card illustration of a metallic steel scorpion creature, dynamic action pose, vibrant fantasy art, foil shine, ornate card border, highly detailed"
+  },
+  {
+    "name": "Fairy Beast #113",
+    "category": "Card",
+    "description": "A holographic collectible monster card.",
+    "attributes": [
+      {
+        "trait_type": "Type",
+        "value": "Fairy"
+      },
+      {
+        "trait_type": "Rarity",
+        "value": "Ultra Rare"
+      },
+      {
+        "trait_type": "HP",
+        "value": 110,
+        "display_type": "number"
+      },
+      {
+        "trait_type": "Set",
+        "value": "Legendary"
+      }
+    ],
+    "prompt": "a holographic collectible trading card illustration of a fairy creature glowing with pink light, dynamic action pose, vibrant fantasy art, foil shine, ornate card border, highly detailed"
+  },
+  {
+    "name": "Dark Beast #114",
+    "category": "Card",
+    "description": "A holographic collectible monster card.",
+    "attributes": [
+      {
+        "trait_type": "Type",
+        "value": "Dark"
+      },
+      {
+        "trait_type": "Rarity",
+        "value": "Holo Rare"
+      },
+      {
+        "trait_type": "HP",
+        "value": 100,
+        "display_type": "number"
+      },
+      {
+        "trait_type": "Set",
+        "value": "Neo Genesis"
+      }
+    ],
+    "prompt": "a holographic collectible trading card illustration of a shadowy wolf with glowing red eyes, dynamic action pose, vibrant fantasy art, foil shine, ornate card border, highly detailed"
+  },
+  {
+    "name": "Cyberpunk futuristic city skyline",
+    "category": "Art",
+    "description": "A 1-of-1 digital artwork.",
+    "attributes": [
+      {
+        "trait_type": "Artist",
+        "value": "A. Rivera"
+      },
+      {
+        "trait_type": "Edition",
+        "value": "1 of 1"
+      },
+      {
+        "trait_type": "Medium",
+        "value": "Generative / Digital"
+      },
+      {
+        "trait_type": "Year",
+        "value": 2024,
+        "display_type": "number"
+      }
+    ],
+    "prompt": "a Cyberpunk digital artwork of a futuristic city skyline, vibrant colors, dramatic lighting, highly detailed, trending digital art"
+  },
+  {
+    "name": "Vaporwave lone astronaut",
+    "category": "Art",
+    "description": "A 1-of-1 digital artwork.",
+    "attributes": [
+      {
+        "trait_type": "Artist",
+        "value": "K. Devi"
+      },
+      {
+        "trait_type": "Edition",
+        "value": "1 of 1"
+      },
+      {
+        "trait_type": "Medium",
+        "value": "Generative / Digital"
+      },
+      {
+        "trait_type": "Year",
+        "value": 2025,
+        "display_type": "number"
+      }
+    ],
+    "prompt": "a Vaporwave digital artwork of a lone astronaut, vibrant colors, dramatic lighting, highly detailed, trending digital art"
+  },
+  {
+    "name": "Low-poly koi pond",
+    "category": "Art",
+    "description": "A 1-of-1 digital artwork.",
+    "attributes": [
+      {
+        "trait_type": "Artist",
+        "value": "Nø.7"
+      },
+      {
+        "trait_type": "Edition",
+        "value": "1 of 1"
+      },
+      {
+        "trait_type": "Medium",
+        "value": "Generative / Digital"
+      },
+      {
+        "trait_type": "Year",
+        "value": 2026,
+        "display_type": "number"
+      }
+    ],
+    "prompt": "a Low-poly digital artwork of a koi pond, vibrant colors, dramatic lighting, highly detailed, trending digital art"
+  },
+  {
+    "name": "Abstract geometric mountain range",
+    "category": "Art",
+    "description": "A 1-of-1 digital artwork.",
+    "attributes": [
+      {
+        "trait_type": "Artist",
+        "value": "Studio Lumen"
+      },
+      {
+        "trait_type": "Edition",
+        "value": "1 of 1"
+      },
+      {
+        "trait_type": "Medium",
+        "value": "Generative / Digital"
+      },
+      {
+        "trait_type": "Year",
+        "value": 2024,
+        "display_type": "number"
+      }
+    ],
+    "prompt": "a Abstract geometric digital artwork of a mountain range, vibrant colors, dramatic lighting, highly detailed, trending digital art"
+  },
+  {
+    "name": "Surreal dreamscape abstract portrait",
+    "category": "Art",
+    "description": "A 1-of-1 digital artwork.",
+    "attributes": [
+      {
+        "trait_type": "Artist",
+        "value": "A. Rivera"
+      },
+      {
+        "trait_type": "Edition",
+        "value": "1 of 1"
+      },
+      {
+        "trait_type": "Medium",
+        "value": "Generative / Digital"
+      },
+      {
+        "trait_type": "Year",
+        "value": 2025,
+        "display_type": "number"
+      }
+    ],
+    "prompt": "a Surreal dreamscape digital artwork of an abstract portrait, vibrant colors, dramatic lighting, highly detailed, trending digital art"
+  },
+  {
+    "name": "Glitch cosmic nebula",
+    "category": "Art",
+    "description": "A 1-of-1 digital artwork.",
+    "attributes": [
+      {
+        "trait_type": "Artist",
+        "value": "K. Devi"
+      },
+      {
+        "trait_type": "Edition",
+        "value": "1 of 1"
+      },
+      {
+        "trait_type": "Medium",
+        "value": "Generative / Digital"
+      },
+      {
+        "trait_type": "Year",
+        "value": 2026,
+        "display_type": "number"
+      }
+    ],
+    "prompt": "a Glitch digital artwork of a cosmic nebula, vibrant colors, dramatic lighting, highly detailed, trending digital art"
+  },
+  {
+    "name": "Neon noir samurai silhouette",
+    "category": "Art",
+    "description": "A 1-of-1 digital artwork.",
+    "attributes": [
+      {
+        "trait_type": "Artist",
+        "value": "Nø.7"
+      },
+      {
+        "trait_type": "Edition",
+        "value": "1 of 1"
+      },
+      {
+        "trait_type": "Medium",
+        "value": "Generative / Digital"
+      },
+      {
+        "trait_type": "Year",
+        "value": 2024,
+        "display_type": "number"
+      }
+    ],
+    "prompt": "a Neon noir digital artwork of a samurai silhouette, vibrant colors, dramatic lighting, highly detailed, trending digital art"
+  },
+  {
+    "name": "Generative fractal blooming flower",
+    "category": "Art",
+    "description": "A 1-of-1 digital artwork.",
+    "attributes": [
+      {
+        "trait_type": "Artist",
+        "value": "Studio Lumen"
+      },
+      {
+        "trait_type": "Edition",
+        "value": "1 of 1"
+      },
+      {
+        "trait_type": "Medium",
+        "value": "Generative / Digital"
+      },
+      {
+        "trait_type": "Year",
+        "value": 2025,
+        "display_type": "number"
+      }
+    ],
+    "prompt": "a Generative fractal digital artwork of a blooming flower, vibrant colors, dramatic lighting, highly detailed, trending digital art"
+  },
+  {
+    "name": "Cyberpunk futuristic city skyline",
+    "category": "Art",
+    "description": "A 1-of-1 digital artwork.",
+    "attributes": [
+      {
+        "trait_type": "Artist",
+        "value": "A. Rivera"
+      },
+      {
+        "trait_type": "Edition",
+        "value": "1 of 1"
+      },
+      {
+        "trait_type": "Medium",
+        "value": "Generative / Digital"
+      },
+      {
+        "trait_type": "Year",
+        "value": 2026,
+        "display_type": "number"
+      }
+    ],
+    "prompt": "a Cyberpunk digital artwork of a futuristic city skyline, vibrant colors, dramatic lighting, highly detailed, trending digital art"
+  },
+  {
+    "name": "Vaporwave lone astronaut",
+    "category": "Art",
+    "description": "A 1-of-1 digital artwork.",
+    "attributes": [
+      {
+        "trait_type": "Artist",
+        "value": "K. Devi"
+      },
+      {
+        "trait_type": "Edition",
+        "value": "1 of 1"
+      },
+      {
+        "trait_type": "Medium",
+        "value": "Generative / Digital"
+      },
+      {
+        "trait_type": "Year",
+        "value": 2024,
+        "display_type": "number"
+      }
+    ],
+    "prompt": "a Vaporwave digital artwork of a lone astronaut, vibrant colors, dramatic lighting, highly detailed, trending digital art"
+  },
+  {
+    "name": "Low-poly koi pond",
+    "category": "Art",
+    "description": "A 1-of-1 digital artwork.",
+    "attributes": [
+      {
+        "trait_type": "Artist",
+        "value": "Nø.7"
+      },
+      {
+        "trait_type": "Edition",
+        "value": "1 of 1"
+      },
+      {
+        "trait_type": "Medium",
+        "value": "Generative / Digital"
+      },
+      {
+        "trait_type": "Year",
+        "value": 2025,
+        "display_type": "number"
+      }
+    ],
+    "prompt": "a Low-poly digital artwork of a koi pond, vibrant colors, dramatic lighting, highly detailed, trending digital art"
+  },
+  {
+    "name": "Abstract geometric mountain range",
+    "category": "Art",
+    "description": "A 1-of-1 digital artwork.",
+    "attributes": [
+      {
+        "trait_type": "Artist",
+        "value": "Studio Lumen"
+      },
+      {
+        "trait_type": "Edition",
+        "value": "1 of 1"
+      },
+      {
+        "trait_type": "Medium",
+        "value": "Generative / Digital"
+      },
+      {
+        "trait_type": "Year",
+        "value": 2026,
+        "display_type": "number"
+      }
+    ],
+    "prompt": "a Abstract geometric digital artwork of a mountain range, vibrant colors, dramatic lighting, highly detailed, trending digital art"
+  },
+  {
+    "name": "Surreal dreamscape abstract portrait",
+    "category": "Art",
+    "description": "A 1-of-1 digital artwork.",
+    "attributes": [
+      {
+        "trait_type": "Artist",
+        "value": "A. Rivera"
+      },
+      {
+        "trait_type": "Edition",
+        "value": "1 of 1"
+      },
+      {
+        "trait_type": "Medium",
+        "value": "Generative / Digital"
+      },
+      {
+        "trait_type": "Year",
+        "value": 2024,
+        "display_type": "number"
+      }
+    ],
+    "prompt": "a Surreal dreamscape digital artwork of an abstract portrait, vibrant colors, dramatic lighting, highly detailed, trending digital art"
+  },
+  {
+    "name": "Glitch cosmic nebula",
+    "category": "Art",
+    "description": "A 1-of-1 digital artwork.",
+    "attributes": [
+      {
+        "trait_type": "Artist",
+        "value": "K. Devi"
+      },
+      {
+        "trait_type": "Edition",
+        "value": "1 of 1"
+      },
+      {
+        "trait_type": "Medium",
+        "value": "Generative / Digital"
+      },
+      {
+        "trait_type": "Year",
+        "value": 2025,
+        "display_type": "number"
+      }
+    ],
+    "prompt": "a Glitch digital artwork of a cosmic nebula, vibrant colors, dramatic lighting, highly detailed, trending digital art"
+  },
+  {
+    "name": "Neon noir samurai silhouette",
+    "category": "Art",
+    "description": "A 1-of-1 digital artwork.",
+    "attributes": [
+      {
+        "trait_type": "Artist",
+        "value": "Nø.7"
+      },
+      {
+        "trait_type": "Edition",
+        "value": "1 of 1"
+      },
+      {
+        "trait_type": "Medium",
+        "value": "Generative / Digital"
+      },
+      {
+        "trait_type": "Year",
+        "value": 2026,
+        "display_type": "number"
+      }
+    ],
+    "prompt": "a Neon noir digital artwork of a samurai silhouette, vibrant colors, dramatic lighting, highly detailed, trending digital art"
+  },
+  {
+    "name": "Qing Dynasty Porcelain vase",
+    "category": "Antique",
+    "description": "An authenticated antique with documented provenance.",
+    "attributes": [
+      {
+        "trait_type": "Era",
+        "value": "Qing Dynasty"
+      },
+      {
+        "trait_type": "Origin",
+        "value": "China"
+      },
+      {
+        "trait_type": "Material",
+        "value": "Porcelain"
+      },
+      {
+        "trait_type": "Grading",
+        "value": "Certified"
+      }
+    ],
+    "prompt": "an antique porcelain porcelain vase, Qing Dynasty China artifact, weathered patina, displayed on a museum pedestal with soft spotlight, dark background, highly detailed"
+  },
+  {
+    "name": "Ming Dynasty Bronze mirror",
+    "category": "Antique",
+    "description": "An authenticated antique with documented provenance.",
+    "attributes": [
+      {
+        "trait_type": "Era",
+        "value": "Ming Dynasty"
+      },
+      {
+        "trait_type": "Origin",
+        "value": "China"
+      },
+      {
+        "trait_type": "Material",
+        "value": "Bronze"
+      },
+      {
+        "trait_type": "Grading",
+        "value": "Certified"
+      }
+    ],
+    "prompt": "an antique bronze bronze mirror, Ming Dynasty China artifact, weathered patina, displayed on a museum pedestal with soft spotlight, dark background, highly detailed"
+  },
+  {
+    "name": "Roman Empire Gold aureus coin",
+    "category": "Antique",
+    "description": "An authenticated antique with documented provenance.",
+    "attributes": [
+      {
+        "trait_type": "Era",
+        "value": "Roman Empire"
+      },
+      {
+        "trait_type": "Origin",
+        "value": "Rome"
+      },
+      {
+        "trait_type": "Material",
+        "value": "Gold"
+      },
+      {
+        "trait_type": "Grading",
+        "value": "Certified"
+      }
+    ],
+    "prompt": "an antique gold gold aureus coin, Roman Empire Rome artifact, weathered patina, displayed on a museum pedestal with soft spotlight, dark background, highly detailed"
+  },
+  {
+    "name": "Han Dynasty Jade pendant",
+    "category": "Antique",
+    "description": "An authenticated antique with documented provenance.",
+    "attributes": [
+      {
+        "trait_type": "Era",
+        "value": "Han Dynasty"
+      },
+      {
+        "trait_type": "Origin",
+        "value": "China"
+      },
+      {
+        "trait_type": "Material",
+        "value": "Jade"
+      },
+      {
+        "trait_type": "Grading",
+        "value": "Certified"
+      }
+    ],
+    "prompt": "an antique jade jade pendant, Han Dynasty China artifact, weathered patina, displayed on a museum pedestal with soft spotlight, dark background, highly detailed"
+  },
+  {
+    "name": "Viking Age Silver brooch",
+    "category": "Antique",
+    "description": "An authenticated antique with documented provenance.",
+    "attributes": [
+      {
+        "trait_type": "Era",
+        "value": "Viking Age"
+      },
+      {
+        "trait_type": "Origin",
+        "value": "Scandinavia"
+      },
+      {
+        "trait_type": "Material",
+        "value": "Silver"
+      },
+      {
+        "trait_type": "Grading",
+        "value": "Certified"
+      }
+    ],
+    "prompt": "an antique silver silver brooch, Viking Age Scandinavia artifact, weathered patina, displayed on a museum pedestal with soft spotlight, dark background, highly detailed"
+  },
+  {
+    "name": "Ancient Greece Clay amphora",
+    "category": "Antique",
+    "description": "An authenticated antique with documented provenance.",
+    "attributes": [
+      {
+        "trait_type": "Era",
+        "value": "Ancient Greece"
+      },
+      {
+        "trait_type": "Origin",
+        "value": "Greece"
+      },
+      {
+        "trait_type": "Material",
+        "value": "Terracotta"
+      },
+      {
+        "trait_type": "Grading",
+        "value": "Certified"
+      }
+    ],
+    "prompt": "an antique terracotta clay amphora, Ancient Greece Greece artifact, weathered patina, displayed on a museum pedestal with soft spotlight, dark background, highly detailed"
+  },
+  {
+    "name": "New Kingdom Scarab amulet",
+    "category": "Antique",
+    "description": "An authenticated antique with documented provenance.",
+    "attributes": [
+      {
+        "trait_type": "Era",
+        "value": "New Kingdom"
+      },
+      {
+        "trait_type": "Origin",
+        "value": "Egypt"
+      },
+      {
+        "trait_type": "Material",
+        "value": "Faience"
+      },
+      {
+        "trait_type": "Grading",
+        "value": "Certified"
+      }
+    ],
+    "prompt": "an antique faience scarab amulet, New Kingdom Egypt artifact, weathered patina, displayed on a museum pedestal with soft spotlight, dark background, highly detailed"
+  },
+  {
+    "name": "Edo Period Iron katana",
+    "category": "Antique",
+    "description": "An authenticated antique with documented provenance.",
+    "attributes": [
+      {
+        "trait_type": "Era",
+        "value": "Edo Period"
+      },
+      {
+        "trait_type": "Origin",
+        "value": "Japan"
+      },
+      {
+        "trait_type": "Material",
+        "value": "Steel"
+      },
+      {
+        "trait_type": "Grading",
+        "value": "Certified"
+      }
+    ],
+    "prompt": "an antique steel iron katana, Edo Period Japan artifact, weathered patina, displayed on a museum pedestal with soft spotlight, dark background, highly detailed"
+  },
+  {
+    "name": "Edo Period Ivory netsuke",
+    "category": "Antique",
+    "description": "An authenticated antique with documented provenance.",
+    "attributes": [
+      {
+        "trait_type": "Era",
+        "value": "Edo Period"
+      },
+      {
+        "trait_type": "Origin",
+        "value": "Japan"
+      },
+      {
+        "trait_type": "Material",
+        "value": "Ivory"
+      },
+      {
+        "trait_type": "Grading",
+        "value": "Certified"
+      }
+    ],
+    "prompt": "an antique ivory ivory netsuke, Edo Period Japan artifact, weathered patina, displayed on a museum pedestal with soft spotlight, dark background, highly detailed"
+  },
+  {
+    "name": "Ming Dynasty Bronze censer",
+    "category": "Antique",
+    "description": "An authenticated antique with documented provenance.",
+    "attributes": [
+      {
+        "trait_type": "Era",
+        "value": "Ming Dynasty"
+      },
+      {
+        "trait_type": "Origin",
+        "value": "China"
+      },
+      {
+        "trait_type": "Material",
+        "value": "Bronze"
+      },
+      {
+        "trait_type": "Grading",
+        "value": "Certified"
+      }
+    ],
+    "prompt": "an antique bronze bronze censer, Ming Dynasty China artifact, weathered patina, displayed on a museum pedestal with soft spotlight, dark background, highly detailed"
+  },
+  {
+    "name": "Roman Empire Marble bust",
+    "category": "Antique",
+    "description": "An authenticated antique with documented provenance.",
+    "attributes": [
+      {
+        "trait_type": "Era",
+        "value": "Roman Empire"
+      },
+      {
+        "trait_type": "Origin",
+        "value": "Rome"
+      },
+      {
+        "trait_type": "Material",
+        "value": "Marble"
+      },
+      {
+        "trait_type": "Grading",
+        "value": "Certified"
+      }
+    ],
+    "prompt": "an antique marble marble bust, Roman Empire Rome artifact, weathered patina, displayed on a museum pedestal with soft spotlight, dark background, highly detailed"
+  },
+  {
+    "name": "Georgian Era Enamel snuff box",
+    "category": "Antique",
+    "description": "An authenticated antique with documented provenance.",
+    "attributes": [
+      {
+        "trait_type": "Era",
+        "value": "Georgian Era"
+      },
+      {
+        "trait_type": "Origin",
+        "value": "England"
+      },
+      {
+        "trait_type": "Material",
+        "value": "Enamel"
+      },
+      {
+        "trait_type": "Grading",
+        "value": "Certified"
+      }
+    ],
+    "prompt": "an antique enamel enamel snuff box, Georgian Era England artifact, weathered patina, displayed on a museum pedestal with soft spotlight, dark background, highly detailed"
+  },
+  {
+    "name": "Heian Period Lacquer box",
+    "category": "Antique",
+    "description": "An authenticated antique with documented provenance.",
+    "attributes": [
+      {
+        "trait_type": "Era",
+        "value": "Heian Period"
+      },
+      {
+        "trait_type": "Origin",
+        "value": "Japan"
+      },
+      {
+        "trait_type": "Material",
+        "value": "Lacquer"
+      },
+      {
+        "trait_type": "Grading",
+        "value": "Certified"
+      }
+    ],
+    "prompt": "an antique lacquer lacquer box, Heian Period Japan artifact, weathered patina, displayed on a museum pedestal with soft spotlight, dark background, highly detailed"
+  },
+  {
+    "name": "Medieval Europe Silver chalice",
+    "category": "Antique",
+    "description": "An authenticated antique with documented provenance.",
+    "attributes": [
+      {
+        "trait_type": "Era",
+        "value": "Medieval Europe"
+      },
+      {
+        "trait_type": "Origin",
+        "value": "France"
+      },
+      {
+        "trait_type": "Material",
+        "value": "Silver"
+      },
+      {
+        "trait_type": "Grading",
+        "value": "Certified"
+      }
+    ],
+    "prompt": "an antique silver silver chalice, Medieval Europe France artifact, weathered patina, displayed on a museum pedestal with soft spotlight, dark background, highly detailed"
+  },
+  {
+    "name": "Tang Dynasty Terracotta figurine",
+    "category": "Antique",
+    "description": "An authenticated antique with documented provenance.",
+    "attributes": [
+      {
+        "trait_type": "Era",
+        "value": "Tang Dynasty"
+      },
+      {
+        "trait_type": "Origin",
+        "value": "China"
+      },
+      {
+        "trait_type": "Material",
+        "value": "Terracotta"
+      },
+      {
+        "trait_type": "Grading",
+        "value": "Certified"
+      }
+    ],
+    "prompt": "an antique terracotta terracotta figurine, Tang Dynasty China artifact, weathered patina, displayed on a museum pedestal with soft spotlight, dark background, highly detailed"
+  }
+]

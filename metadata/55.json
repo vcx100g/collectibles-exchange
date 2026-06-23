@@ -1,0 +1,29 @@
+{
+  "name": "Vase of sunflowers",
+  "description": "A baroque masterwork in oils.",
+  "image": "http://100.70.161.82:8080/metadata/images/55.webp",
+  "external_url": "http://100.70.161.82:8080/metadata/55.json",
+  "attributes": [
+    {
+      "trait_type": "Category",
+      "value": "Painting"
+    },
+    {
+      "trait_type": "Artist",
+      "value": "L. Bianchi"
+    },
+    {
+      "trait_type": "Medium",
+      "value": "Oil on canvas"
+    },
+    {
+      "trait_type": "Style",
+      "value": "Baroque"
+    },
+    {
+      "trait_type": "Year",
+      "value": 1723,
+      "display_type": "number"
+    }
+  ]
+}

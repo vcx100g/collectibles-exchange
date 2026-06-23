@@ -1,0 +1,28 @@
+{
+  "name": "Georgian Era Enamel snuff box",
+  "description": "An authenticated antique with documented provenance.",
+  "image": "http://100.70.161.82:8080/metadata/images/125.webp",
+  "external_url": "http://100.70.161.82:8080/metadata/125.json",
+  "attributes": [
+    {
+      "trait_type": "Category",
+      "value": "Antique"
+    },
+    {
+      "trait_type": "Era",
+      "value": "Georgian Era"
+    },
+    {
+      "trait_type": "Origin",
+      "value": "England"
+    },
+    {
+      "trait_type": "Material",
+      "value": "Enamel"
+    },
+    {
+      "trait_type": "Grading",
+      "value": "Certified"
+    }
+  ]
+}

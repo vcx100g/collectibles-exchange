@@ -1,0 +1,29 @@
+{
+  "name": "Misty forest path",
+  "description": "A renaissance masterwork in oils.",
+  "image": "http://100.70.161.82:8080/metadata/images/56.webp",
+  "external_url": "http://100.70.161.82:8080/metadata/56.json",
+  "attributes": [
+    {
+      "trait_type": "Category",
+      "value": "Painting"
+    },
+    {
+      "trait_type": "Artist",
+      "value": "A. Sørensen"
+    },
+    {
+      "trait_type": "Medium",
+      "value": "Oil on canvas"
+    },
+    {
+      "trait_type": "Style",
+      "value": "Renaissance"
+    },
+    {
+      "trait_type": "Year",
+      "value": 1746,
+      "display_type": "number"
+    }
+  ]
+}

@@ -1,0 +1,29 @@
+{
+  "name": "Château Vega Sicilia 1994",
+  "description": "A rare cellar-aged vintage with impeccable provenance.",
+  "image": "http://100.70.161.82:8080/metadata/images/52.webp",
+  "external_url": "http://100.70.161.82:8080/metadata/52.json",
+  "attributes": [
+    {
+      "trait_type": "Category",
+      "value": "Wine"
+    },
+    {
+      "trait_type": "Vintage",
+      "value": 1994,
+      "display_type": "number"
+    },
+    {
+      "trait_type": "Region",
+      "value": "Rioja"
+    },
+    {
+      "trait_type": "Producer",
+      "value": "Vega Sicilia"
+    },
+    {
+      "trait_type": "Bottle #",
+      "value": "1481"
+    }
+  ]
+}

@@ -1,0 +1,29 @@
+{
+  "name": "Château Chambertin 1966",
+  "description": "A rare cellar-aged vintage with impeccable provenance.",
+  "image": "http://100.70.161.82:8080/metadata/images/48.webp",
+  "external_url": "http://100.70.161.82:8080/metadata/48.json",
+  "attributes": [
+    {
+      "trait_type": "Category",
+      "value": "Wine"
+    },
+    {
+      "trait_type": "Vintage",
+      "value": 1966,
+      "display_type": "number"
+    },
+    {
+      "trait_type": "Region",
+      "value": "Burgundy"
+    },
+    {
+      "trait_type": "Producer",
+      "value": "Chambertin"
+    },
+    {
+      "trait_type": "Bottle #",
+      "value": "1333"
+    }
+  ]
+}

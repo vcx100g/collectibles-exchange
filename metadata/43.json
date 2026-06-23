@@ -1,0 +1,29 @@
+{
+  "name": "Château Haut-Brion 1989",
+  "description": "A rare cellar-aged vintage with impeccable provenance.",
+  "image": "http://100.70.161.82:8080/metadata/images/43.webp",
+  "external_url": "http://100.70.161.82:8080/metadata/43.json",
+  "attributes": [
+    {
+      "trait_type": "Category",
+      "value": "Wine"
+    },
+    {
+      "trait_type": "Vintage",
+      "value": 1989,
+      "display_type": "number"
+    },
+    {
+      "trait_type": "Region",
+      "value": "Napa Valley"
+    },
+    {
+      "trait_type": "Producer",
+      "value": "Haut-Brion"
+    },
+    {
+      "trait_type": "Bottle #",
+      "value": "1148"
+    }
+  ]
+}

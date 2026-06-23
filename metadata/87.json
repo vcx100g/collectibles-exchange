@@ -1,0 +1,29 @@
+{
+  "name": "Psychic Beast #103",
+  "description": "A holographic collectible monster card.",
+  "image": "http://100.70.161.82:8080/metadata/images/87.webp",
+  "external_url": "http://100.70.161.82:8080/metadata/87.json",
+  "attributes": [
+    {
+      "trait_type": "Category",
+      "value": "Card"
+    },
+    {
+      "trait_type": "Type",
+      "value": "Psychic"
+    },
+    {
+      "trait_type": "Rarity",
+      "value": "Ultra Rare"
+    },
+    {
+      "trait_type": "HP",
+      "value": 130,
+      "display_type": "number"
+    },
+    {
+      "trait_type": "Set",
+      "value": "Legendary"
+    }
+  ]
+}

@@ -15,7 +15,8 @@ const MODEL = "@cf/black-forest-labs/flux-1-schnell";
 
 if (!TOKEN) { console.error("CF_TOKEN env required"); process.exit(1); }
 
-const items = JSON.parse(readFileSync(join("scripts", "ai-items.json"), "utf8"));
+const ITEMS_FILE = process.env.ITEMS_FILE || join("scripts", "ai-items.json");
+const items = JSON.parse(readFileSync(ITEMS_FILE, "utf8"));
 
 async function genImage(prompt) {
   const r = await fetch(`https://api.cloudflare.com/client/v4/accounts/${ACCOUNT}/ai/run/${MODEL}`, {

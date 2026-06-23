@@ -8,7 +8,8 @@ import { join } from "node:path";
 
 const { ethers } = await network.connect();
 const dep = JSON.parse(readFileSync(join(process.cwd(), "indexer", "deployment.json"), "utf8"));
-const items = JSON.parse(readFileSync(join(process.cwd(), "scripts", "ai-items.json"), "utf8"));
+const ITEMS_FILE = process.env.ITEMS_FILE || join("scripts", "ai-items.json");
+const items = JSON.parse(readFileSync(join(process.cwd(), ITEMS_FILE), "utf8"));
 const BASE = process.env.METADATA_BASE_URL || "http://100.70.161.82:8080/metadata";
 
 const signers = await ethers.getSigners();

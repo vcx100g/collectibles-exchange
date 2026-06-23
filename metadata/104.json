@@ -1,0 +1,29 @@
+{
+  "name": "Glitch cosmic nebula",
+  "description": "A 1-of-1 digital artwork.",
+  "image": "http://100.70.161.82:8080/metadata/images/104.webp",
+  "external_url": "http://100.70.161.82:8080/metadata/104.json",
+  "attributes": [
+    {
+      "trait_type": "Category",
+      "value": "Art"
+    },
+    {
+      "trait_type": "Artist",
+      "value": "K. Devi"
+    },
+    {
+      "trait_type": "Edition",
+      "value": "1 of 1"
+    },
+    {
+      "trait_type": "Medium",
+      "value": "Generative / Digital"
+    },
+    {
+      "trait_type": "Year",
+      "value": 2026,
+      "display_type": "number"
+    }
+  ]
+}

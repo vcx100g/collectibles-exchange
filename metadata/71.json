@@ -1,0 +1,28 @@
+{
+  "name": "Vast wheat field under a dramatic sky",
+  "description": "A slice of pastoral country life.",
+  "image": "http://100.70.161.82:8080/metadata/images/71.webp",
+  "external_url": "http://100.70.161.82:8080/metadata/71.json",
+  "attributes": [
+    {
+      "trait_type": "Category",
+      "value": "Farm"
+    },
+    {
+      "trait_type": "Type",
+      "value": "Cropland"
+    },
+    {
+      "trait_type": "Origin",
+      "value": "Provence"
+    },
+    {
+      "trait_type": "Season",
+      "value": "Autumn"
+    },
+    {
+      "trait_type": "Grade",
+      "value": "Prime"
+    }
+  ]
+}

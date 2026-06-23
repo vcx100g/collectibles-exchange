@@ -1,0 +1,29 @@
+{
+  "name": "Château Margaux 1961",
+  "description": "A rare cellar-aged vintage with impeccable provenance.",
+  "image": "http://100.70.161.82:8080/metadata/images/39.webp",
+  "external_url": "http://100.70.161.82:8080/metadata/39.json",
+  "attributes": [
+    {
+      "trait_type": "Category",
+      "value": "Wine"
+    },
+    {
+      "trait_type": "Vintage",
+      "value": 1961,
+      "display_type": "number"
+    },
+    {
+      "trait_type": "Region",
+      "value": "Bordeaux"
+    },
+    {
+      "trait_type": "Producer",
+      "value": "Margaux"
+    },
+    {
+      "trait_type": "Bottle #",
+      "value": "1000"
+    }
+  ]
+}

@@ -1,0 +1,28 @@
+{
+  "name": "Sunflower field stretching to the horizon",
+  "description": "A slice of pastoral country life.",
+  "image": "http://100.70.161.82:8080/metadata/images/77.webp",
+  "external_url": "http://100.70.161.82:8080/metadata/77.json",
+  "attributes": [
+    {
+      "trait_type": "Category",
+      "value": "Farm"
+    },
+    {
+      "trait_type": "Type",
+      "value": "Equipment"
+    },
+    {
+      "trait_type": "Origin",
+      "value": "Iowa"
+    },
+    {
+      "trait_type": "Season",
+      "value": "Spring"
+    },
+    {
+      "trait_type": "Grade",
+      "value": "Prime"
+    }
+  ]
+}
