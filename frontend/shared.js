@@ -44,13 +44,26 @@ export async function fetchMeta(tokenId) {
 }
 export const catOf = (m) => (m.attributes || []).find((a) => a.trait_type === "Category")?.value || "Other";
 
+// best "condition / grade" trait to surface on a tile (category-dependent)
+const GRADE_PRIORITY = ["Condition", "Grade", "Grading", "Critic Score"];
+export function gradeOf(meta) {
+  const a = {};
+  for (const x of meta.attributes || []) a[x.trait_type] = x.value;
+  for (const t of GRADE_PRIORITY) if (a[t] != null) return { trait: t, value: String(a[t]) };
+  return null;
+}
+
 export function cardHtml(tokenId, meta, actionHtml = "", extra = "") {
+  const g = gradeOf(meta);
   return `<div class="col"><div class="card h-100 shadow-sm">
     <div class="art-wrap" data-detail="${tokenId}" role="button">
       <img src="${meta.image}" class="tile-img" loading="lazy" decoding="async" alt="${meta.name}">
     </div>
     <div class="card-body d-flex flex-column">
-      <span class="badge text-bg-dark align-self-start mb-1 trait">${catOf(meta)}</span>
+      <div class="d-flex flex-wrap gap-1 mb-1">
+        <span class="badge text-bg-dark trait">${catOf(meta)}</span>
+        ${g ? `<span class="badge text-bg-secondary trait" title="${g.trait}">${g.value}</span>` : ""}
+      </div>
       <h6 class="card-title text-truncate" title="${meta.name}">${meta.name}</h6>
       ${extra}
       <div class="mt-auto">${actionHtml}</div>

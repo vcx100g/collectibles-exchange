@@ -41,6 +41,8 @@ async function fetchMeta(tokenId) {
   return meta;
 }
 const catOf = (m) => (m.attributes || []).find((a) => a.trait_type === "Category")?.value || "Other";
+const GRADE_PRIORITY = ["Condition", "Grade", "Grading", "Critic Score"];
+const gradeOf = (m) => { const a = {}; for (const x of m.attributes || []) a[x.trait_type] = x.value; for (const t of GRADE_PRIORITY) if (a[t] != null) return String(a[t]); return null; };
 
 async function ensureNetwork() {
   const net = await provider.getNetwork();
@@ -134,7 +136,7 @@ async function loadItems() {
       return `<div class="col"><div class="card h-100">
          <div class="art-wrap"><img src="${meta.image}" class="tile-img" loading="lazy" decoding="async" alt="${meta.name}"></div>
          <div class="card-body d-flex flex-column">
-           <span class="badge text-bg-dark align-self-start mb-1 trait">${catOf(meta)}</span>
+           <div class="d-flex flex-wrap gap-1 mb-1"><span class="badge text-bg-dark trait">${catOf(meta)}</span>${gradeOf(meta) ? `<span class="badge text-bg-secondary trait">${gradeOf(meta)}</span>` : ""}</div>
            <h6 class="card-title text-truncate" title="${meta.name}">${meta.name}</h6>
            <div class="mt-auto">${body}</div>
          </div></div></div>`;
