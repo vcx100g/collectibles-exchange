@@ -4,6 +4,7 @@
 import { ethers } from "https://cdn.jsdelivr.net/npm/ethers@6.17.0/+esm";
 import * as cfg from "./config.js";
 import { renderSparkline, priceStats } from "./charts.js";
+import { attachWalletMenu, suppressAutoConnect, clearSuppress } from "./wallet-ui.js";
 
 export const CHAIN_ID = cfg.CHAIN_ID;
 export const RPC_URL = cfg.RPC_URL;
@@ -115,8 +116,9 @@ export async function connect() {
   account = await signer.getAddress();
   collectible = new ethers.Contract(cfg.COLLECTIBLE_ADDRESS, cfg.COLLECTIBLE_ABI, signer);
   marketplace = new ethers.Contract(cfg.MARKETPLACE_ADDRESS, cfg.MARKETPLACE_ABI, signer);
+  clearSuppress(); // an explicit connect cancels any prior "stay disconnected"
   const b = $("#connect-btn");
-  if (b) { b.textContent = short(account); b.classList.replace("btn-primary", "btn-outline-light"); }
+  if (b) { b.textContent = short(account); b.classList.replace("btn-primary", "btn-outline-light"); attachWalletMenu(b, account); }
   const nb = $("#net-badge");
   if (nb) { nb.classList.remove("d-none"); nb.textContent = `Local · ${CHAIN_ID}`; }
   return account;
@@ -216,10 +218,14 @@ export function wireGrid(onChange) {
 
 export function initWallet() {
   const b = $("#connect-btn");
-  if (b) b.addEventListener("click", () => connect().catch((e) => toast(e.shortMessage || e.message, "danger")));
+  // when already connected the button is a dropdown toggle (Switch/Disconnect);
+  // only an unconnected click should kick off connect().
+  if (b) b.addEventListener("click", () => { if (getAccount()) return; connect().catch((e) => toast(e.shortMessage || e.message, "danger")); });
   if (window.ethereum) {
     window.ethereum.on("accountsChanged", () => location.reload());
     window.ethereum.on("chainChanged", () => location.reload());
-    window.ethereum.request({ method: "eth_accounts" }).then((a) => { if (a && a.length) connect().catch(() => {}); }).catch(() => {});
+    if (!suppressAutoConnect()) {
+      window.ethereum.request({ method: "eth_accounts" }).then((a) => { if (a && a.length) connect().catch(() => {}); }).catch(() => {});
+    }
   }
 }

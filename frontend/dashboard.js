@@ -8,6 +8,7 @@ import {
   MARKETPLACE_ABI,
   METADATA_BASE,
 } from "./config.js";
+import { attachWalletMenu, suppressAutoConnect, clearSuppress } from "./wallet-ui.js";
 
 const $ = (s) => document.querySelector(s);
 const short = (a) => (a ? a.slice(0, 6) + "…" + a.slice(-4) : "—");
@@ -70,8 +71,10 @@ async function connect() {
   account = await signer.getAddress();
   collectible = new ethers.Contract(COLLECTIBLE_ADDRESS, COLLECTIBLE_ABI, signer);
   marketplace = new ethers.Contract(MARKETPLACE_ADDRESS, MARKETPLACE_ABI, signer);
+  clearSuppress();
   $("#connect-btn").textContent = short(account);
   $("#connect-btn").classList.replace("btn-primary", "btn-outline-light");
+  attachWalletMenu($("#connect-btn"), account);
   $("#net-badge").classList.remove("d-none");
   $("#net-badge").textContent = `Local · ${CHAIN_ID}`;
   $("#connect-notice").classList.add("d-none");
@@ -194,7 +197,7 @@ async function mintSample() {
 }
 
 // ---- wiring ----
-$("#connect-btn").addEventListener("click", () => connect().catch((e) => toast(e.shortMessage || e.message, "danger")));
+$("#connect-btn").addEventListener("click", () => { if (account) return; connect().catch((e) => toast(e.shortMessage || e.message, "danger")); });
 $("#withdraw-btn").addEventListener("click", () => withdraw().catch((e) => toast(e.shortMessage || e.message, "danger")));
 $("#mint-btn").addEventListener("click", () => mintSample().catch((e) => toast(e.shortMessage || e.message, "danger")));
 
@@ -213,8 +216,10 @@ if (window.ethereum) {
   window.ethereum.on("accountsChanged", () => location.reload());
   window.ethereum.on("chainChanged", () => location.reload());
   // Auto-reconnect if already authorized (restores the page after a chainChanged reload).
-  window.ethereum
-    .request({ method: "eth_accounts" })
-    .then((accs) => { if (accs && accs.length) connect().catch(() => {}); })
-    .catch(() => {});
+  if (!suppressAutoConnect()) {
+    window.ethereum
+      .request({ method: "eth_accounts" })
+      .then((accs) => { if (accs && accs.length) connect().catch(() => {}); })
+      .catch(() => {});
+  }
 }
