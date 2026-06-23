@@ -91,6 +91,31 @@ a, .art-wrap[role="button"], .btn { outline-offset: 2px; }
 /* deterministic gradient identicon for an address */
 .identicon { display: inline-block; border-radius: 50%; vertical-align: middle; flex: none; }
 
+/* header nav pills — match the brand gradient, active = filled gradient */
+#nav-links { gap: .3rem !important; }
+.vx-navlink {
+  display: inline-flex; align-items: center; gap: .35rem;
+  padding: .42rem .8rem; border-radius: 999px;
+  font-size: .85rem; font-weight: 600; line-height: 1; white-space: nowrap;
+  color: var(--bs-secondary-color); text-decoration: none;
+  border: 1px solid transparent;
+  transition: color .15s ease, background .15s ease, border-color .15s ease, transform .12s ease;
+}
+.vx-navlink:hover {
+  color: var(--bs-body-color);
+  background: rgba(255, 255, 255, .06);
+  border-color: var(--bs-border-color);
+}
+.vx-navlink.active {
+  color: #fff;
+  background: linear-gradient(135deg, var(--vx-grad-from), var(--vx-grad-to));
+  border-color: transparent;
+  box-shadow: 0 2px 12px rgba(123, 47, 247, .35);
+}
+.vx-navlink:focus-visible { outline: 2px solid var(--vx-purple); outline-offset: 2px; }
+.vx-navicon { font-size: .92em; opacity: .9; }
+@media (prefers-reduced-motion: reduce) { .vx-navlink { transition: none; } }
+
 /* site footer */
 #site-footer { border-top: 1px solid var(--bs-border-color); margin-top: 3rem; }
 #site-footer a { color: var(--bs-secondary-color); text-decoration: none; }

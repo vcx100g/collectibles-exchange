@@ -31,12 +31,12 @@ export function addrLink(address, label) {
 }
 
 // ---------------------------- chrome injection -----------------------------
+// Home is reachable via the brand logo, so it's intentionally not a nav pill.
 const NAV = [
-  { href: "/", label: "Home", match: (p) => p === "/" || p.endsWith("/index.html") },
-  { href: "/search.html", label: "🔍 Search", match: (p) => p.endsWith("/search.html") },
-  { href: "/activity.html", label: "📈 Activity", match: (p) => p.endsWith("/activity.html") },
-  { href: "/watchlist.html", label: "♥ Watchlist", match: (p) => p.endsWith("/watchlist.html") },
-  { href: "/dashboard.html", label: "My Account", match: (p) => p.endsWith("/dashboard.html") },
+  { href: "/search.html", label: "Search", icon: "🔍", match: (p) => p.endsWith("/search.html") },
+  { href: "/activity.html", label: "Activity", icon: "📈", match: (p) => p.endsWith("/activity.html") },
+  { href: "/watchlist.html", label: "Watchlist", icon: "♥", match: (p) => p.endsWith("/watchlist.html") },
+  { href: "/dashboard.html", label: "My Account", icon: "👤", match: (p) => p.endsWith("/dashboard.html") },
 ];
 
 function renderNav() {
@@ -45,7 +45,7 @@ function renderNav() {
   const p = location.pathname;
   slot.innerHTML = NAV.map((n) => {
     const active = n.match(p);
-    return `<a href="${n.href}" class="btn btn-sm ${active ? "btn-light" : "btn-outline-light"}"${active ? ' aria-current="page"' : ""}>${n.label}</a>`;
+    return `<a href="${n.href}" class="vx-navlink${active ? " active" : ""}"${active ? ' aria-current="page"' : ""}><span class="vx-navicon" aria-hidden="true">${n.icon}</span>${n.label}</a>`;
   }).join("");
 }
 
