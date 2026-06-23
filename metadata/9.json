@@ -1,0 +1,29 @@
+{
+  "name": "Romanée-Conti 1990",
+  "description": "A legendary Grand Cru Burgundy, one of the rarest wines on earth.",
+  "image": "http://100.70.161.82:8080/metadata/images/9.jpg",
+  "external_url": "http://100.70.161.82:8080/metadata/9.json",
+  "attributes": [
+    {
+      "trait_type": "Category",
+      "value": "Wine"
+    },
+    {
+      "trait_type": "Vintage",
+      "value": 1990,
+      "display_type": "number"
+    },
+    {
+      "trait_type": "Region",
+      "value": "Burgundy"
+    },
+    {
+      "trait_type": "Producer",
+      "value": "DRC"
+    },
+    {
+      "trait_type": "Bottle #",
+      "value": "0012"
+    }
+  ]
+}

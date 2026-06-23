@@ -1,0 +1,29 @@
+{
+  "name": "Portrait of a Noblewoman",
+  "description": "A Renaissance portrait in luminous oils.",
+  "image": "http://100.70.161.82:8080/metadata/images/17.jpg",
+  "external_url": "http://100.70.161.82:8080/metadata/17.json",
+  "attributes": [
+    {
+      "trait_type": "Category",
+      "value": "Painting"
+    },
+    {
+      "trait_type": "Artist",
+      "value": "Workshop of Bellini"
+    },
+    {
+      "trait_type": "Medium",
+      "value": "Oil on panel"
+    },
+    {
+      "trait_type": "Style",
+      "value": "Renaissance"
+    },
+    {
+      "trait_type": "Year",
+      "value": 1505,
+      "display_type": "number"
+    }
+  ]
+}

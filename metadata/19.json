@@ -1,0 +1,29 @@
+{
+  "name": "Golden Koi",
+  "description": "Sumi-e ink and gold leaf koi in motion.",
+  "image": "http://100.70.161.82:8080/metadata/images/19.jpg",
+  "external_url": "http://100.70.161.82:8080/metadata/19.json",
+  "attributes": [
+    {
+      "trait_type": "Category",
+      "value": "Painting"
+    },
+    {
+      "trait_type": "Artist",
+      "value": "R. Sato"
+    },
+    {
+      "trait_type": "Medium",
+      "value": "Ink on silk"
+    },
+    {
+      "trait_type": "Style",
+      "value": "Sumi-e"
+    },
+    {
+      "trait_type": "Year",
+      "value": 1948,
+      "display_type": "number"
+    }
+  ]
+}

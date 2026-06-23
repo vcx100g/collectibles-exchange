@@ -1,0 +1,29 @@
+{
+  "name": "Dom Pérignon 2012",
+  "description": "Prestige cuvée Champagne in a celebrated year.",
+  "image": "http://100.70.161.82:8080/metadata/images/13.jpg",
+  "external_url": "http://100.70.161.82:8080/metadata/13.json",
+  "attributes": [
+    {
+      "trait_type": "Category",
+      "value": "Wine"
+    },
+    {
+      "trait_type": "Vintage",
+      "value": 2012,
+      "display_type": "number"
+    },
+    {
+      "trait_type": "Region",
+      "value": "Champagne"
+    },
+    {
+      "trait_type": "Producer",
+      "value": "Moët & Chandon"
+    },
+    {
+      "trait_type": "Bottle #",
+      "value": "2204"
+    }
+  ]
+}

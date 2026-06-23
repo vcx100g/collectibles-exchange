@@ -1,0 +1,29 @@
+{
+  "name": "Blastoise — Base Set",
+  "description": "The armored shellfish, water cannons primed.",
+  "image": "http://100.70.161.82:8080/metadata/images/33.jpg",
+  "external_url": "http://100.70.161.82:8080/metadata/33.json",
+  "attributes": [
+    {
+      "trait_type": "Category",
+      "value": "Card"
+    },
+    {
+      "trait_type": "Type",
+      "value": "Water"
+    },
+    {
+      "trait_type": "Rarity",
+      "value": "Holo Rare"
+    },
+    {
+      "trait_type": "HP",
+      "value": 100,
+      "display_type": "number"
+    },
+    {
+      "trait_type": "Set",
+      "value": "Base Set"
+    }
+  ]
+}

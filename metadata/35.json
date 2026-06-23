@@ -1,0 +1,29 @@
+{
+  "name": "Dragonite — Fossil",
+  "description": "A gentle orange dragon of the seas.",
+  "image": "http://100.70.161.82:8080/metadata/images/35.jpg",
+  "external_url": "http://100.70.161.82:8080/metadata/35.json",
+  "attributes": [
+    {
+      "trait_type": "Category",
+      "value": "Card"
+    },
+    {
+      "trait_type": "Type",
+      "value": "Dragon"
+    },
+    {
+      "trait_type": "Rarity",
+      "value": "Holo Rare"
+    },
+    {
+      "trait_type": "HP",
+      "value": 100,
+      "display_type": "number"
+    },
+    {
+      "trait_type": "Set",
+      "value": "Fossil"
+    }
+  ]
+}

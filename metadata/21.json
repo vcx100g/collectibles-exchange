@@ -1,0 +1,28 @@
+{
+  "name": "Greek Amphora",
+  "description": "A black-figure terracotta amphora.",
+  "image": "http://100.70.161.82:8080/metadata/images/21.jpg",
+  "external_url": "http://100.70.161.82:8080/metadata/21.json",
+  "attributes": [
+    {
+      "trait_type": "Category",
+      "value": "Historical"
+    },
+    {
+      "trait_type": "Era",
+      "value": "5th century BC"
+    },
+    {
+      "trait_type": "Origin",
+      "value": "Greece"
+    },
+    {
+      "trait_type": "Material",
+      "value": "Terracotta"
+    },
+    {
+      "trait_type": "Grading",
+      "value": "Museum"
+    }
+  ]
+}

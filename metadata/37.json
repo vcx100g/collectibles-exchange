@@ -1,0 +1,29 @@
+{
+  "name": "Snorlax — Jungle",
+  "description": "An immovable, perpetually napping giant.",
+  "image": "http://100.70.161.82:8080/metadata/images/37.jpg",
+  "external_url": "http://100.70.161.82:8080/metadata/37.json",
+  "attributes": [
+    {
+      "trait_type": "Category",
+      "value": "Card"
+    },
+    {
+      "trait_type": "Type",
+      "value": "Normal"
+    },
+    {
+      "trait_type": "Rarity",
+      "value": "Rare"
+    },
+    {
+      "trait_type": "HP",
+      "value": 90,
+      "display_type": "number"
+    },
+    {
+      "trait_type": "Set",
+      "value": "Jungle"
+    }
+  ]
+}

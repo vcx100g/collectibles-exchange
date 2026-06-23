@@ -1,0 +1,28 @@
+{
+  "name": "Apple Orchard Harvest",
+  "description": "Crates of crisp apples at harvest time.",
+  "image": "http://100.70.161.82:8080/metadata/images/32.jpg",
+  "external_url": "http://100.70.161.82:8080/metadata/32.json",
+  "attributes": [
+    {
+      "trait_type": "Category",
+      "value": "Farm"
+    },
+    {
+      "trait_type": "Type",
+      "value": "Produce"
+    },
+    {
+      "trait_type": "Origin",
+      "value": "Washington"
+    },
+    {
+      "trait_type": "Season",
+      "value": "Autumn"
+    },
+    {
+      "trait_type": "Grade",
+      "value": "A+"
+    }
+  ]
+}

@@ -1,0 +1,28 @@
+{
+  "name": "Roman Gold Aureus",
+  "description": "A gold aureus bearing an emperor's profile.",
+  "image": "http://100.70.161.82:8080/metadata/images/23.jpg",
+  "external_url": "http://100.70.161.82:8080/metadata/23.json",
+  "attributes": [
+    {
+      "trait_type": "Category",
+      "value": "Historical"
+    },
+    {
+      "trait_type": "Era",
+      "value": "1st century AD"
+    },
+    {
+      "trait_type": "Origin",
+      "value": "Rome"
+    },
+    {
+      "trait_type": "Material",
+      "value": "Gold"
+    },
+    {
+      "trait_type": "Grading",
+      "value": "MS-63"
+    }
+  ]
+}

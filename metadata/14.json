@@ -1,0 +1,29 @@
+{
+  "name": "Barolo Riserva 1971",
+  "description": "The 'King of Wines' from a fabled Piedmont vintage.",
+  "image": "http://100.70.161.82:8080/metadata/images/14.jpg",
+  "external_url": "http://100.70.161.82:8080/metadata/14.json",
+  "attributes": [
+    {
+      "trait_type": "Category",
+      "value": "Wine"
+    },
+    {
+      "trait_type": "Vintage",
+      "value": 1971,
+      "display_type": "number"
+    },
+    {
+      "trait_type": "Region",
+      "value": "Piedmont"
+    },
+    {
+      "trait_type": "Producer",
+      "value": "Giacomo Conterno"
+    },
+    {
+      "trait_type": "Bottle #",
+      "value": "0033"
+    }
+  ]
+}

@@ -1,0 +1,29 @@
+{
+  "name": "Mountain Serenity",
+  "description": "A tranquil watercolor of misty peaks.",
+  "image": "http://100.70.161.82:8080/metadata/images/18.jpg",
+  "external_url": "http://100.70.161.82:8080/metadata/18.json",
+  "attributes": [
+    {
+      "trait_type": "Category",
+      "value": "Painting"
+    },
+    {
+      "trait_type": "Artist",
+      "value": "H. Tanaka"
+    },
+    {
+      "trait_type": "Medium",
+      "value": "Watercolor"
+    },
+    {
+      "trait_type": "Style",
+      "value": "Landscape"
+    },
+    {
+      "trait_type": "Year",
+      "value": 1962,
+      "display_type": "number"
+    }
+  ]
+}

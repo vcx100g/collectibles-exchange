@@ -1,0 +1,29 @@
+{
+  "name": "Abstract Resonance",
+  "description": "Bold geometric color fields in tension.",
+  "image": "http://100.70.161.82:8080/metadata/images/16.jpg",
+  "external_url": "http://100.70.161.82:8080/metadata/16.json",
+  "attributes": [
+    {
+      "trait_type": "Category",
+      "value": "Painting"
+    },
+    {
+      "trait_type": "Artist",
+      "value": "K. Devi"
+    },
+    {
+      "trait_type": "Medium",
+      "value": "Acrylic"
+    },
+    {
+      "trait_type": "Style",
+      "value": "Abstract"
+    },
+    {
+      "trait_type": "Year",
+      "value": 2019,
+      "display_type": "number"
+    }
+  ]
+}

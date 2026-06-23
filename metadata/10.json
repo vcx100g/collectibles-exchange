@@ -1,0 +1,29 @@
+{
+  "name": "Penfolds Grange 2008",
+  "description": "Australia's most celebrated Shiraz, a perfect-score vintage.",
+  "image": "http://100.70.161.82:8080/metadata/images/10.jpg",
+  "external_url": "http://100.70.161.82:8080/metadata/10.json",
+  "attributes": [
+    {
+      "trait_type": "Category",
+      "value": "Wine"
+    },
+    {
+      "trait_type": "Vintage",
+      "value": 2008,
+      "display_type": "number"
+    },
+    {
+      "trait_type": "Region",
+      "value": "Barossa Valley"
+    },
+    {
+      "trait_type": "Producer",
+      "value": "Penfolds"
+    },
+    {
+      "trait_type": "Bottle #",
+      "value": "0421"
+    }
+  ]
+}

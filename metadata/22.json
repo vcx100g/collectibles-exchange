@@ -1,0 +1,28 @@
+{
+  "name": "Egyptian Scarab Amulet",
+  "description": "A glazed faience scarab from the New Kingdom.",
+  "image": "http://100.70.161.82:8080/metadata/images/22.jpg",
+  "external_url": "http://100.70.161.82:8080/metadata/22.json",
+  "attributes": [
+    {
+      "trait_type": "Category",
+      "value": "Historical"
+    },
+    {
+      "trait_type": "Era",
+      "value": "New Kingdom"
+    },
+    {
+      "trait_type": "Origin",
+      "value": "Egypt"
+    },
+    {
+      "trait_type": "Material",
+      "value": "Faience"
+    },
+    {
+      "trait_type": "Grading",
+      "value": "Certified"
+    }
+  ]
+}

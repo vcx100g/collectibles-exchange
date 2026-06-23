@@ -1,0 +1,28 @@
+{
+  "name": "Heirloom Tomatoes",
+  "description": "A rustic basket of sun-ripened heirlooms.",
+  "image": "http://100.70.161.82:8080/metadata/images/28.jpg",
+  "external_url": "http://100.70.161.82:8080/metadata/28.json",
+  "attributes": [
+    {
+      "trait_type": "Category",
+      "value": "Farm"
+    },
+    {
+      "trait_type": "Type",
+      "value": "Produce"
+    },
+    {
+      "trait_type": "Origin",
+      "value": "Tuscany"
+    },
+    {
+      "trait_type": "Season",
+      "value": "Summer"
+    },
+    {
+      "trait_type": "Grade",
+      "value": "A+"
+    }
+  ]
+}

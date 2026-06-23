@@ -1,0 +1,28 @@
+{
+  "name": "Free-Range Hens",
+  "description": "Heritage hens foraging in a Provençal yard.",
+  "image": "http://100.70.161.82:8080/metadata/images/31.jpg",
+  "external_url": "http://100.70.161.82:8080/metadata/31.json",
+  "attributes": [
+    {
+      "trait_type": "Category",
+      "value": "Farm"
+    },
+    {
+      "trait_type": "Type",
+      "value": "Livestock"
+    },
+    {
+      "trait_type": "Origin",
+      "value": "Provence"
+    },
+    {
+      "trait_type": "Season",
+      "value": "Year-round"
+    },
+    {
+      "trait_type": "Grade",
+      "value": "Heritage"
+    }
+  ]
+}

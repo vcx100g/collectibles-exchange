@@ -1,0 +1,29 @@
+{
+  "name": "Gengar — Haunted",
+  "description": "A grinning shadow that lurks in the dark.",
+  "image": "http://100.70.161.82:8080/metadata/images/36.jpg",
+  "external_url": "http://100.70.161.82:8080/metadata/36.json",
+  "attributes": [
+    {
+      "trait_type": "Category",
+      "value": "Card"
+    },
+    {
+      "trait_type": "Type",
+      "value": "Ghost"
+    },
+    {
+      "trait_type": "Rarity",
+      "value": "Rare"
+    },
+    {
+      "trait_type": "HP",
+      "value": 80,
+      "display_type": "number"
+    },
+    {
+      "trait_type": "Set",
+      "value": "Fossil"
+    }
+  ]
+}

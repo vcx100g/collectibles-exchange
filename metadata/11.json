@@ -1,0 +1,29 @@
+{
+  "name": "Sassicaia 2015",
+  "description": "The iconic Super Tuscan from Bolgheri.",
+  "image": "http://100.70.161.82:8080/metadata/images/11.jpg",
+  "external_url": "http://100.70.161.82:8080/metadata/11.json",
+  "attributes": [
+    {
+      "trait_type": "Category",
+      "value": "Wine"
+    },
+    {
+      "trait_type": "Vintage",
+      "value": 2015,
+      "display_type": "number"
+    },
+    {
+      "trait_type": "Region",
+      "value": "Tuscany"
+    },
+    {
+      "trait_type": "Producer",
+      "value": "Tenuta San Guido"
+    },
+    {
+      "trait_type": "Bottle #",
+      "value": "1107"
+    }
+  ]
+}
