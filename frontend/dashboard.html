@@ -8,6 +8,13 @@
   <style>
     body { background: radial-gradient(1200px 600px at 50% -10%, #1b2030, #0c0e14); min-height: 100vh; }
     .card-art { aspect-ratio: 1/1; width: 100%; object-fit: cover; background: #11131a; }
+    .art-wrap { position: relative; aspect-ratio: 1/1; width: 100%; overflow: hidden;
+      background-image: linear-gradient(110deg, #161922 8%, #20242f 18%, #161922 33%);
+      background-size: 200% 100%; animation: shimmer 1.4s linear infinite; }
+    .tile-img { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover;
+      opacity: 0; transition: opacity .45s ease; }
+    .tile-img.loaded { opacity: 1; }
+    @keyframes shimmer { to { background-position-x: -200%; } }
     .mono { font-family: ui-monospace, SFMono-Regular, Menlo, monospace; }
     .metric { font-size: 1.5rem; font-weight: 700; }
     .brand-badge { background: linear-gradient(135deg,#7b2ff7,#2d9cdb); -webkit-background-clip:text; background-clip:text; color:transparent; font-weight:800; }

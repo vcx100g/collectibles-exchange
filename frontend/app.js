@@ -96,44 +96,50 @@ async function ensureNetwork() {
 // --------------------------- data loading ----------------------------
 async function activeListings() {
   const events = await marketplace.queryFilter(marketplace.filters.ItemListed(null, NFT), 0, "latest");
-  const ids = [...new Set(events.map((e) => e.args.tokenId.toString()))];
-  const out = [];
-  for (const idStr of ids) {
-    const id = BigInt(idStr);
-    const l = await marketplace.getListing(NFT, id);
-    if (l.price > 0n) out.push({ tokenId: id, price: l.price, seller: l.seller });
-  }
-  return out;
+  const ids = [...new Set(events.map((e) => e.args.tokenId.toString()))].map((s) => BigInt(s));
+  // fetch every listing in PARALLEL instead of one-at-a-time
+  const rows = await Promise.all(ids.map((id) => marketplace.getListing(NFT, id).then((l) => ({ id, l }))));
+  return rows.filter(({ l }) => l.price > 0n).map(({ id, l }) => ({ tokenId: id, price: l.price, seller: l.seller }));
 }
 
 async function loadMarket() {
   const grid = $("#market-grid");
-  grid.innerHTML = "";
-  let shown = 0;
-  for (const { tokenId, price, seller } of await activeListings()) {
-    const meta = await fetchMeta(tokenId);
-    if (currentCat !== "All" && catOf(meta) !== currentCat) continue;
+  const listings = await activeListings();
+  // fetch ALL metadata in parallel, then paint every card in one shot
+  const metas = await Promise.all(listings.map((x) => fetchMeta(x.tokenId)));
+  let html = "", shown = 0;
+  listings.forEach((x, i) => {
+    const meta = metas[i];
+    if (currentCat !== "All" && catOf(meta) !== currentCat) return;
     shown++;
-    const mine = account && seller.toLowerCase() === account.toLowerCase();
+    const mine = account && x.seller.toLowerCase() === account.toLowerCase();
     const action = mine
       ? `<button class="btn btn-sm btn-outline-secondary w-100" disabled>Your listing</button>`
-      : `<button class="btn btn-sm btn-primary w-100" data-buy="${tokenId}" data-price="${price}">Buy · ${ethers.formatEther(price)} ETH</button>`;
-    grid.insertAdjacentHTML("beforeend", cardHtml(tokenId, meta, action));
-  }
+      : `<button class="btn btn-sm btn-primary w-100" data-buy="${x.tokenId}" data-price="${x.price}">Buy · ${ethers.formatEther(x.price)} ETH</button>`;
+    html += cardHtml(x.tokenId, meta, action);
+  });
+  grid.innerHTML = html;
   $("#market-empty").classList.toggle("d-none", shown > 0);
+  fadeInImages(grid);
 }
 
 async function loadMine() {
   const grid = $("#mine-grid");
-  grid.innerHTML = "";
   const bal = Number(await collectible.balanceOf(account));
-  let shown = 0;
-  for (let i = 0; i < bal; i++) {
-    const tokenId = await collectible.tokenOfOwnerByIndex(account, i);
-    const meta = await fetchMeta(tokenId);
-    if (currentCat !== "All" && catOf(meta) !== currentCat) continue;
+  // all token ids, then all metadata + listings — in parallel
+  const tokenIds = await Promise.all(
+    Array.from({ length: bal }, (_, i) => collectible.tokenOfOwnerByIndex(account, i)),
+  );
+  const [metas, listings] = await Promise.all([
+    Promise.all(tokenIds.map((id) => fetchMeta(id))),
+    Promise.all(tokenIds.map((id) => marketplace.getListing(NFT, id))),
+  ]);
+  let html = "", shown = 0;
+  tokenIds.forEach((tokenId, i) => {
+    const meta = metas[i];
+    if (currentCat !== "All" && catOf(meta) !== currentCat) return;
     shown++;
-    const l = await marketplace.getListing(NFT, tokenId);
+    const l = listings[i];
     const action = l.price > 0n
       ? `<div class="mb-2 mono small text-success">Listed · ${ethers.formatEther(l.price)} ETH</div>
          <button class="btn btn-sm btn-outline-danger w-100" data-cancel="${tokenId}">Cancel listing</button>`
@@ -142,19 +148,35 @@ async function loadMine() {
            <span class="input-group-text">ETH</span>
          </div>
          <button class="btn btn-sm btn-primary w-100" data-list="${tokenId}">List for sale</button>`;
-    grid.insertAdjacentHTML("beforeend", cardHtml(tokenId, meta, action));
-  }
+    html += cardHtml(tokenId, meta, action);
+  });
+  grid.innerHTML = html;
   $("#mine-empty").classList.toggle("d-none", shown > 0);
+  fadeInImages(grid);
 }
 
 function cardHtml(tokenId, meta, actionHtml) {
   return `<div class="col"><div class="card h-100 shadow-sm">
-    <img src="${meta.image}" class="card-art" alt="${meta.name}" data-detail="${tokenId}" role="button">
+    <div class="art-wrap" data-detail="${tokenId}" role="button">
+      <img src="${meta.image}" class="tile-img" loading="lazy" decoding="async" alt="${meta.name}">
+    </div>
     <div class="card-body d-flex flex-column">
       <span class="badge text-bg-dark align-self-start mb-1 trait">${catOf(meta)}</span>
       <h6 class="card-title text-truncate" title="${meta.name}">${meta.name}</h6>
       <div class="mt-auto">${actionHtml}</div>
     </div></div></div>`;
+}
+
+// Reveal each tile image with a fade once it loads (a shimmer skeleton shows meanwhile).
+function fadeInImages(container) {
+  container.querySelectorAll("img.tile-img").forEach((img) => {
+    const reveal = () => img.classList.add("loaded");
+    if (img.complete && img.naturalWidth) reveal();
+    else {
+      img.addEventListener("load", reveal, { once: true });
+      img.addEventListener("error", reveal, { once: true });
+    }
+  });
 }
 
 // ------------------------------ actions ------------------------------
