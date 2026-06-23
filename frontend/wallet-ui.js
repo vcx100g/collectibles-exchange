@@ -12,13 +12,29 @@ export const clearSuppress = () => sessionStorage.removeItem(AUTO_KEY);
 
 export async function requestSwitch() {
   if (!window.ethereum) return;
+  const active = async () => (await window.ethereum.request({ method: "eth_accounts" }).catch(() => []))[0] || "";
+  const before = await active();
   try {
     await window.ethereum.request({ method: "wallet_requestPermissions", params: [{ eth_accounts: {} }] });
   } catch {
-    return; // user dismissed the picker — stay as-is
+    return; // user dismissed the dialog
   }
   clearSuppress();
-  location.reload(); // pick up whatever account is now selected
+  const after = await active();
+  if (after && after.toLowerCase() !== before.toLowerCase()) {
+    location.reload(); // the active account actually changed — load into it
+  } else {
+    // Granting permission does NOT change MetaMask's active account — only the
+    // user can. Guide them to finish the switch in the extension.
+    alert(
+      "Still on the same account.\n\n" +
+      "MetaMask doesn't let a website choose your active account. To switch:\n" +
+      "• open the MetaMask extension\n" +
+      "• click the account name at the top\n" +
+      "• pick the account you want\n\n" +
+      "The page updates automatically. (Or in the connect dialog, select ONLY the account you want.)"
+    );
+  }
 }
 
 export async function requestDisconnect() {

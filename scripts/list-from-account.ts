@@ -13,11 +13,14 @@ const nft = dep.collectible.address;
 const mkt = dep.marketplace.address;
 const TO = ethers.getAddress(process.env.TO || "0x00cf54d8C7618D976F6c2E887d84e83ffE4Fc251");
 
-// items (owned by TO) to list + their prices in ETH
-const TO_LIST = [
-  { id: 36, price: "0.42" }, // Gengar — Haunted (Card)
-  { id: 24, price: "0.65" }, // Samurai Katana (Antique)
-];
+// items (owned by TO) to list + their prices in ETH. Override with
+// ITEMS="id:price,id:price" (e.g. ITEMS="4:0.9,60:0.35,72:0.2").
+const TO_LIST = process.env.ITEMS
+  ? process.env.ITEMS.split(",").map((p) => { const [id, price] = p.split(":"); return { id: Number(id), price }; })
+  : [
+      { id: 36, price: "0.42" }, // Gengar — Haunted (Card)
+      { id: 24, price: "0.65" }, // Samurai Katana (Antique)
+    ];
 
 // 1) fund TO with test-ETH from #0 (only if it has less than FUND)
 const FUND = ethers.parseEther(process.env.FUND || "5");
