@@ -37,15 +37,17 @@ ponder.on("Collectible:ItemMinted", async ({ event, context }) => {
   const { tokenId, creator, tokenURI } = event.args as any;
   let category: string | null = null;
   let name: string | null = null;
+  let attrs: Record<string, unknown> = {};
   try {
     const m = await (await fetch(`${META_BASE}/${tokenId}.json`)).json();
     name = m?.name ?? null;
-    category = (m?.attributes || []).find((a: any) => a.trait_type === "Category")?.value ?? null;
+    for (const a of m?.attributes || []) attrs[a.trait_type] = a.value;
+    category = (attrs["Category"] as string) ?? null;
   } catch {}
   await context.db
     .insert(item)
-    .values({ id: tokenId, owner: creator, creator, tokenUri: tokenURI, mintedAt: event.block.timestamp, category, name })
-    .onConflictDoUpdate({ creator, tokenUri: tokenURI, category, name });
+    .values({ id: tokenId, owner: creator, creator, tokenUri: tokenURI, mintedAt: event.block.timestamp, category, name, attrs })
+    .onConflictDoUpdate({ creator, tokenUri: tokenURI, category, name, attrs });
 });
 
 // ---- Marketplace ----

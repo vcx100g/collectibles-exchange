@@ -10,6 +10,7 @@ export const item = onchainTable("item", (t) => ({
   mintedAt: t.bigint(),
   category: t.text(), // from metadata (for server-side search)
   name: t.text(),
+  attrs: t.json(), // { trait_type: value, ... } for attribute facets/filters
 }));
 
 // Current marketplace listing per token (active flips false on cancel/sale).

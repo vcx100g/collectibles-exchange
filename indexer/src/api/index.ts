@@ -3,7 +3,7 @@ import schema from "ponder:schema";
 import { Hono } from "hono";
 import { cors } from "hono/cors";
 import { graphql, client } from "ponder";
-import { and, eq, gte, lte, ilike, inArray, asc, desc, count } from "drizzle-orm";
+import { and, eq, gte, lte, ilike, inArray, asc, desc, count, sql } from "drizzle-orm";
 import { parseEther } from "viem";
 
 const app = new Hono();
@@ -109,6 +109,35 @@ app.get("/user/:address", async (c) => {
   });
 });
 
+// Distinct attribute values among a category's active listings — powers the
+// attribute filter dropdowns (Rarity, Region, Vintage, …).
+app.get("/facets", async (c) => {
+  const cat = c.req.query("category");
+  const where = cat
+    ? and(eq(schema.listing.active, true), eq(schema.item.category, cat))
+    : eq(schema.listing.active, true);
+  const rows = await db
+    .select({ attrs: schema.item.attrs })
+    .from(schema.listing)
+    .innerJoin(schema.item, eq(schema.listing.tokenId, schema.item.id))
+    .where(where);
+  const facets: Record<string, Set<string>> = {};
+  for (const r of rows) {
+    for (const [k, v] of Object.entries((r.attrs as any) || {})) {
+      if (k === "Category") continue;
+      (facets[k] ||= new Set()).add(String(v));
+    }
+  }
+  const out: Record<string, string[]> = {};
+  for (const [k, set] of Object.entries(facets)) {
+    out[k] = [...set].sort((a, b) => {
+      const na = Number(a), nb = Number(b);
+      return !isNaN(na) && !isNaN(nb) ? nb - na : a.localeCompare(b);
+    });
+  }
+  return c.json(out);
+});
+
 // Server-side search over active listings (joined with item category/name).
 app.get("/search", async (c) => {
   const text = (c.req.query("q") || "").trim();
@@ -124,6 +153,12 @@ app.get("/search", async (c) => {
   if (cats.length) conds.push(inArray(schema.item.category, cats));
   if (minP) { try { conds.push(gte(schema.listing.price, parseEther(minP))); } catch {} }
   if (maxP) { try { conds.push(lte(schema.listing.price, parseEther(maxP))); } catch {} }
+  // attribute filters: any ?attr_<Trait>=<Value> (e.g. attr_Rarity, attr_Region, attr_Vintage)
+  for (const [key, val] of new URL(c.req.url).searchParams.entries()) {
+    if (key.startsWith("attr_") && val) {
+      conds.push(sql`(${schema.item.attrs} ->> ${key.slice(5)}) = ${String(val)}`);
+    }
+  }
   const where = and(...conds);
 
   const order =
