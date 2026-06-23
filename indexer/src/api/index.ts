@@ -109,6 +109,38 @@ app.get("/user/:address", async (c) => {
   });
 });
 
+// Everything the indexer knows about one token — powers the detail page + modal.
+app.get("/item/:tokenId", async (c) => {
+  const id = BigInt(c.req.param("tokenId"));
+  const [it] = await db.select().from(schema.item).where(eq(schema.item.id, id));
+  if (!it) return c.json({ error: "not found" }, 404);
+  const [listing] = await db.select().from(schema.listing).where(eq(schema.listing.id, id));
+  const sales = (await db.select().from(schema.sale).where(eq(schema.sale.tokenId, id)))
+    .sort((a, b) => Number(a.timestamp - b.timestamp));
+  const activity = (await db.select().from(schema.activity).where(eq(schema.activity.tokenId, id)))
+    .sort((a, b) => Number(a.block - b.block));
+  let volume = 0n;
+  for (const s of sales) volume += s.price;
+  return c.json({
+    tokenId: id.toString(),
+    owner: it.owner,
+    creator: it.creator,
+    tokenUri: it.tokenUri,
+    mintedAt: it.mintedAt ? Number(it.mintedAt) : null,
+    category: it.category,
+    name: it.name,
+    attrs: it.attrs,
+    listing: listing && listing.price > 0n
+      ? { active: listing.active, price: listing.price.toString(), seller: listing.seller, listedAt: Number(listing.listedAt) }
+      : null,
+    tradeCount: sales.length,
+    volumeWei: volume.toString(),
+    lastSalePrice: sales.length ? sales[sales.length - 1].price.toString() : null,
+    sales: ser(sales),
+    activity: ser(activity),
+  });
+});
+
 // Distinct attribute values among a category's active listings — powers the
 // attribute filter dropdowns (Rarity, Region, Vintage, …).
 app.get("/facets", async (c) => {

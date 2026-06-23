@@ -1,0 +1,79 @@
+<!doctype html>
+<html lang="en" data-bs-theme="dark">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>VaultX — Item</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet" />
+  <style>
+    body { background: radial-gradient(1200px 600px at 50% -10%, #1b2030, #0c0e14); min-height: 100vh; }
+    .mono { font-family: ui-monospace, SFMono-Regular, Menlo, monospace; }
+    .brand-badge { background: linear-gradient(135deg,#7b2ff7,#2d9cdb); -webkit-background-clip:text; background-clip:text; color:transparent; font-weight:800; }
+    .card-art { aspect-ratio: 1/1; width: 100%; object-fit: cover; background: #11131a; }
+    .text-break { word-break: break-all; }
+  </style>
+</head>
+<body>
+  <nav class="navbar navbar-expand-lg border-bottom border-secondary-subtle mb-3">
+    <div class="container">
+      <a class="navbar-brand fs-4" href="/"><span class="brand-badge">VaultX</span></a>
+      <div class="d-flex align-items-center gap-2">
+        <a href="/" class="btn btn-sm btn-outline-light">Home</a>
+        <a href="/search.html" class="btn btn-sm btn-outline-light">🔍 Search</a>
+        <a href="/dashboard.html" class="btn btn-sm btn-outline-light">My Account</a>
+        <span id="net-badge" class="badge text-bg-secondary d-none"></span>
+        <button id="connect-btn" class="btn btn-primary">Connect Wallet</button>
+      </div>
+    </div>
+  </nav>
+
+  <main class="container pb-5">
+    <a href="javascript:history.back()" class="btn btn-sm btn-outline-secondary mb-3">← Back</a>
+    <div id="loading" class="text-center py-5"><div class="spinner-border text-secondary"></div></div>
+
+    <div id="content" class="d-none">
+      <div class="row g-4 mb-4">
+        <div class="col-md-5"><img id="img" class="card-art rounded w-100" alt="" /></div>
+        <div class="col-md-7">
+          <h1 id="name" class="h3 mb-1"></h1>
+          <span id="category" class="badge text-bg-dark mb-2"></span>
+          <p id="description" class="text-secondary"></p>
+          <div id="price-box" class="mb-3"></div>
+          <div class="d-flex flex-wrap gap-4 mb-3">
+            <div><div class="text-secondary small">Owner</div><div id="owner" class="mono"></div></div>
+            <div><div class="text-secondary small">Creator</div><div id="creator" class="mono"></div></div>
+          </div>
+          <button id="buy-btn" class="btn btn-primary d-none"></button>
+        </div>
+      </div>
+
+      <div class="row g-3">
+        <div class="col-lg-6">
+          <div class="card h-100"><div class="card-body">
+            <h6 class="mb-3">⛓️ Blockchain details</h6>
+            <table class="table table-sm small"><tbody id="chain-info"></tbody></table>
+          </div></div>
+        </div>
+        <div class="col-lg-6">
+          <div class="card h-100"><div class="card-body">
+            <h6 class="mb-3">🏷️ Attributes</h6>
+            <table class="table table-sm"><tbody id="attrs"></tbody></table>
+          </div></div>
+        </div>
+      </div>
+
+      <div class="card mt-3"><div class="card-body">
+        <h6 class="mb-3">📜 On-chain activity</h6>
+        <div class="table-responsive"><table class="table table-sm align-middle">
+          <thead><tr><th>Event</th><th>From</th><th>To</th><th>Price</th><th>Block</th><th>Tx hash</th><th>Time</th></tr></thead>
+          <tbody id="activity"></tbody>
+        </table></div>
+      </div></div>
+    </div>
+  </main>
+
+  <div class="toast-container position-fixed bottom-0 end-0 p-3" id="toasts"></div>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js"></script>
+  <script type="module" src="./item.js"></script>
+</body>
+</html>

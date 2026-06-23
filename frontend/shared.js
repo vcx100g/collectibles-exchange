@@ -108,42 +108,56 @@ export async function buy(tokenId, priceWei) {
   toast("Purchased! 🎉", "success");
 }
 
-// item detail + provenance — read-only, from the indexer
+export function timelineHtml(acts) {
+  if (!acts || !acts.length) return "<li>No history yet.</li>";
+  return acts
+    .map((a) => {
+      const when = new Date(Number(a.timestamp) * 1000).toLocaleString();
+      let label;
+      if (a.type === "mint") label = `<strong>Minted</strong> by <span class="mono">${short(a.to)}</span>`;
+      else if (a.type === "sale") label = `<strong>Sold</strong> to <span class="mono">${short(a.to)}</span> · <span class="text-success">${fmt(a.price)} ETH</span>`;
+      else if (a.type === "list") label = `Listed · <span class="text-success">${fmt(a.price)} ETH</span>`;
+      else if (a.type === "update") label = `Price updated · <span class="text-success">${fmt(a.price)} ETH</span>`;
+      else if (a.type === "cancel") label = "Listing canceled";
+      else label = `Transferred to <span class="mono">${short(a.to)}</span>`;
+      return `<li><div>${label}</div><div class="small text-secondary">${when}</div></li>`;
+    })
+    .join("");
+}
+
+// item detail modal — price, owner, creator, provenance + link to the full page
 export async function showDetail(tokenId) {
   const meta = await fetchMeta(tokenId);
-  let timeline = "<li>No history yet.</li>";
-  try {
-    const acts = await (await fetch(`${INDEXER}/activity/${tokenId}`)).json();
-    if (acts.length) {
-      timeline = acts
-        .map((a) => {
-          const when = new Date(Number(a.timestamp) * 1000).toLocaleString();
-          let label;
-          if (a.type === "mint") label = `<strong>Minted</strong> by <span class="mono">${short(a.to)}</span>`;
-          else if (a.type === "sale") label = `<strong>Sold</strong> to <span class="mono">${short(a.to)}</span> · <span class="text-success">${fmt(a.price)} ETH</span>`;
-          else if (a.type === "list") label = `Listed · <span class="text-success">${fmt(a.price)} ETH</span>`;
-          else if (a.type === "update") label = `Price updated · <span class="text-success">${fmt(a.price)} ETH</span>`;
-          else if (a.type === "cancel") label = "Listing canceled";
-          else label = `Transferred to <span class="mono">${short(a.to)}</span>`;
-          return `<li><div>${label}</div><div class="small text-secondary">${when}</div></li>`;
-        })
-        .join("");
-    }
-  } catch {}
+  let info = {};
+  try { info = await (await fetch(`${INDEXER}/item/${tokenId}`)).json(); } catch {}
   const attrs = (meta.attributes || [])
     .map((a) => `<tr><td class="text-secondary">${a.trait_type}</td><td class="text-end">${a.value}</td></tr>`)
     .join("");
+  const priceBlock = info.listing
+    ? `<div class="mb-2"><div class="text-secondary small">Price</div><div class="h4 m-0 text-success">${fmt(info.listing.price)} ETH</div></div>`
+    : `<div class="mb-2 text-secondary small">Not currently listed</div>`;
+  const ownerLine = info.owner ? `<div class="small">Owner: <span class="mono">${short(info.owner)}</span></div>` : "";
+  const creatorLine = info.creator ? `<div class="small text-secondary">Creator: <span class="mono">${short(info.creator)}</span> · 5% royalty</div>` : "";
+  const tradeLine = info.tradeCount ? `<div class="small text-secondary">${info.tradeCount} trade${info.tradeCount > 1 ? "s" : ""}</div>` : "";
   $("#detail-content").innerHTML = `
     <div class="modal-header"><h5 class="modal-title">${meta.name}</h5>
       <button type="button" class="btn-close" data-bs-dismiss="modal"></button></div>
     <div class="modal-body"><div class="row g-3">
-      <div class="col-md-5"><img src="${meta.image}" class="card-art rounded" alt="${meta.name}"></div>
+      <div class="col-md-5">
+        <img src="${meta.image}" class="card-art rounded mb-2" alt="${meta.name}">
+        ${priceBlock}${ownerLine}${creatorLine}${tradeLine}
+      </div>
       <div class="col-md-7">
+        ${info.category ? `<span class="badge text-bg-dark mb-2">${info.category}</span>` : ""}
         <p class="text-secondary">${meta.description || ""}</p>
         <table class="table table-sm table-borderless mb-3"><tbody>${attrs}</tbody></table>
         <h6 class="text-secondary text-uppercase small">Provenance / history</h6>
-        <ul class="timeline">${timeline}</ul>
-      </div></div></div>`;
+        <ul class="timeline">${timelineHtml(info.activity)}</ul>
+      </div></div></div>
+    <div class="modal-footer">
+      ${info.listing ? `<button class="btn btn-primary" data-buy="${tokenId}" data-price="${info.listing.price}">Buy · ${fmt(info.listing.price)} ETH</button>` : ""}
+      <a href="/item.html?id=${tokenId}" class="btn btn-outline-light">Full details →</a>
+    </div>`;
   bootstrap.Modal.getOrCreateInstance($("#detail-modal")).show();
 }
 
