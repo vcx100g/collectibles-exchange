@@ -1,0 +1,53 @@
+{
+  "name": "Romanée-Conti 1990 (Reissue)",
+  "description": "A legendary Grand Cru Burgundy, one of the rarest wines on earth.",
+  "image": "http://100.70.161.82:8080/metadata/images/9.webp",
+  "external_url": "http://100.70.161.82:8080/metadata/130.json",
+  "attributes": [
+    {
+      "trait_type": "Category",
+      "value": "Wine"
+    },
+    {
+      "trait_type": "Vintage",
+      "value": 1990,
+      "display_type": "number"
+    },
+    {
+      "trait_type": "Region",
+      "value": "Burgundy"
+    },
+    {
+      "trait_type": "Producer",
+      "value": "DRC"
+    },
+    {
+      "trait_type": "Bottle #",
+      "value": "0012"
+    },
+    {
+      "trait_type": "Grape",
+      "value": "Pinot Noir"
+    },
+    {
+      "trait_type": "ABV",
+      "value": "14.5%"
+    },
+    {
+      "trait_type": "Bottle Size",
+      "value": "1.5 L (Magnum)"
+    },
+    {
+      "trait_type": "Critic Score",
+      "value": "92/100"
+    },
+    {
+      "trait_type": "Drink By",
+      "value": "2019"
+    },
+    {
+      "trait_type": "Closure",
+      "value": "Natural Cork"
+    }
+  ]
+}

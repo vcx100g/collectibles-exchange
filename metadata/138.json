@@ -1,0 +1,53 @@
+{
+  "name": "Normal Beast #105 (Reissue)",
+  "description": "A holographic collectible monster card.",
+  "image": "http://100.70.161.82:8080/metadata/images/89.webp",
+  "external_url": "http://100.70.161.82:8080/metadata/138.json",
+  "attributes": [
+    {
+      "trait_type": "Category",
+      "value": "Card"
+    },
+    {
+      "trait_type": "Type",
+      "value": "Normal"
+    },
+    {
+      "trait_type": "Rarity",
+      "value": "Rare"
+    },
+    {
+      "trait_type": "HP",
+      "value": 90,
+      "display_type": "number"
+    },
+    {
+      "trait_type": "Set",
+      "value": "Base Set"
+    },
+    {
+      "trait_type": "Illustrator",
+      "value": "Mitsuhiro Arita"
+    },
+    {
+      "trait_type": "Card Number",
+      "value": "90/180"
+    },
+    {
+      "trait_type": "Condition",
+      "value": "PSA 9 Mint"
+    },
+    {
+      "trait_type": "Language",
+      "value": "English"
+    },
+    {
+      "trait_type": "Holofoil",
+      "value": "No"
+    },
+    {
+      "trait_type": "First Edition",
+      "value": "Yes"
+    }
+  ]
+}

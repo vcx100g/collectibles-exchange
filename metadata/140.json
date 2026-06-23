@@ -1,0 +1,49 @@
+{
+  "name": "Low-poly koi pond (Reissue)",
+  "description": "A 1-of-1 digital artwork.",
+  "image": "http://100.70.161.82:8080/metadata/images/109.webp",
+  "external_url": "http://100.70.161.82:8080/metadata/140.json",
+  "attributes": [
+    {
+      "trait_type": "Category",
+      "value": "Art"
+    },
+    {
+      "trait_type": "Artist",
+      "value": "Nø.7"
+    },
+    {
+      "trait_type": "Edition",
+      "value": "1 of 1"
+    },
+    {
+      "trait_type": "Medium",
+      "value": "Generative / Digital"
+    },
+    {
+      "trait_type": "Year",
+      "value": 2025,
+      "display_type": "number"
+    },
+    {
+      "trait_type": "Dimensions",
+      "value": "2048 × 2048 px"
+    },
+    {
+      "trait_type": "Format",
+      "value": "SVG"
+    },
+    {
+      "trait_type": "Blockchain",
+      "value": "Ethereum"
+    },
+    {
+      "trait_type": "License",
+      "value": "Personal Use"
+    },
+    {
+      "trait_type": "Collection",
+      "value": "VaultX Genesis"
+    }
+  ]
+}

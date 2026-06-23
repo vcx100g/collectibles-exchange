@@ -1,0 +1,48 @@
+{
+  "name": "Ancient Greece Clay amphora (Reissue)",
+  "description": "An authenticated antique with documented provenance.",
+  "image": "http://100.70.161.82:8080/metadata/images/119.webp",
+  "external_url": "http://100.70.161.82:8080/metadata/141.json",
+  "attributes": [
+    {
+      "trait_type": "Category",
+      "value": "Antique"
+    },
+    {
+      "trait_type": "Era",
+      "value": "Ancient Greece"
+    },
+    {
+      "trait_type": "Origin",
+      "value": "Greece"
+    },
+    {
+      "trait_type": "Material",
+      "value": "Terracotta"
+    },
+    {
+      "trait_type": "Grading",
+      "value": "Certified"
+    },
+    {
+      "trait_type": "Dimensions",
+      "value": "H 24 cm"
+    },
+    {
+      "trait_type": "Weight",
+      "value": "0.4 kg"
+    },
+    {
+      "trait_type": "Condition",
+      "value": "Fair"
+    },
+    {
+      "trait_type": "Provenance",
+      "value": "Family Estate"
+    },
+    {
+      "trait_type": "Authentication",
+      "value": "Certified — Sotheby's"
+    }
+  ]
+}

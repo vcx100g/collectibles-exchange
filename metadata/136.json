@@ -1,0 +1,44 @@
+{
+  "name": "Red barn in a golden autumn field at sunset (Reissue)",
+  "description": "A slice of pastoral country life.",
+  "image": "http://100.70.161.82:8080/metadata/images/69.webp",
+  "external_url": "http://100.70.161.82:8080/metadata/136.json",
+  "attributes": [
+    {
+      "trait_type": "Category",
+      "value": "Farm"
+    },
+    {
+      "trait_type": "Type",
+      "value": "Landmark"
+    },
+    {
+      "trait_type": "Origin",
+      "value": "Vermont"
+    },
+    {
+      "trait_type": "Season",
+      "value": "Spring"
+    },
+    {
+      "trait_type": "Grade",
+      "value": "Prime"
+    },
+    {
+      "trait_type": "Quantity",
+      "value": "1 head"
+    },
+    {
+      "trait_type": "Certification",
+      "value": "Fair Trade"
+    },
+    {
+      "trait_type": "Harvest",
+      "value": "2023"
+    },
+    {
+      "trait_type": "Coordinates",
+      "value": "43.169° N"
+    }
+  ]
+}

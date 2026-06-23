@@ -1,0 +1,53 @@
+{
+  "name": "Charizard — Base Set (Reissue)",
+  "description": "1st-edition Base Set holofoil. The crown jewel of any collection.",
+  "image": "http://100.70.161.82:8080/metadata/images/0.webp",
+  "external_url": "http://100.70.161.82:8080/metadata/129.json",
+  "attributes": [
+    {
+      "trait_type": "Category",
+      "value": "Card"
+    },
+    {
+      "trait_type": "Type",
+      "value": "Fire"
+    },
+    {
+      "trait_type": "Rarity",
+      "value": "Holo Rare"
+    },
+    {
+      "trait_type": "HP",
+      "value": 120,
+      "display_type": "number"
+    },
+    {
+      "trait_type": "Set",
+      "value": "Base Set"
+    },
+    {
+      "trait_type": "Illustrator",
+      "value": "Ken Sugimori"
+    },
+    {
+      "trait_type": "Card Number",
+      "value": "1/180"
+    },
+    {
+      "trait_type": "Condition",
+      "value": "PSA 8 NM-Mint"
+    },
+    {
+      "trait_type": "Language",
+      "value": "French"
+    },
+    {
+      "trait_type": "Holofoil",
+      "value": "Yes"
+    },
+    {
+      "trait_type": "First Edition",
+      "value": "No"
+    }
+  ]
+}

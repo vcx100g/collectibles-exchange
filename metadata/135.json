@@ -1,0 +1,49 @@
+{
+  "name": "Quiet village square (Reissue)",
+  "description": "A surrealist masterwork in oils.",
+  "image": "http://100.70.161.82:8080/metadata/images/59.webp",
+  "external_url": "http://100.70.161.82:8080/metadata/135.json",
+  "attributes": [
+    {
+      "trait_type": "Category",
+      "value": "Painting"
+    },
+    {
+      "trait_type": "Artist",
+      "value": "M. Costa"
+    },
+    {
+      "trait_type": "Medium",
+      "value": "Oil on canvas"
+    },
+    {
+      "trait_type": "Style",
+      "value": "Surrealist"
+    },
+    {
+      "trait_type": "Year",
+      "value": 1815,
+      "display_type": "number"
+    },
+    {
+      "trait_type": "Dimensions",
+      "value": "60 × 90 cm"
+    },
+    {
+      "trait_type": "Signed",
+      "value": "Yes — lower right"
+    },
+    {
+      "trait_type": "Provenance",
+      "value": "Estate of the Artist"
+    },
+    {
+      "trait_type": "Condition",
+      "value": "Restored"
+    },
+    {
+      "trait_type": "Framed",
+      "value": "Yes — Gilded"
+    }
+  ]
+}
