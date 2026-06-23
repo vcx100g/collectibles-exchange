@@ -110,9 +110,19 @@ let marketCursor = 0;
 let marketBusy = false;
 let marketObserver = null;
 
+// the indexer serves on :42069 of the same host
+const INDEXER = (() => { const u = new URL(location.origin); u.port = "42069"; return u.origin; })();
+
 async function loadMarket() {
-  // fetch the listing index (ids/price/seller) once; newest first
-  marketRefs = (await activeListings()).sort((a, b) => (a.tokenId > b.tokenId ? -1 : 1));
+  // fast path: indexer returns ALL active listings in one call (scales to 1000s).
+  // fallback: read them from chain if the indexer is unavailable.
+  try {
+    const rows = await (await fetch(`${INDEXER}/listings`)).json();
+    marketRefs = rows.map((r) => ({ tokenId: BigInt(r.tokenId), price: BigInt(r.price), seller: r.seller }));
+  } catch {
+    marketRefs = await activeListings();
+  }
+  marketRefs.sort((a, b) => (a.tokenId > b.tokenId ? -1 : 1)); // newest first
   resetMarketView();
 }
 
