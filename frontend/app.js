@@ -102,25 +102,76 @@ async function activeListings() {
   return rows.filter(({ l }) => l.price > 0n).map(({ id, l }) => ({ tokenId: id, price: l.price, seller: l.seller }));
 }
 
+// ---- marketplace feed, paginated: 100 first, +50 as you scroll ----
+const PAGE_INITIAL = 100;
+const PAGE_MORE = 50;
+let marketRefs = [];        // lightweight active-listing index (no images)
+let marketCursor = 0;
+let marketBusy = false;
+let marketObserver = null;
+
 async function loadMarket() {
-  const grid = $("#market-grid");
-  const listings = await activeListings();
-  // fetch ALL metadata in parallel, then paint every card in one shot
-  const metas = await Promise.all(listings.map((x) => fetchMeta(x.tokenId)));
-  let html = "", shown = 0;
-  listings.forEach((x, i) => {
-    const meta = metas[i];
-    if (currentCat !== "All" && catOf(meta) !== currentCat) return;
-    shown++;
-    const mine = account && x.seller.toLowerCase() === account.toLowerCase();
-    const action = mine
-      ? `<button class="btn btn-sm btn-outline-secondary w-100" disabled>Your listing</button>`
-      : `<button class="btn btn-sm btn-primary w-100" data-buy="${x.tokenId}" data-price="${x.price}">Buy · ${ethers.formatEther(x.price)} ETH</button>`;
-    html += cardHtml(x.tokenId, meta, action);
-  });
-  grid.innerHTML = html;
-  $("#market-empty").classList.toggle("d-none", shown > 0);
-  fadeInImages(grid);
+  // fetch the listing index (ids/price/seller) once; newest first
+  marketRefs = (await activeListings()).sort((a, b) => (a.tokenId > b.tokenId ? -1 : 1));
+  resetMarketView();
+}
+
+function resetMarketView() {
+  marketCursor = 0;
+  $("#market-grid").innerHTML = "";
+  $("#market-empty").classList.add("d-none");
+  setupMarketObserver();
+  renderNextMarketPage(PAGE_INITIAL);
+}
+
+async function renderNextMarketPage(count) {
+  if (marketBusy || marketCursor >= marketRefs.length) return;
+  marketBusy = true;
+  $("#market-loading")?.classList.remove("d-none");
+  try {
+    const grid = $("#market-grid");
+    const slice = marketRefs.slice(marketCursor, marketCursor + count);
+    marketCursor += slice.length;
+    // images/metadata only for THIS page — fetched in parallel
+    const metas = await Promise.all(slice.map((x) => fetchMeta(x.tokenId)));
+    let html = "";
+    slice.forEach((x, i) => {
+      const meta = metas[i];
+      if (currentCat !== "All" && catOf(meta) !== currentCat) return;
+      const mine = account && x.seller.toLowerCase() === account.toLowerCase();
+      const action = mine
+        ? `<button class="btn btn-sm btn-outline-secondary w-100" disabled>Your listing</button>`
+        : `<button class="btn btn-sm btn-primary w-100" data-buy="${x.tokenId}" data-price="${x.price}">Buy · ${ethers.formatEther(x.price)} ETH</button>`;
+      html += cardHtml(x.tokenId, meta, action);
+    });
+    grid.insertAdjacentHTML("beforeend", html);
+    fadeInImages(grid);
+    updateMarketEmpty();
+  } finally {
+    marketBusy = false;
+    $("#market-loading")?.classList.add("d-none");
+  }
+}
+
+function updateMarketEmpty() {
+  const hasCards = $("#market-grid").querySelector(".col");
+  // only show "empty" once we've exhausted the list and rendered nothing
+  $("#market-empty").classList.toggle("d-none", !!hasCards || marketCursor < marketRefs.length);
+}
+
+function setupMarketObserver() {
+  if (marketObserver) marketObserver.disconnect();
+  const sentinel = $("#market-sentinel");
+  if (!sentinel) return;
+  marketObserver = new IntersectionObserver(
+    (entries) => {
+      if (entries[0].isIntersecting && !marketBusy && marketCursor < marketRefs.length) {
+        renderNextMarketPage(PAGE_MORE);
+      }
+    },
+    { rootMargin: "500px" }, // prefetch the next page before the user hits the bottom
+  );
+  marketObserver.observe(sentinel);
 }
 
 async function loadMine() {
@@ -308,7 +359,7 @@ document.querySelectorAll("#cat-filter button").forEach((b) =>
   b.addEventListener("click", () => {
     currentCat = b.dataset.cat;
     document.querySelectorAll("#cat-filter button").forEach((x) => x.classList.toggle("active", x === b));
-    if (currentView === "market") loadMarket();
+    if (currentView === "market") (marketRefs.length ? resetMarketView() : loadMarket());
     else loadMine();
   }),
 );
