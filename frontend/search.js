@@ -70,7 +70,9 @@ async function search() {
       cardHtml(
         r.tokenId,
         metas[i],
-        `<button class="btn btn-sm btn-primary w-100" data-buy="${r.tokenId}" data-price="${r.price}">Buy · ${fmt(r.price)} ETH</button>`,
+        `<button class="btn btn-sm btn-primary w-100" data-buy="${r.tokenId}" data-price="${r.price}">Buy</button>`,
+        "",
+        r.price,
       ),
     )
     .join("");

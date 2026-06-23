@@ -53,8 +53,14 @@ export function gradeOf(meta) {
   return null;
 }
 
-export function cardHtml(tokenId, meta, actionHtml = "", extra = "") {
+export const PLATFORM_FEE_PCT = 2.5;
+
+export function cardHtml(tokenId, meta, actionHtml = "", extra = "", priceWei = null) {
   const g = gradeOf(meta);
+  const price = priceWei != null
+    ? `<div class="mb-1"><span class="fw-bold text-success" style="font-size:1.1rem">${fmt(priceWei)} ETH</span>
+        <div class="text-secondary" style="font-size:.66rem">incl. ${PLATFORM_FEE_PCT}% platform fee</div></div>`
+    : "";
   return `<div class="col"><div class="card h-100 shadow-sm">
     <div class="art-wrap" data-detail="${tokenId}" role="button">
       <img src="${meta.image}" class="tile-img" loading="lazy" decoding="async" alt="${meta.name}">
@@ -64,8 +70,8 @@ export function cardHtml(tokenId, meta, actionHtml = "", extra = "") {
         <span class="badge text-bg-dark trait">${catOf(meta)}</span>
         ${g ? `<span class="badge text-bg-secondary trait" title="${g.trait}">${g.value}</span>` : ""}
       </div>
-      <h6 class="card-title text-truncate" title="${meta.name}">${meta.name}</h6>
-      ${extra}
+      <h6 class="card-title text-truncate mb-1" title="${meta.name}">${meta.name}</h6>
+      ${price}${extra}
       <div class="mt-auto">${actionHtml}</div>
     </div></div></div>`;
 }

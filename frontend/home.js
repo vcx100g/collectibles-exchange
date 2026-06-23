@@ -3,7 +3,7 @@ import { $, INDEXER, fetchMeta, cardHtml, fadeInImages, fmt, wireGrid, initWalle
 const SHOW = 6; // cards per section
 
 const buyAction = (tokenId, price) =>
-  `<button class="btn btn-sm btn-primary w-100" data-buy="${tokenId}" data-price="${price}">Buy · ${fmt(price)} ETH</button>`;
+  `<button class="btn btn-sm btn-primary w-100" data-buy="${tokenId}" data-price="${price}">Buy</button>`;
 const viewAction = (tokenId) =>
   `<button class="btn btn-sm btn-outline-light w-100" data-detail="${tokenId}">View</button>`;
 
@@ -19,7 +19,7 @@ async function render(elId, refs, opts) {
     .map((r, i) => {
       const action = opts.buyable && r.price ? buyAction(r.tokenId, r.price) : viewAction(r.tokenId);
       const extra = opts.label ? `<div class="small text-secondary mb-1">${opts.label(r)}</div>` : "";
-      return cardHtml(r.tokenId, metas[i], action, extra);
+      return cardHtml(r.tokenId, metas[i], action, extra, opts.buyable && r.price ? r.price : null);
     })
     .join("");
   fadeInImages(grid);
