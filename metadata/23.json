@@ -23,6 +23,26 @@
     {
       "trait_type": "Grading",
       "value": "MS-63"
+    },
+    {
+      "trait_type": "Dimensions",
+      "value": "H 24 cm"
+    },
+    {
+      "trait_type": "Weight",
+      "value": "0.4 kg"
+    },
+    {
+      "trait_type": "Condition",
+      "value": "Fair"
+    },
+    {
+      "trait_type": "Provenance",
+      "value": "Family Estate"
+    },
+    {
+      "trait_type": "Authentication",
+      "value": "Certified — Sotheby's"
     }
   ]
 }

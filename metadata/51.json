@@ -24,6 +24,30 @@
     {
       "trait_type": "Bottle #",
       "value": "1444"
+    },
+    {
+      "trait_type": "Grape",
+      "value": "Cabernet Sauvignon"
+    },
+    {
+      "trait_type": "ABV",
+      "value": "14.5%"
+    },
+    {
+      "trait_type": "Bottle Size",
+      "value": "1.5 L (Magnum)"
+    },
+    {
+      "trait_type": "Critic Score",
+      "value": "98/100"
+    },
+    {
+      "trait_type": "Drink By",
+      "value": "2008"
+    },
+    {
+      "trait_type": "Closure",
+      "value": "Natural Cork"
     }
   ]
 }

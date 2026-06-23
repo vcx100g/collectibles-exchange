@@ -23,6 +23,26 @@
     {
       "trait_type": "Grading",
       "value": "Certified"
+    },
+    {
+      "trait_type": "Dimensions",
+      "value": "H 18 × W 12 cm"
+    },
+    {
+      "trait_type": "Weight",
+      "value": "3.5 kg"
+    },
+    {
+      "trait_type": "Condition",
+      "value": "Restored"
+    },
+    {
+      "trait_type": "Provenance",
+      "value": "Private Collection"
+    },
+    {
+      "trait_type": "Authentication",
+      "value": "Thermoluminescence Tested"
     }
   ]
 }

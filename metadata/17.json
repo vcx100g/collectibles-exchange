@@ -24,6 +24,26 @@
       "trait_type": "Year",
       "value": 1505,
       "display_type": "number"
+    },
+    {
+      "trait_type": "Dimensions",
+      "value": "50 × 65 cm"
+    },
+    {
+      "trait_type": "Signed",
+      "value": "Yes — lower right"
+    },
+    {
+      "trait_type": "Provenance",
+      "value": "Auction — Christie's"
+    },
+    {
+      "trait_type": "Condition",
+      "value": "Excellent"
+    },
+    {
+      "trait_type": "Framed",
+      "value": "Yes — Gilded"
     }
   ]
 }

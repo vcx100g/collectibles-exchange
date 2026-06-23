@@ -24,6 +24,30 @@
     {
       "trait_type": "Bottle #",
       "value": "0421"
+    },
+    {
+      "trait_type": "Grape",
+      "value": "Shiraz"
+    },
+    {
+      "trait_type": "ABV",
+      "value": "15.0%"
+    },
+    {
+      "trait_type": "Bottle Size",
+      "value": "750 ml"
+    },
+    {
+      "trait_type": "Critic Score",
+      "value": "93/100"
+    },
+    {
+      "trait_type": "Drink By",
+      "value": "2038"
+    },
+    {
+      "trait_type": "Closure",
+      "value": "Natural Cork"
     }
   ]
 }

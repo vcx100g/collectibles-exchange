@@ -24,6 +24,30 @@
     {
       "trait_type": "Bottle #",
       "value": "1259"
+    },
+    {
+      "trait_type": "Grape",
+      "value": "Touriga Nacional"
+    },
+    {
+      "trait_type": "ABV",
+      "value": "15.0%"
+    },
+    {
+      "trait_type": "Bottle Size",
+      "value": "750 ml"
+    },
+    {
+      "trait_type": "Critic Score",
+      "value": "93/100"
+    },
+    {
+      "trait_type": "Drink By",
+      "value": "2051"
+    },
+    {
+      "trait_type": "Closure",
+      "value": "Natural Cork"
     }
   ]
 }

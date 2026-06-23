@@ -24,6 +24,30 @@
     {
       "trait_type": "Set",
       "value": "Neo Genesis"
+    },
+    {
+      "trait_type": "Illustrator",
+      "value": "Atsuko Nishida"
+    },
+    {
+      "trait_type": "Card Number",
+      "value": "99/180"
+    },
+    {
+      "trait_type": "Condition",
+      "value": "PSA 10 Gem Mint"
+    },
+    {
+      "trait_type": "Language",
+      "value": "Japanese"
+    },
+    {
+      "trait_type": "Holofoil",
+      "value": "Yes"
+    },
+    {
+      "trait_type": "First Edition",
+      "value": "No"
     }
   ]
 }

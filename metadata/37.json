@@ -24,6 +24,30 @@
     {
       "trait_type": "Set",
       "value": "Jungle"
+    },
+    {
+      "trait_type": "Illustrator",
+      "value": "Naoyo Kimura"
+    },
+    {
+      "trait_type": "Card Number",
+      "value": "38/180"
+    },
+    {
+      "trait_type": "Condition",
+      "value": "Lightly Played"
+    },
+    {
+      "trait_type": "Language",
+      "value": "English"
+    },
+    {
+      "trait_type": "Holofoil",
+      "value": "No"
+    },
+    {
+      "trait_type": "First Edition",
+      "value": "Yes"
     }
   ]
 }

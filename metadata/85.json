@@ -24,6 +24,30 @@
     {
       "trait_type": "Set",
       "value": "Jungle"
+    },
+    {
+      "trait_type": "Illustrator",
+      "value": "Ken Sugimori"
+    },
+    {
+      "trait_type": "Card Number",
+      "value": "86/180"
+    },
+    {
+      "trait_type": "Condition",
+      "value": "PSA 8 NM-Mint"
+    },
+    {
+      "trait_type": "Language",
+      "value": "English"
+    },
+    {
+      "trait_type": "Holofoil",
+      "value": "No"
+    },
+    {
+      "trait_type": "First Edition",
+      "value": "Yes"
     }
   ]
 }

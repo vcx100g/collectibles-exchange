@@ -24,6 +24,26 @@
       "trait_type": "Year",
       "value": 2024,
       "display_type": "number"
+    },
+    {
+      "trait_type": "Dimensions",
+      "value": "3840 × 2160 px"
+    },
+    {
+      "trait_type": "Format",
+      "value": "WEBP"
+    },
+    {
+      "trait_type": "Blockchain",
+      "value": "Ethereum"
+    },
+    {
+      "trait_type": "License",
+      "value": "CC BY-NC 4.0"
+    },
+    {
+      "trait_type": "Collection",
+      "value": "VaultX Genesis"
     }
   ]
 }

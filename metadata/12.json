@@ -24,6 +24,30 @@
     {
       "trait_type": "Bottle #",
       "value": "0088"
+    },
+    {
+      "trait_type": "Grape",
+      "value": "Touriga Nacional"
+    },
+    {
+      "trait_type": "ABV",
+      "value": "13.0%"
+    },
+    {
+      "trait_type": "Bottle Size",
+      "value": "1.5 L (Magnum)"
+    },
+    {
+      "trait_type": "Critic Score",
+      "value": "95/100"
+    },
+    {
+      "trait_type": "Drink By",
+      "value": "1995"
+    },
+    {
+      "trait_type": "Closure",
+      "value": "Natural Cork"
     }
   ]
 }

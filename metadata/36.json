@@ -24,6 +24,30 @@
     {
       "trait_type": "Set",
       "value": "Fossil"
+    },
+    {
+      "trait_type": "Illustrator",
+      "value": "5ban Graphics"
+    },
+    {
+      "trait_type": "Card Number",
+      "value": "37/180"
+    },
+    {
+      "trait_type": "Condition",
+      "value": "Near Mint"
+    },
+    {
+      "trait_type": "Language",
+      "value": "French"
+    },
+    {
+      "trait_type": "Holofoil",
+      "value": "Reverse Holo"
+    },
+    {
+      "trait_type": "First Edition",
+      "value": "No"
     }
   ]
 }

@@ -24,6 +24,30 @@
     {
       "trait_type": "Bottle #",
       "value": "1111"
+    },
+    {
+      "trait_type": "Grape",
+      "value": "Sangiovese"
+    },
+    {
+      "trait_type": "ABV",
+      "value": "13.0%"
+    },
+    {
+      "trait_type": "Bottle Size",
+      "value": "1.5 L (Magnum)"
+    },
+    {
+      "trait_type": "Critic Score",
+      "value": "98/100"
+    },
+    {
+      "trait_type": "Drink By",
+      "value": "2019"
+    },
+    {
+      "trait_type": "Closure",
+      "value": "Natural Cork"
     }
   ]
 }

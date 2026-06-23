@@ -23,6 +23,26 @@
     {
       "trait_type": "Grading",
       "value": "Certified"
+    },
+    {
+      "trait_type": "Dimensions",
+      "value": "Ø 15 cm"
+    },
+    {
+      "trait_type": "Weight",
+      "value": "0.8 kg"
+    },
+    {
+      "trait_type": "Condition",
+      "value": "Excellent"
+    },
+    {
+      "trait_type": "Provenance",
+      "value": "Auction House"
+    },
+    {
+      "trait_type": "Authentication",
+      "value": "Expert Appraised"
     }
   ]
 }

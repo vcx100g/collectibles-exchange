@@ -24,6 +24,30 @@
     {
       "trait_type": "Bottle #",
       "value": "1074"
+    },
+    {
+      "trait_type": "Grape",
+      "value": "Chardonnay / Pinot Noir"
+    },
+    {
+      "trait_type": "ABV",
+      "value": "12.5%"
+    },
+    {
+      "trait_type": "Bottle Size",
+      "value": "750 ml"
+    },
+    {
+      "trait_type": "Critic Score",
+      "value": "97/100"
+    },
+    {
+      "trait_type": "Drink By",
+      "value": "2011"
+    },
+    {
+      "trait_type": "Closure",
+      "value": "Natural Cork"
     }
   ]
 }

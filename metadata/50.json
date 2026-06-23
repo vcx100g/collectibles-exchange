@@ -24,6 +24,30 @@
     {
       "trait_type": "Bottle #",
       "value": "1407"
+    },
+    {
+      "trait_type": "Grape",
+      "value": "Sangiovese"
+    },
+    {
+      "trait_type": "ABV",
+      "value": "14.0%"
+    },
+    {
+      "trait_type": "Bottle Size",
+      "value": "750 ml"
+    },
+    {
+      "trait_type": "Critic Score",
+      "value": "97/100"
+    },
+    {
+      "trait_type": "Drink By",
+      "value": "2000"
+    },
+    {
+      "trait_type": "Closure",
+      "value": "Natural Cork"
     }
   ]
 }

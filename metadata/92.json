@@ -24,6 +24,30 @@
     {
       "trait_type": "Set",
       "value": "Legendary"
+    },
+    {
+      "trait_type": "Illustrator",
+      "value": "Naoyo Kimura"
+    },
+    {
+      "trait_type": "Card Number",
+      "value": "93/180"
+    },
+    {
+      "trait_type": "Condition",
+      "value": "Lightly Played"
+    },
+    {
+      "trait_type": "Language",
+      "value": "French"
+    },
+    {
+      "trait_type": "Holofoil",
+      "value": "Reverse Holo"
+    },
+    {
+      "trait_type": "First Edition",
+      "value": "No"
     }
   ]
 }

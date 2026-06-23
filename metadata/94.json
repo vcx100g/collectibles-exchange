@@ -24,6 +24,30 @@
     {
       "trait_type": "Set",
       "value": "Base Set"
+    },
+    {
+      "trait_type": "Illustrator",
+      "value": "Mitsuhiro Arita"
+    },
+    {
+      "trait_type": "Card Number",
+      "value": "95/180"
+    },
+    {
+      "trait_type": "Condition",
+      "value": "PSA 9 Mint"
+    },
+    {
+      "trait_type": "Language",
+      "value": "Japanese"
+    },
+    {
+      "trait_type": "Holofoil",
+      "value": "Yes"
+    },
+    {
+      "trait_type": "First Edition",
+      "value": "No"
     }
   ]
 }

@@ -24,6 +24,30 @@
     {
       "trait_type": "Set",
       "value": "Fossil"
+    },
+    {
+      "trait_type": "Illustrator",
+      "value": "5ban Graphics"
+    },
+    {
+      "trait_type": "Card Number",
+      "value": "87/180"
+    },
+    {
+      "trait_type": "Condition",
+      "value": "Near Mint"
+    },
+    {
+      "trait_type": "Language",
+      "value": "Japanese"
+    },
+    {
+      "trait_type": "Holofoil",
+      "value": "Yes"
+    },
+    {
+      "trait_type": "First Edition",
+      "value": "No"
     }
   ]
 }

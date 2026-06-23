@@ -24,6 +24,26 @@
       "trait_type": "Year",
       "value": 1792,
       "display_type": "number"
+    },
+    {
+      "trait_type": "Dimensions",
+      "value": "120 × 90 cm"
+    },
+    {
+      "trait_type": "Signed",
+      "value": "Yes — lower right"
+    },
+    {
+      "trait_type": "Provenance",
+      "value": "Private Collection"
+    },
+    {
+      "trait_type": "Condition",
+      "value": "Very Good"
+    },
+    {
+      "trait_type": "Framed",
+      "value": "Unframed"
     }
   ]
 }

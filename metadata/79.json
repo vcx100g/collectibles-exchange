@@ -23,6 +23,22 @@
     {
       "trait_type": "Grade",
       "value": "Prime"
+    },
+    {
+      "trait_type": "Quantity",
+      "value": "500 kg"
+    },
+    {
+      "trait_type": "Certification",
+      "value": "Demeter Biodynamic"
+    },
+    {
+      "trait_type": "Harvest",
+      "value": "2024"
+    },
+    {
+      "trait_type": "Coordinates",
+      "value": "41.179° N"
     }
   ]
 }

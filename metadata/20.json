@@ -24,6 +24,26 @@
       "trait_type": "Year",
       "value": 1921,
       "display_type": "number"
+    },
+    {
+      "trait_type": "Dimensions",
+      "value": "100 × 80 cm"
+    },
+    {
+      "trait_type": "Signed",
+      "value": "Yes — lower right"
+    },
+    {
+      "trait_type": "Provenance",
+      "value": "Gallery Acquisition"
+    },
+    {
+      "trait_type": "Condition",
+      "value": "Good"
+    },
+    {
+      "trait_type": "Framed",
+      "value": "Yes — Gilded"
     }
   ]
 }

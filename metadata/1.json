@@ -24,6 +24,30 @@
     {
       "trait_type": "Set",
       "value": "Base Set"
+    },
+    {
+      "trait_type": "Illustrator",
+      "value": "5ban Graphics"
+    },
+    {
+      "trait_type": "Card Number",
+      "value": "2/180"
+    },
+    {
+      "trait_type": "Condition",
+      "value": "Near Mint"
+    },
+    {
+      "trait_type": "Language",
+      "value": "English"
+    },
+    {
+      "trait_type": "Holofoil",
+      "value": "No"
+    },
+    {
+      "trait_type": "First Edition",
+      "value": "Yes"
     }
   ]
 }

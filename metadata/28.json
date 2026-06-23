@@ -23,6 +23,22 @@
     {
       "trait_type": "Grade",
       "value": "A+"
+    },
+    {
+      "trait_type": "Quantity",
+      "value": "20 head"
+    },
+    {
+      "trait_type": "Certification",
+      "value": "Conventional"
+    },
+    {
+      "trait_type": "Harvest",
+      "value": "2024"
+    },
+    {
+      "trait_type": "Coordinates",
+      "value": "38.128° N"
     }
   ]
 }

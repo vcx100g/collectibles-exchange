@@ -24,6 +24,30 @@
     {
       "trait_type": "Set",
       "value": "Base Set"
+    },
+    {
+      "trait_type": "Illustrator",
+      "value": "Ken Sugimori"
+    },
+    {
+      "trait_type": "Card Number",
+      "value": "1/180"
+    },
+    {
+      "trait_type": "Condition",
+      "value": "PSA 8 NM-Mint"
+    },
+    {
+      "trait_type": "Language",
+      "value": "French"
+    },
+    {
+      "trait_type": "Holofoil",
+      "value": "Yes"
+    },
+    {
+      "trait_type": "First Edition",
+      "value": "No"
     }
   ]
 }

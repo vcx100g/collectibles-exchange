@@ -23,6 +23,22 @@
     {
       "trait_type": "Grade",
       "value": "Prime"
+    },
+    {
+      "trait_type": "Quantity",
+      "value": "12 acres"
+    },
+    {
+      "trait_type": "Certification",
+      "value": "Demeter Biodynamic"
+    },
+    {
+      "trait_type": "Harvest",
+      "value": "2025"
+    },
+    {
+      "trait_type": "Coordinates",
+      "value": "45.171° N"
     }
   ]
 }

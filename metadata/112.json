@@ -24,6 +24,26 @@
       "trait_type": "Year",
       "value": 2025,
       "display_type": "number"
+    },
+    {
+      "trait_type": "Dimensions",
+      "value": "2048 × 2048 px"
+    },
+    {
+      "trait_type": "Format",
+      "value": "MP4"
+    },
+    {
+      "trait_type": "Blockchain",
+      "value": "Ethereum"
+    },
+    {
+      "trait_type": "License",
+      "value": "Personal Use"
+    },
+    {
+      "trait_type": "Collection",
+      "value": "VaultX Genesis"
     }
   ]
 }

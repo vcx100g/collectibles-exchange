@@ -7,12 +7,12 @@ let debounce;
 
 // which attributes are filterable per category
 const FILTER_TRAITS = {
-  Card: ["Rarity", "Type", "Set"],
-  Wine: ["Region", "Vintage", "Producer"],
-  Painting: ["Style", "Medium"],
-  Farm: ["Type", "Season"],
-  Art: ["Medium", "Style"],
-  Antique: ["Era", "Origin", "Material"],
+  Card: ["Rarity", "Type", "Set", "Condition", "Language"],
+  Wine: ["Region", "Vintage", "Producer", "Grape", "ABV"],
+  Painting: ["Style", "Medium", "Condition"],
+  Farm: ["Type", "Season", "Certification"],
+  Art: ["Medium", "Style", "License", "Format"],
+  Antique: ["Era", "Origin", "Material", "Condition"],
 };
 
 // render attribute dropdowns when exactly one category is selected

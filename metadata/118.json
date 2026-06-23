@@ -23,6 +23,26 @@
     {
       "trait_type": "Grading",
       "value": "Certified"
+    },
+    {
+      "trait_type": "Dimensions",
+      "value": "L 70 cm"
+    },
+    {
+      "trait_type": "Weight",
+      "value": "1.2 kg"
+    },
+    {
+      "trait_type": "Condition",
+      "value": "Good"
+    },
+    {
+      "trait_type": "Provenance",
+      "value": "Museum Deaccession"
+    },
+    {
+      "trait_type": "Authentication",
+      "value": "C14 Dated"
     }
   ]
 }
