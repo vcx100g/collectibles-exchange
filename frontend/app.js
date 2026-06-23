@@ -38,7 +38,7 @@ async function fetchMeta(tokenId) {
   let meta;
   try {
     const uri = await collectible.tokenURI(tokenId);
-    meta = await (await fetch(uri)).json();
+    meta = await (await fetch(uri, { cache: "no-cache" })).json();
   } catch {
     meta = { name: `Item #${key}`, image: "", attributes: [] };
   }

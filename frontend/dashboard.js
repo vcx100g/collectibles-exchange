@@ -33,7 +33,7 @@ async function fetchMeta(tokenId) {
   if (metaCache.has(key)) return metaCache.get(key);
   let meta;
   try {
-    meta = await (await fetch(await collectible.tokenURI(tokenId))).json();
+    meta = await (await fetch(await collectible.tokenURI(tokenId), { cache: "no-cache" })).json();
   } catch {
     meta = { name: `Item #${key}`, image: "", attributes: [] };
   }
