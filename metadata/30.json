@@ -1,7 +1,7 @@
 {
   "name": "Vintage Tractor",
   "description": "A lovingly restored mid-century tractor.",
-  "image": "http://100.70.161.82:8080/metadata/images/30.jpg",
+  "image": "http://100.70.161.82:8080/metadata/images/30.webp",
   "external_url": "http://100.70.161.82:8080/metadata/30.json",
   "attributes": [
     {
