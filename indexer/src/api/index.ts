@@ -107,4 +107,41 @@ app.get("/user/:address", async (c) => {
   });
 });
 
+// Home sections: latest trades, most-valued listings, most-traded items.
+app.get("/home", async (c) => {
+  const sales = await db.select().from(schema.sale);
+  const listings = (await db.select().from(schema.listing)).filter((l) => l.active);
+
+  const latestTrades = [...sales]
+    .sort((a, b) => Number(b.timestamp - a.timestamp))
+    .slice(0, 12)
+    .map((s) => ({
+      tokenId: s.tokenId.toString(),
+      price: s.price.toString(),
+      buyer: s.buyer,
+      seller: s.seller,
+      timestamp: Number(s.timestamp),
+    }));
+
+  const mostValued = [...listings]
+    .sort((a, b) => (a.price > b.price ? -1 : 1))
+    .slice(0, 12)
+    .map((l) => ({ tokenId: l.tokenId.toString(), price: l.price.toString(), seller: l.seller }));
+
+  const counts = new Map();
+  for (const s of sales) {
+    const k = s.tokenId.toString();
+    counts.set(k, (counts.get(k) || 0) + 1);
+  }
+  const mostTraded = [...counts.entries()]
+    .sort((a, b) => b[1] - a[1])
+    .slice(0, 12)
+    .map(([tokenId, trades]) => {
+      const l = listings.find((x) => x.tokenId.toString() === tokenId);
+      return { tokenId, trades, price: l ? l.price.toString() : null, listed: !!l };
+    });
+
+  return c.json({ latestTrades, mostValued, mostTraded });
+});
+
 export default app;

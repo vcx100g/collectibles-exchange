@@ -1,0 +1,176 @@
+// Shared wallet + rendering helpers for the Home and Search pages.
+// Browsing is READ-ONLY (indexer + metadata over HTTP, no wallet needed);
+// connecting is only required to buy.
+import { ethers } from "https://cdn.jsdelivr.net/npm/ethers@6.17.0/+esm";
+import * as cfg from "./config.js";
+
+export const CHAIN_ID = cfg.CHAIN_ID;
+export const RPC_URL = cfg.RPC_URL;
+export const METADATA_BASE = cfg.METADATA_BASE;
+export const INDEXER = (() => { const u = new URL(location.origin); u.port = "42069"; return u.origin; })();
+
+export const $ = (s) => document.querySelector(s);
+export const short = (a) => (a ? a.slice(0, 6) + "…" + a.slice(-4) : "—");
+export const fmt = (wei) => (+ethers.formatEther(BigInt(wei ?? 0))).toFixed(4);
+
+let provider, signer, account, collectible, marketplace;
+export const getAccount = () => account;
+
+export function toast(msg, kind = "primary") {
+  const box = $("#toasts");
+  if (!box) return;
+  const el = document.createElement("div");
+  el.className = `toast align-items-center text-bg-${kind} border-0 show`;
+  el.innerHTML = `<div class="d-flex"><div class="toast-body">${msg}</div>
+    <button type="button" class="btn-close btn-close-white me-2 m-auto" data-bs-dismiss="toast"></button></div>`;
+  box.appendChild(el);
+  new bootstrap.Toast(el, { delay: 4000 }).show();
+  el.addEventListener("hidden.bs.toast", () => el.remove());
+}
+
+// metadata URL is deterministic, so we read it over HTTP (no chain call needed)
+const metaCache = new Map();
+export async function fetchMeta(tokenId) {
+  const key = String(tokenId);
+  if (metaCache.has(key)) return metaCache.get(key);
+  let meta;
+  try {
+    meta = await (await fetch(`${METADATA_BASE}/${key}.json`, { cache: "no-cache" })).json();
+  } catch {
+    meta = { name: `Item #${key}`, image: "", attributes: [] };
+  }
+  metaCache.set(key, meta);
+  return meta;
+}
+export const catOf = (m) => (m.attributes || []).find((a) => a.trait_type === "Category")?.value || "Other";
+
+export function cardHtml(tokenId, meta, actionHtml = "", extra = "") {
+  return `<div class="col"><div class="card h-100 shadow-sm">
+    <div class="art-wrap" data-detail="${tokenId}" role="button">
+      <img src="${meta.image}" class="tile-img" loading="lazy" decoding="async" alt="${meta.name}">
+    </div>
+    <div class="card-body d-flex flex-column">
+      <span class="badge text-bg-dark align-self-start mb-1 trait">${catOf(meta)}</span>
+      <h6 class="card-title text-truncate" title="${meta.name}">${meta.name}</h6>
+      ${extra}
+      <div class="mt-auto">${actionHtml}</div>
+    </div></div></div>`;
+}
+
+export function fadeInImages(container) {
+  container.querySelectorAll("img.tile-img").forEach((img) => {
+    const reveal = () => img.classList.add("loaded");
+    if (img.complete && img.naturalWidth) reveal();
+    else {
+      img.addEventListener("load", reveal, { once: true });
+      img.addEventListener("error", reveal, { once: true });
+    }
+  });
+}
+
+async function ensureNetwork() {
+  const net = await provider.getNetwork();
+  if (Number(net.chainId) === Number(CHAIN_ID)) return;
+  const hexId = "0x" + Number(CHAIN_ID).toString(16);
+  try {
+    await window.ethereum.request({ method: "wallet_switchEthereumChain", params: [{ chainId: hexId }] });
+  } catch (e) {
+    if (e.code === 4902) {
+      await window.ethereum.request({
+        method: "wallet_addEthereumChain",
+        params: [{ chainId: hexId, chainName: "VaultX Local", nativeCurrency: { name: "Ether", symbol: "ETH", decimals: 18 }, rpcUrls: [RPC_URL] }],
+      });
+    } else throw e;
+  }
+  provider = new ethers.BrowserProvider(window.ethereum);
+}
+
+export async function connect() {
+  if (!window.ethereum) { toast("No wallet found. Install MetaMask.", "danger"); throw new Error("no wallet"); }
+  provider = new ethers.BrowserProvider(window.ethereum);
+  await provider.send("eth_requestAccounts", []);
+  await ensureNetwork();
+  signer = await provider.getSigner();
+  account = await signer.getAddress();
+  collectible = new ethers.Contract(cfg.COLLECTIBLE_ADDRESS, cfg.COLLECTIBLE_ABI, signer);
+  marketplace = new ethers.Contract(cfg.MARKETPLACE_ADDRESS, cfg.MARKETPLACE_ABI, signer);
+  const b = $("#connect-btn");
+  if (b) { b.textContent = short(account); b.classList.replace("btn-primary", "btn-outline-light"); }
+  const nb = $("#net-badge");
+  if (nb) { nb.classList.remove("d-none"); nb.textContent = `Local · ${CHAIN_ID}`; }
+  return account;
+}
+
+export async function buy(tokenId, priceWei) {
+  if (!account) await connect(); // lazy connect on first buy
+  toast("Confirm the purchase in your wallet…");
+  await (await marketplace.buyItem(cfg.COLLECTIBLE_ADDRESS, tokenId, { value: BigInt(priceWei) })).wait();
+  toast("Purchased! 🎉", "success");
+}
+
+// item detail + provenance — read-only, from the indexer
+export async function showDetail(tokenId) {
+  const meta = await fetchMeta(tokenId);
+  let timeline = "<li>No history yet.</li>";
+  try {
+    const acts = await (await fetch(`${INDEXER}/activity/${tokenId}`)).json();
+    if (acts.length) {
+      timeline = acts
+        .map((a) => {
+          const when = new Date(Number(a.timestamp) * 1000).toLocaleString();
+          let label;
+          if (a.type === "mint") label = `<strong>Minted</strong> by <span class="mono">${short(a.to)}</span>`;
+          else if (a.type === "sale") label = `<strong>Sold</strong> to <span class="mono">${short(a.to)}</span> · <span class="text-success">${fmt(a.price)} ETH</span>`;
+          else if (a.type === "list") label = `Listed · <span class="text-success">${fmt(a.price)} ETH</span>`;
+          else if (a.type === "update") label = `Price updated · <span class="text-success">${fmt(a.price)} ETH</span>`;
+          else if (a.type === "cancel") label = "Listing canceled";
+          else label = `Transferred to <span class="mono">${short(a.to)}</span>`;
+          return `<li><div>${label}</div><div class="small text-secondary">${when}</div></li>`;
+        })
+        .join("");
+    }
+  } catch {}
+  const attrs = (meta.attributes || [])
+    .map((a) => `<tr><td class="text-secondary">${a.trait_type}</td><td class="text-end">${a.value}</td></tr>`)
+    .join("");
+  $("#detail-content").innerHTML = `
+    <div class="modal-header"><h5 class="modal-title">${meta.name}</h5>
+      <button type="button" class="btn-close" data-bs-dismiss="modal"></button></div>
+    <div class="modal-body"><div class="row g-3">
+      <div class="col-md-5"><img src="${meta.image}" class="card-art rounded" alt="${meta.name}"></div>
+      <div class="col-md-7">
+        <p class="text-secondary">${meta.description || ""}</p>
+        <table class="table table-sm table-borderless mb-3"><tbody>${attrs}</tbody></table>
+        <h6 class="text-secondary text-uppercase small">Provenance / history</h6>
+        <ul class="timeline">${timeline}</ul>
+      </div></div></div>`;
+  bootstrap.Modal.getOrCreateInstance($("#detail-modal")).show();
+}
+
+// document-level click handling for grids: open detail, or buy (lazy-connects)
+export function wireGrid(onChange) {
+  document.addEventListener("click", async (e) => {
+    const t = e.target.closest("[data-buy],[data-detail]");
+    if (!t) return;
+    try {
+      if (t.dataset.buy) {
+        await buy(t.dataset.buy, t.dataset.price);
+        onChange?.();
+      } else if (t.dataset.detail) {
+        await showDetail(t.dataset.detail);
+      }
+    } catch (err) {
+      toast(err.shortMessage || err.message || "Transaction failed", "danger");
+    }
+  });
+}
+
+export function initWallet() {
+  const b = $("#connect-btn");
+  if (b) b.addEventListener("click", () => connect().catch((e) => toast(e.shortMessage || e.message, "danger")));
+  if (window.ethereum) {
+    window.ethereum.on("accountsChanged", () => location.reload());
+    window.ethereum.on("chainChanged", () => location.reload());
+    window.ethereum.request({ method: "eth_accounts" }).then((a) => { if (a && a.length) connect().catch(() => {}); }).catch(() => {});
+  }
+}

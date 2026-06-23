@@ -3,33 +3,33 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>VaultX — Collectibles Exchange</title>
+  <title>VaultX — Collectibles</title>
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet" />
   <style>
     body { background: radial-gradient(1200px 600px at 50% -10%, #1b2030, #0c0e14); min-height: 100vh; }
+    .mono { font-family: ui-monospace, SFMono-Regular, Menlo, monospace; }
+    .brand-badge { background: linear-gradient(135deg,#7b2ff7,#2d9cdb); -webkit-background-clip:text; background-clip:text; color:transparent; font-weight:800; }
     .card-art { aspect-ratio: 1/1; width: 100%; object-fit: cover; background: #11131a; }
-    /* grid image with shimmer-skeleton placeholder + fade-in (loads in parallel) */
     .art-wrap { position: relative; aspect-ratio: 1/1; width: 100%; overflow: hidden;
       background-image: linear-gradient(110deg, #161922 8%, #20242f 18%, #161922 33%);
       background-size: 200% 100%; animation: shimmer 1.4s linear infinite; }
-    .tile-img { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover;
-      opacity: 0; transition: opacity .45s ease; }
+    .tile-img { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; opacity: 0; transition: opacity .45s ease; }
     .tile-img.loaded { opacity: 1; }
     @keyframes shimmer { to { background-position-x: -200%; } }
-    .trait { font-size: .75rem; }
+    .trait { font-size: .72rem; }
     .timeline { list-style: none; padding-left: 0; }
     .timeline li { border-left: 2px solid var(--bs-border-color); padding: 0 0 1rem 1rem; position: relative; }
-    .timeline li::before { content: ""; position: absolute; left: -6px; top: 4px; width: 10px; height: 10px; border-radius: 50%; background: var(--bs-primary); }
-    .brand-badge { background: linear-gradient(135deg, #7b2ff7, #2d9cdb); -webkit-background-clip: text; background-clip: text; color: transparent; font-weight: 800; }
-    .mono { font-family: ui-monospace, SFMono-Regular, Menlo, monospace; }
+    .timeline li::before { content:""; position:absolute; left:-6px; top:4px; width:10px; height:10px; border-radius:50%; background: var(--bs-primary); }
   </style>
 </head>
 <body>
   <nav class="navbar navbar-expand-lg border-bottom border-secondary-subtle mb-3">
     <div class="container">
-      <span class="navbar-brand fs-4"><span class="brand-badge">VaultX</span> <small class="text-secondary">Collectibles</small></span>
+      <a class="navbar-brand fs-4" href="/"><span class="brand-badge">VaultX</span></a>
       <div class="d-flex align-items-center gap-2">
-        <a href="/dashboard.html" class="btn btn-sm btn-outline-secondary">My Account</a>
+        <a href="/" class="btn btn-sm btn-light">Home</a>
+        <a href="/search.html" class="btn btn-sm btn-outline-light">🔍 Search</a>
+        <a href="/dashboard.html" class="btn btn-sm btn-outline-light">My Account</a>
         <span id="net-badge" class="badge text-bg-secondary d-none"></span>
         <button id="connect-btn" class="btn btn-primary">Connect Wallet</button>
       </div>
@@ -37,69 +37,43 @@
   </nav>
 
   <main class="container pb-5">
-    <!-- pre-connect notice -->
-    <div id="connect-notice" class="text-center py-5">
-      <div class="display-6 mb-2">🃏 🖼️ 🍷 🏺</div>
-      <h1 class="h3">A small NFT exchange for cards, art, wine &amp; antiques</h1>
-      <p class="text-secondary">Connect a wallet on the local network (chain 31337) to browse, trade, and see provenance.</p>
-      <button class="btn btn-lg btn-primary" onclick="document.getElementById('connect-btn').click()">Connect Wallet</button>
+    <div class="text-center py-3 mb-2">
+      <h1 class="h3 mb-1"><span class="brand-badge">VaultX</span> Collectibles</h1>
+      <p class="text-secondary mb-3">Cards · Art · Wine · Farm · Antiques — traded with test ETH</p>
+      <a href="/search.html" class="btn btn-lg btn-primary">🔍 Browse &amp; search all items</a>
     </div>
 
-    <!-- app (shown after connect) -->
-    <div id="app" class="d-none">
-      <!-- proceeds -->
-      <div id="proceeds-bar" class="alert alert-success d-none d-flex justify-content-between align-items-center">
-        <span>You have <strong id="proceeds-amt">0</strong> ETH to withdraw (sales, royalties, refunds).</span>
-        <button id="withdraw-btn" class="btn btn-sm btn-success">Withdraw</button>
+    <section class="mb-4">
+      <div class="d-flex justify-content-between align-items-end mb-2">
+        <h2 class="h5 m-0">🔥 Latest Trades</h2>
+        <a href="/search.html" class="small text-secondary text-decoration-none">browse all →</a>
       </div>
+      <div id="sec-latest" class="row row-cols-2 row-cols-md-4 row-cols-lg-6 g-3"></div>
+    </section>
 
-      <div class="d-flex flex-wrap gap-2 justify-content-between align-items-center mb-3">
-        <ul class="nav nav-pills" id="tabs">
-          <li class="nav-item"><button class="nav-link active" data-view="market">Marketplace</button></li>
-          <li class="nav-item"><button class="nav-link" data-view="mine">My Items</button></li>
-        </ul>
-        <div class="d-flex flex-wrap gap-1" id="cat-filter">
-          <button class="btn btn-sm btn-outline-light active" data-cat="All">All</button>
-          <button class="btn btn-sm btn-outline-light" data-cat="Card">🃏 Cards</button>
-          <button class="btn btn-sm btn-outline-light" data-cat="Painting">🖼️ Paintings</button>
-          <button class="btn btn-sm btn-outline-light" data-cat="Wine">🍷 Wine</button>
-          <button class="btn btn-sm btn-outline-light" data-cat="Farm">🌾 Farm</button>
-          <button class="btn btn-sm btn-outline-light" data-cat="Art">🎨 Art</button>
-          <button class="btn btn-sm btn-outline-light" data-cat="Antique">🏺 Antiques</button>
-        </div>
+    <section class="mb-4">
+      <div class="d-flex justify-content-between align-items-end mb-2">
+        <h2 class="h5 m-0">💎 Most Valued</h2>
+        <a href="/search.html?sort=price-desc" class="small text-secondary text-decoration-none">browse all →</a>
       </div>
+      <div id="sec-valued" class="row row-cols-2 row-cols-md-4 row-cols-lg-6 g-3"></div>
+    </section>
 
-      <div id="market-view">
-        <div id="market-grid" class="row row-cols-1 row-cols-sm-2 row-cols-md-3 row-cols-lg-4 g-3"></div>
-        <div id="market-loading" class="text-center py-3 d-none">
-          <div class="spinner-border spinner-border-sm text-secondary"></div>
-          <span class="text-secondary small ms-2">Loading more…</span>
-        </div>
-        <div id="market-sentinel" style="height:1px"></div>
-        <p id="market-empty" class="text-secondary text-center py-5 d-none">No active listings in this category.</p>
+    <section class="mb-4">
+      <div class="d-flex justify-content-between align-items-end mb-2">
+        <h2 class="h5 m-0">📈 Most Traded</h2>
+        <a href="/search.html" class="small text-secondary text-decoration-none">browse all →</a>
       </div>
-
-      <div id="mine-view" class="d-none">
-        <div class="d-flex justify-content-end mb-3">
-          <button id="mint-btn" class="btn btn-outline-info btn-sm">+ Mint a sample item</button>
-        </div>
-        <div id="mine-grid" class="row row-cols-1 row-cols-sm-2 row-cols-md-3 row-cols-lg-4 g-3"></div>
-        <p id="mine-empty" class="text-secondary text-center py-5 d-none">You don't own any items yet. Mint one or buy from the marketplace.</p>
-      </div>
-    </div>
+      <div id="sec-traded" class="row row-cols-2 row-cols-md-4 row-cols-lg-6 g-3"></div>
+    </section>
   </main>
 
-  <!-- detail modal -->
   <div class="modal fade" id="detail-modal" tabindex="-1">
-    <div class="modal-dialog modal-lg modal-dialog-centered">
-      <div class="modal-content" id="detail-content"></div>
-    </div>
+    <div class="modal-dialog modal-lg modal-dialog-centered"><div class="modal-content" id="detail-content"></div></div>
   </div>
-
-  <!-- toasts -->
   <div class="toast-container position-fixed bottom-0 end-0 p-3" id="toasts"></div>
 
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js"></script>
-  <script type="module" src="./app.js"></script>
+  <script type="module" src="./home.js"></script>
 </body>
 </html>
