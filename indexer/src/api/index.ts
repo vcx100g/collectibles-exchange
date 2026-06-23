@@ -3,6 +3,8 @@ import schema from "ponder:schema";
 import { Hono } from "hono";
 import { cors } from "hono/cors";
 import { graphql, client } from "ponder";
+import { and, eq, gte, lte, ilike, inArray, asc, desc, count } from "drizzle-orm";
+import { parseEther } from "viem";
 
 const app = new Hono();
 
@@ -105,6 +107,52 @@ app.get("/user/:address", async (c) => {
     listings: ser(listings),
     activity: ser(activity),
   });
+});
+
+// Server-side search over active listings (joined with item category/name).
+app.get("/search", async (c) => {
+  const text = (c.req.query("q") || "").trim();
+  const cats = (c.req.query("category") || "").split(",").map((s) => s.trim()).filter(Boolean);
+  const minP = c.req.query("minPrice");
+  const maxP = c.req.query("maxPrice");
+  const sort = c.req.query("sort") || "newest";
+  const page = Math.max(1, parseInt(c.req.query("page") || "1", 10));
+  const perPage = Math.min(50, Math.max(1, parseInt(c.req.query("perPage") || "20", 10)));
+
+  const conds: any[] = [eq(schema.listing.active, true)];
+  if (text) conds.push(ilike(schema.item.name, `%${text}%`));
+  if (cats.length) conds.push(inArray(schema.item.category, cats));
+  if (minP) { try { conds.push(gte(schema.listing.price, parseEther(minP))); } catch {} }
+  if (maxP) { try { conds.push(lte(schema.listing.price, parseEther(maxP))); } catch {} }
+  const where = and(...conds);
+
+  const order =
+    sort === "price-asc" ? asc(schema.listing.price)
+    : sort === "price-desc" ? desc(schema.listing.price)
+    : desc(schema.listing.tokenId);
+
+  const [{ total }] = await db
+    .select({ total: count() })
+    .from(schema.listing)
+    .innerJoin(schema.item, eq(schema.listing.tokenId, schema.item.id))
+    .where(where);
+
+  const rows = await db
+    .select({
+      tokenId: schema.listing.tokenId,
+      price: schema.listing.price,
+      seller: schema.listing.seller,
+      category: schema.item.category,
+      name: schema.item.name,
+    })
+    .from(schema.listing)
+    .innerJoin(schema.item, eq(schema.listing.tokenId, schema.item.id))
+    .where(where)
+    .orderBy(order)
+    .limit(perPage)
+    .offset((page - 1) * perPage);
+
+  return c.json({ total: Number(total), page, perPage, results: ser(rows) });
 });
 
 // Home sections: latest trades, most-valued listings, most-traded items.

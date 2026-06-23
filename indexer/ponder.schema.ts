@@ -8,6 +8,8 @@ export const item = onchainTable("item", (t) => ({
   owner: t.hex().notNull(),
   tokenUri: t.text(),
   mintedAt: t.bigint(),
+  category: t.text(), // from metadata (for server-side search)
+  name: t.text(),
 }));
 
 // Current marketplace listing per token (active flips false on cancel/sale).

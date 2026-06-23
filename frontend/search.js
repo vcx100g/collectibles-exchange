@@ -1,97 +1,83 @@
-import { $, INDEXER, fetchMeta, catOf, cardHtml, fadeInImages, fmt, wireGrid, initWallet } from "./shared.js";
+import { $, INDEXER, fetchMeta, cardHtml, fadeInImages, fmt, wireGrid, initWallet } from "./shared.js";
 
 const PER_PAGE = 20;
 const CATS = ["Card", "Painting", "Wine", "Farm", "Art", "Antique"];
-let all = [];
-let filtered = [];
 let page = 1;
+let debounce;
 
-async function loadAll() {
+// Build the server-side query from the filter sidebar.
+function criteria() {
+  const p = new URLSearchParams();
+  const text = $("#f-text").value.trim();
+  const cats = CATS.filter((c) => $(`#cat-${c}`).checked);
+  const min = $("#f-min").value;
+  const max = $("#f-max").value;
+  if (text) p.set("q", text);
+  if (cats.length) p.set("category", cats.join(","));
+  if (min) p.set("minPrice", min);
+  if (max) p.set("maxPrice", max);
+  p.set("sort", $("#f-sort").value);
+  p.set("page", String(page));
+  p.set("perPage", String(PER_PAGE));
+  return p;
+}
+
+async function search() {
   const grid = $("#results");
-  grid.innerHTML = `<div class="col-12 text-center text-secondary py-5"><div class="spinner-border spinner-border-sm"></div> loading…</div>`;
-  let rows;
+  grid.innerHTML = `<div class="col-12 text-center text-secondary py-5"><div class="spinner-border spinner-border-sm"></div></div>`;
+  let d;
   try {
-    rows = await (await fetch(`${INDEXER}/listings`)).json();
+    d = await (await fetch(`${INDEXER}/search?${criteria()}`)).json();
   } catch {
     grid.innerHTML = `<div class="col-12"><p class="text-danger">Couldn't reach the indexer.</p></div>`;
     return;
   }
-  const refs = rows.map((r) => ({ tokenId: r.tokenId, price: BigInt(r.price), seller: String(r.seller || "").toLowerCase() }));
+  const refs = d.results;
+  // only the 20 results on this page need their images
   const metas = await Promise.all(refs.map((r) => fetchMeta(r.tokenId)));
-  all = refs.map((r, i) => ({ ...r, meta: metas[i], cat: catOf(metas[i]), name: String(metas[i].name || "").toLowerCase() }));
-  applyFilters();
-}
-
-function readCriteria() {
-  return {
-    text: $("#f-text").value.trim().toLowerCase(),
-    cats: CATS.filter((c) => $(`#cat-${c}`).checked),
-    min: parseFloat($("#f-min").value) || 0,
-    max: parseFloat($("#f-max").value) || Infinity,
-    sort: $("#f-sort").value,
-  };
-}
-
-function applyFilters() {
-  const { text, cats, min, max, sort } = readCriteria();
-  filtered = all.filter((x) => {
-    if (text && !x.name.includes(text)) return false;
-    if (cats.length && !cats.includes(x.cat)) return false;
-    const eth = +fmt(x.price);
-    return eth >= min && eth <= max;
-  });
-  if (sort === "price-asc") filtered.sort((a, b) => (a.price > b.price ? 1 : -1));
-  else if (sort === "price-desc") filtered.sort((a, b) => (a.price > b.price ? -1 : 1));
-  else filtered.sort((a, b) => Number(b.tokenId) - Number(a.tokenId));
-  page = 1;
-  renderPage();
-}
-
-function renderPage() {
-  const grid = $("#results");
-  const total = filtered.length;
-  const pages = Math.max(1, Math.ceil(total / PER_PAGE));
-  page = Math.min(Math.max(1, page), pages);
-  const slice = filtered.slice((page - 1) * PER_PAGE, (page - 1) * PER_PAGE + PER_PAGE);
-  $("#no-results").classList.toggle("d-none", total > 0);
-  grid.innerHTML = slice
-    .map((x) =>
+  grid.innerHTML = refs
+    .map((r, i) =>
       cardHtml(
-        x.tokenId,
-        x.meta,
-        `<button class="btn btn-sm btn-primary w-100" data-buy="${x.tokenId}" data-price="${x.price}">Buy · ${fmt(x.price)} ETH</button>`,
+        r.tokenId,
+        metas[i],
+        `<button class="btn btn-sm btn-primary w-100" data-buy="${r.tokenId}" data-price="${r.price}">Buy · ${fmt(r.price)} ETH</button>`,
       ),
     )
     .join("");
   fadeInImages(grid);
-  $("#result-count").textContent = `${total} item${total !== 1 ? "s" : ""}`;
-  $("#page-info").textContent = `Page ${page} / ${pages}`;
-  $("#prev-btn").disabled = page <= 1;
-  $("#next-btn").disabled = page >= pages;
+
+  const pages = Math.max(1, Math.ceil(d.total / PER_PAGE));
+  $("#no-results").classList.toggle("d-none", d.total > 0);
+  $("#result-count").textContent = `${d.total} item${d.total !== 1 ? "s" : ""}`;
+  $("#page-info").textContent = `Page ${d.page} / ${pages}`;
+  $("#prev-btn").disabled = d.page <= 1;
+  $("#next-btn").disabled = d.page >= pages;
 }
 
-// wiring
-$("#f-text").addEventListener("input", applyFilters);
-$("#f-min").addEventListener("input", applyFilters);
-$("#f-max").addEventListener("input", applyFilters);
-$("#f-sort").addEventListener("change", applyFilters);
-CATS.forEach((c) => $(`#cat-${c}`).addEventListener("change", applyFilters));
+const refilter = () => { page = 1; search(); };
+const refilterDebounced = () => { clearTimeout(debounce); debounce = setTimeout(refilter, 300); };
+
+$("#f-text").addEventListener("input", refilterDebounced);
+$("#f-min").addEventListener("input", refilterDebounced);
+$("#f-max").addEventListener("input", refilterDebounced);
+$("#f-sort").addEventListener("change", refilter);
+CATS.forEach((c) => $(`#cat-${c}`).addEventListener("change", refilter));
 $("#reset-btn").addEventListener("click", () => {
   $("#f-text").value = "";
   $("#f-min").value = "";
   $("#f-max").value = "";
   $("#f-sort").value = "newest";
   CATS.forEach((c) => ($(`#cat-${c}`).checked = false));
-  applyFilters();
+  refilter();
 });
-$("#prev-btn").addEventListener("click", () => { if (page > 1) { page--; renderPage(); window.scrollTo(0, 0); } });
-$("#next-btn").addEventListener("click", () => { page++; renderPage(); window.scrollTo(0, 0); });
+$("#prev-btn").addEventListener("click", () => { if (page > 1) { page--; search(); window.scrollTo(0, 0); } });
+$("#next-btn").addEventListener("click", () => { page++; search(); window.scrollTo(0, 0); });
 
-// preset from URL (?sort=price-desc, ?cat=Wine)
+// presets from URL (?sort=price-desc, ?cat=Wine)
 const params = new URLSearchParams(location.search);
 if (params.get("sort")) $("#f-sort").value = params.get("sort");
 if (params.get("cat") && CATS.includes(params.get("cat"))) $(`#cat-${params.get("cat")}`).checked = true;
 
 initWallet();
-wireGrid(loadAll); // after a buy, the item is no longer listed -> reload
-loadAll();
+wireGrid(search); // after a buy, re-run the query (item is no longer listed)
+search();

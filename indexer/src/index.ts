@@ -30,13 +30,22 @@ ponder.on("Collectible:Transfer", async ({ event, context }) => {
   });
 });
 
-// ItemMinted enriches the item with its creator + metadata URI.
+// ItemMinted enriches the item with creator, metadata URI, and the searchable
+// category + name pulled from the off-chain metadata.
+const META_BASE = process.env.METADATA_INTERNAL || "http://web/metadata";
 ponder.on("Collectible:ItemMinted", async ({ event, context }) => {
   const { tokenId, creator, tokenURI } = event.args as any;
+  let category: string | null = null;
+  let name: string | null = null;
+  try {
+    const m = await (await fetch(`${META_BASE}/${tokenId}.json`)).json();
+    name = m?.name ?? null;
+    category = (m?.attributes || []).find((a: any) => a.trait_type === "Category")?.value ?? null;
+  } catch {}
   await context.db
     .insert(item)
-    .values({ id: tokenId, owner: creator, creator, tokenUri: tokenURI, mintedAt: event.block.timestamp })
-    .onConflictDoUpdate({ creator, tokenUri: tokenURI });
+    .values({ id: tokenId, owner: creator, creator, tokenUri: tokenURI, mintedAt: event.block.timestamp, category, name })
+    .onConflictDoUpdate({ creator, tokenUri: tokenURI, category, name });
 });
 
 // ---- Marketplace ----

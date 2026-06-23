@@ -59,6 +59,7 @@ services:
       DATABASE_URL: postgresql://ponder:ponder@postgres:5432/ponder
       DATABASE_SCHEMA: ponder
       PONDER_RPC_URL: http://hardhat:8545
+      METADATA_INTERNAL: http://web/metadata
     ports:
       - "42069:42069"
     command: npm run start
@@ -66,6 +67,8 @@ services:
       postgres:
         condition: service_healthy
       hardhat:
+        condition: service_started
+      web:
         condition: service_started
 
 volumes:
