@@ -275,7 +275,7 @@ function setView(view) {
 }
 
 // ------------------------------ wiring -------------------------------
-$("#connect-btn").addEventListener("click", connect);
+$("#connect-btn").addEventListener("click", () => connect().catch((e) => toast(e.shortMessage || e.message, "danger")));
 $("#withdraw-btn").addEventListener("click", () => withdraw().catch((e) => toast(e.shortMessage || e.message, "danger")));
 $("#mint-btn").addEventListener("click", () => mintSample().catch((e) => toast(e.shortMessage || e.message, "danger")));
 
@@ -307,4 +307,10 @@ document.addEventListener("click", async (e) => {
 if (window.ethereum) {
   window.ethereum.on("accountsChanged", () => location.reload());
   window.ethereum.on("chainChanged", () => location.reload());
+  // Auto-reconnect if the wallet is already authorized — restores the UI after
+  // the chainChanged reload (the cause of "back to Connect after logging in").
+  window.ethereum
+    .request({ method: "eth_accounts" })
+    .then((accs) => { if (accs && accs.length) connect().catch(() => {}); })
+    .catch(() => {});
 }

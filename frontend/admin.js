@@ -51,14 +51,25 @@ async function connect() {
   $("#connect-btn").textContent = short(account);
   $("#connect-btn").classList.replace("btn-primary", "btn-outline-light");
 
-  const owner = await marketplace.owner();
+  // Read the on-chain owner; this also confirms we're on the right network.
+  let owner;
+  try {
+    owner = await marketplace.owner();
+  } catch {
+    $("#gate-owner").innerHTML =
+      `<span class="text-danger">Connected as <span class="mono">${short(account)}</span>, but couldn't reach the Marketplace at <span class="mono">${short(MARKETPLACE_ADDRESS)}</span> on this network.</span><br>Make sure MetaMask is on <strong>VaultX Local (chain 31337)</strong>.`;
+    return toast("Couldn't read the contract — wrong network?", "danger");
+  }
+
   const isOwner = owner.toLowerCase() === account.toLowerCase();
   $("#gate").classList.toggle("d-none", isOwner);
   $("#panel").classList.toggle("d-none", !isOwner);
-  if (isOwner) await refreshAll();
-  else {
-    $("#gate-owner").textContent = `Owner: ${short(owner)}`;
-    toast("This wallet is not the marketplace owner.", "warning");
+  if (isOwner) {
+    await refreshAll();
+  } else {
+    $("#gate-owner").innerHTML =
+      `Connected as <span class="mono text-warning">${short(account)}</span> — but the admin owner is <span class="mono text-info">${short(owner)}</span>.<br>Switch to that account in MetaMask, then click Connect again.`;
+    toast("Not the owner account — switch in MetaMask.", "warning");
   }
 }
 
@@ -156,4 +167,9 @@ $("#connect-btn").addEventListener("click", () => connect().catch((e) => toast(e
 if (window.ethereum) {
   window.ethereum.on("accountsChanged", () => location.reload());
   window.ethereum.on("chainChanged", () => location.reload());
+  // Auto-reconnect if already authorized (restores the panel after a chainChanged reload).
+  window.ethereum
+    .request({ method: "eth_accounts" })
+    .then((accs) => { if (accs && accs.length) connect().catch(() => {}); })
+    .catch(() => {});
 }

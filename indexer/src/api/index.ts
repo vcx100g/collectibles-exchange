@@ -72,4 +72,39 @@ app.get("/recent", async (c) => {
   return c.json(ser(recent));
 });
 
+// Per-user summary — powers the user "My Account" dashboard.
+app.get("/user/:address", async (c) => {
+  const addr = c.req.param("address").toLowerCase();
+  const lc = (v: any) => (v ? String(v).toLowerCase() : v);
+
+  const items = (await db.select().from(schema.item)).filter((i) => lc(i.owner) === addr);
+  const listings = (await db.select().from(schema.listing)).filter(
+    (l) => l.active && lc(l.seller) === addr,
+  );
+  const sales = await db.select().from(schema.sale);
+  const sold = sales.filter((s) => lc(s.seller) === addr);
+  const bought = sales.filter((s) => lc(s.buyer) === addr);
+  const activity = (await db.select().from(schema.activity))
+    .filter((a) => lc(a.from) === addr || lc(a.to) === addr)
+    .sort((x, y) => Number(y.block - x.block))
+    .slice(0, 30);
+
+  let grossSoldWei = 0n;
+  for (const s of sold) grossSoldWei += s.price;
+  let spentWei = 0n;
+  for (const b of bought) spentWei += b.price;
+
+  return c.json({
+    address: addr,
+    itemsOwned: items.length,
+    activeListings: listings.length,
+    sold: sold.length,
+    bought: bought.length,
+    grossSoldWei: grossSoldWei.toString(),
+    spentWei: spentWei.toString(),
+    listings: ser(listings),
+    activity: ser(activity),
+  });
+});
+
 export default app;
