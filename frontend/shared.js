@@ -3,6 +3,7 @@
 // connecting is only required to buy.
 import { ethers } from "https://cdn.jsdelivr.net/npm/ethers@6.17.0/+esm";
 import * as cfg from "./config.js";
+import { renderSparkline, priceStats } from "./charts.js";
 
 export const CHAIN_ID = cfg.CHAIN_ID;
 export const RPC_URL = cfg.RPC_URL;
@@ -14,6 +15,7 @@ export const short = (a) => (a ? a.slice(0, 6) + "…" + a.slice(-4) : "—");
 export const fmt = (wei) => (+ethers.formatEther(BigInt(wei ?? 0))).toFixed(4);
 
 let provider, signer, account, collectible, marketplace;
+let sparkChart = null; // modal sparkline — tracked here because innerHTML swaps the canvas node
 export const getAccount = () => account;
 
 export function toast(msg, kind = "primary") {
@@ -152,19 +154,26 @@ export async function showDetail(tokenId) {
   const attrs = (meta.attributes || [])
     .map((a) => `<tr><td class="text-secondary">${a.trait_type}</td><td class="text-end">${a.value}</td></tr>`)
     .join("");
+  const st = priceStats(info);
+  const badge = st.changePct != null
+    ? `<span class="badge ${st.changePct >= 0 ? "text-bg-success" : "text-bg-danger"} align-middle ms-1" style="font-size:.7rem">${st.changePct >= 0 ? "▲" : "▼"} ${Math.abs(st.changePct).toFixed(1)}%</span>`
+    : "";
   const priceBlock = info.listing
-    ? `<div class="mb-2"><div class="text-secondary small">Price</div><div class="h4 m-0 text-success">${fmt(info.listing.price)} ETH</div></div>`
-    : `<div class="mb-2 text-secondary small">Not currently listed</div>`;
+    ? `<div class="mb-1"><div class="text-secondary small">Price</div><div class="h4 m-0 text-success">${fmt(info.listing.price)} ETH ${badge}</div></div>`
+    : `<div class="mb-1 text-secondary small">Not currently listed${st.lastSaleWei ? ` · last sold ${fmt(st.lastSaleWei)} ETH` : ""} ${badge}</div>`;
+  const hasHistory = st.trades > 0 || (info.activity || []).some((a) => a.type === "update" || a.type === "list");
+  const sparkBlock = hasHistory ? `<div class="mb-2" style="height:46px"><canvas id="spark"></canvas></div>` : "";
   const ownerLine = info.owner ? `<div class="small">Owner: <span class="mono">${short(info.owner)}</span></div>` : "";
   const creatorLine = info.creator ? `<div class="small text-secondary">Creator: <span class="mono">${short(info.creator)}</span> · 5% royalty</div>` : "";
   const tradeLine = info.tradeCount ? `<div class="small text-secondary">${info.tradeCount} trade${info.tradeCount > 1 ? "s" : ""}</div>` : "";
+  if (sparkChart) { sparkChart.destroy(); sparkChart = null; } // before innerHTML drops the old canvas
   $("#detail-content").innerHTML = `
     <div class="modal-header"><h5 class="modal-title">${meta.name}</h5>
       <button type="button" class="btn-close" data-bs-dismiss="modal"></button></div>
     <div class="modal-body"><div class="row g-3">
       <div class="col-md-5">
         <img src="${meta.image}" class="card-art rounded mb-2" alt="${meta.name}">
-        ${priceBlock}${ownerLine}${creatorLine}${tradeLine}
+        ${priceBlock}${sparkBlock}${ownerLine}${creatorLine}${tradeLine}
       </div>
       <div class="col-md-7">
         ${info.category ? `<span class="badge text-bg-dark mb-2">${info.category}</span>` : ""}
@@ -177,7 +186,14 @@ export async function showDetail(tokenId) {
       ${info.listing ? `<button class="btn btn-primary" data-buy="${tokenId}" data-price="${info.listing.price}">Buy · ${fmt(info.listing.price)} ETH</button>` : ""}
       <a href="/item.html?id=${tokenId}" class="btn btn-outline-light">Full details →</a>
     </div>`;
-  bootstrap.Modal.getOrCreateInstance($("#detail-modal")).show();
+  const modalEl = $("#detail-modal");
+  if (modalEl && !modalEl._sparkBound) {
+    modalEl._sparkBound = true;
+    modalEl.addEventListener("hidden.bs.modal", () => { if (sparkChart) { sparkChart.destroy(); sparkChart = null; } });
+  }
+  bootstrap.Modal.getOrCreateInstance(modalEl).show();
+  const sc = $("#spark");
+  if (sc) sparkChart = renderSparkline(sc, info.activity) || null;
 }
 
 // document-level click handling for grids: open detail, or buy (lazy-connects)

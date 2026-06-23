@@ -130,7 +130,10 @@ app.get("/item/:tokenId", async (c) => {
     category: it.category,
     name: it.name,
     attrs: it.attrs,
-    listing: listing && listing.price > 0n
+    // only an ACTIVE listing is "for sale"; a cancelled/sold listing row still
+    // has its last price but must not surface as a live listing (no Buy button,
+    // not treated as the current price by the charts).
+    listing: listing && listing.active && listing.price > 0n
       ? { active: listing.active, price: listing.price.toString(), seller: listing.seller, listedAt: Number(listing.listedAt) }
       : null,
     tradeCount: sales.length,
@@ -257,6 +260,46 @@ app.get("/home", async (c) => {
     });
 
   return c.json({ latestTrades, mostValued, mostTraded });
+});
+
+// Market overview: per-sale points (price + running cumulative volume) for the
+// home chart, daily buckets, and headline totals.
+app.get("/market", async (c) => {
+  const sales = (await db.select().from(schema.sale)).sort((a, b) => Number(a.timestamp - b.timestamp));
+  let cum = 0n, vol = 0n, fees = 0n, roy = 0n, high = 0n;
+  const points = sales.map((s, i) => {
+    cum += s.price; vol += s.price; fees += s.platformFee; roy += s.royalty;
+    if (s.price > high) high = s.price;
+    return {
+      i,
+      t: Number(s.timestamp),
+      tokenId: s.tokenId.toString(),
+      priceWei: s.price.toString(),
+      cumVolWei: cum.toString(),
+    };
+  });
+  const byDay = new Map<number, { count: number; vol: bigint }>();
+  for (const s of sales) {
+    const d = Math.floor(Number(s.timestamp) / 86400) * 86400;
+    const e = byDay.get(d) || { count: 0, vol: 0n };
+    e.count++; e.vol += s.price;
+    byDay.set(d, e);
+  }
+  const daily = [...byDay.entries()].sort((a, b) => a[0] - b[0])
+    .map(([day, e]) => ({ day, count: e.count, volumeWei: e.vol.toString() }));
+  const avg = sales.length ? vol / BigInt(sales.length) : 0n;
+  return c.json({
+    points,
+    daily,
+    totals: {
+      sales: sales.length,
+      volumeWei: vol.toString(),
+      platformFeesWei: fees.toString(),
+      royaltiesWei: roy.toString(),
+      avgWei: avg.toString(),
+      highWei: high.toString(),
+    },
+  });
 });
 
 export default app;

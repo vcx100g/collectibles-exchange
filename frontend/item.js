@@ -1,8 +1,42 @@
 import { $, INDEXER, fetchMeta, fmt, short, wireGrid, initWallet } from "./shared.js";
 import { COLLECTIBLE_ADDRESS, MARKETPLACE_ADDRESS, CHAIN_ID } from "./config.js";
+import { renderPriceHistory, renderTradeHistory, priceStats } from "./charts.js";
 
 const id = new URLSearchParams(location.search).get("id");
 const row = (k, v) => `<tr><td class="text-secondary">${k}</td><td class="text-end text-break">${v}</td></tr>`;
+
+const tile = (label, value, sub = "", cls = "") =>
+  `<div class="col-6 col-md-3"><div class="card h-100"><div class="card-body py-2 px-3">
+     <div class="text-secondary small">${label}</div>
+     <div class="fs-5 fw-semibold ${cls}">${value}</div>
+     ${sub ? `<div class="small text-secondary">${sub}</div>` : ""}
+   </div></div></div>`;
+
+// price stat tiles + the price/trade charts (derived from the activity log)
+function renderHistory(info) {
+  const s = priceStats(info);
+  let change = "—", changeCls = "";
+  if (s.changePct != null) {
+    const up = s.changePct >= 0;
+    change = `${up ? "▲" : "▼"} ${Math.abs(s.changePct).toFixed(1)}%`;
+    changeCls = up ? "text-success" : "text-danger";
+  }
+  $("#stats").innerHTML = [
+    tile("Current / last price", s.currentWei ? `${fmt(s.currentWei)} Ξ` : "—"),
+    tile("All-time high", s.highWei ? `${fmt(s.highWei)} Ξ` : "—", s.lowWei ? `low ${fmt(s.lowWei)} Ξ` : ""),
+    tile("Price change", change, "since first listing", changeCls),
+    tile("Trades", String(s.trades), s.lastSaleWei ? `last ${fmt(s.lastSaleWei)} Ξ` : "no sales yet"),
+  ].join("");
+
+  if (!renderPriceHistory($("#price-chart"), info.activity)) {
+    $("#price-chart").classList.add("d-none");
+    $("#price-empty").classList.remove("d-none");
+  }
+  if (!renderTradeHistory($("#trade-chart"), info.sales)) {
+    $("#trade-chart").classList.add("d-none");
+    $("#trade-empty").classList.remove("d-none");
+  }
+}
 
 async function load() {
   if (!id) { $("#loading").innerHTML = "No item id."; return; }
@@ -37,6 +71,8 @@ async function load() {
   } else {
     $("#price-box").innerHTML = `<div class="text-secondary">Not currently listed for sale</div>`;
   }
+
+  renderHistory(info);
 
   const uriShort = info.tokenUri ? info.tokenUri.split("/").slice(-2).join("/") : "—";
   $("#chain-info").innerHTML = [

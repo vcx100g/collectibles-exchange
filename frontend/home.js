@@ -1,6 +1,28 @@
 import { $, INDEXER, fetchMeta, cardHtml, fadeInImages, fmt, wireGrid, initWallet } from "./shared.js";
+import { renderMarket } from "./charts.js";
 
 const SHOW = 6; // cards per section
+
+const mTile = (label, val, sub = "") =>
+  `<div class="col-6 col-md-3"><div class="card h-100"><div class="card-body py-2 px-3">
+     <div class="text-secondary small">${label}</div><div class="fs-5 fw-semibold">${val}</div>
+     ${sub ? `<div class="small text-secondary">${sub}</div>` : ""}</div></div></div>`;
+
+async function loadMarket() {
+  let m;
+  try { m = await (await fetch(`${INDEXER}/market`)).json(); } catch { return; }
+  const t = m.totals || {};
+  $("#market-stats").innerHTML = [
+    mTile("Volume", `${fmt(t.volumeWei)} Ξ`, `${t.sales || 0} sales`),
+    mTile("Avg sale", `${fmt(t.avgWei)} Ξ`),
+    mTile("Top sale", `${fmt(t.highWei)} Ξ`),
+    mTile("Platform fees", `${fmt(t.platformFeesWei)} Ξ`, `+ ${fmt(t.royaltiesWei)} Ξ royalties`),
+  ].join("");
+  if (!renderMarket($("#market-chart"), m.points)) {
+    $("#market-chart").classList.add("d-none");
+    $("#market-empty").classList.remove("d-none");
+  }
+}
 
 const buyAction = (tokenId, price) =>
   `<button class="btn btn-sm btn-primary w-100" data-buy="${tokenId}" data-price="${price}">Buy</button>`;
@@ -43,3 +65,4 @@ async function load() {
 initWallet();
 wireGrid(load); // reload sections after a buy
 load();
+loadMarket();

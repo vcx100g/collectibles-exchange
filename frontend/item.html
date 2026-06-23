@@ -47,6 +47,27 @@
         </div>
       </div>
 
+      <!-- price stats -->
+      <div id="stats" class="row g-2 mb-3"></div>
+
+      <!-- price + trade history charts -->
+      <div class="row g-3 mb-3">
+        <div class="col-lg-7">
+          <div class="card h-100"><div class="card-body">
+            <h6 class="mb-1">📈 Price history <span class="text-secondary small fw-normal">— asking price &amp; sales</span></h6>
+            <div style="height:260px"><canvas id="price-chart"></canvas></div>
+            <div id="price-empty" class="text-secondary small d-none py-5 text-center">No listing / price history yet.</div>
+          </div></div>
+        </div>
+        <div class="col-lg-5">
+          <div class="card h-100"><div class="card-body">
+            <h6 class="mb-1">📊 Trade history <span class="text-secondary small fw-normal">— realized sales</span></h6>
+            <div style="height:260px"><canvas id="trade-chart"></canvas></div>
+            <div id="trade-empty" class="text-secondary small d-none py-5 text-center">Not traded yet.</div>
+          </div></div>
+        </div>
+      </div>
+
       <div class="row g-3">
         <div class="col-lg-6">
           <div class="card h-100"><div class="card-body">
