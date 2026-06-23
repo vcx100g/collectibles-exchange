@@ -36,7 +36,9 @@ console.log(`#0 owns ${bal}, of which ${unlisted.length} are unlisted`);
 // read category/name from local metadata and prefer a varied set
 const readMeta = (id) => { try { return JSON.parse(readFileSync(join(process.cwd(), "metadata", `${id}.json`), "utf8")); } catch { return {}; } };
 const catOf = (m) => (m.attributes || []).find((a) => a.trait_type === "Category")?.value || "Other";
-const enriched = unlisted.map((id) => { const m = readMeta(id); return { id, name: m.name || `#${id}`, cat: catOf(m) }; });
+const enriched = unlisted
+  .map((id) => { const m = readMeta(id); return { id, name: m.name || `#${id}`, cat: catOf(m) }; })
+  .filter((it) => !/\(Reissue\)/.test(it.name)); // prefer original items, not minted reissues
 
 const chosen = [];
 const seenCat = new Set();
